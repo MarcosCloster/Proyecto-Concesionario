@@ -20,9 +20,6 @@ footer .group1 {
     padding: 45px 0;
 }
 
-
-
-
 footer .group1 .box figure{
     width: 100%;
     height: 100%;
@@ -59,10 +56,13 @@ footer .group1 .box .socialMedia a{
     margin-right: 10px;
     text-align: center;
     transition: all 300ms ease;
+    transition: transform 0.3s ease;
 }
 
 footer .group1 .box .socialMedia a:hover{
     color: #B1AFA3;
+
+    transform: scale(1.2);
 }
 
 footer .group2{
@@ -74,4 +74,12 @@ footer .group2{
 
 footer .group2 small{
     font-size: 15px;
+}
+
+.navigation-a p{
+    transition: transform 0.3s ease;
+}
+
+.navigation-a p:hover{
+    transform: scale(1.1);
 }

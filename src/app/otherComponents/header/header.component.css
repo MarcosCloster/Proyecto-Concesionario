@@ -11,3 +11,11 @@ a{
 nav{
     background-color: #353535;
 }
+
+.navigation a{
+    transition: transform 0.3s ease; 
+}
+
+.navigation a:hover{
+    transform: scale(1.1);
+}
