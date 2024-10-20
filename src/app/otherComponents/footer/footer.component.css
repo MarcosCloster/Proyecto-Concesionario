@@ -5,6 +5,9 @@ a{
 footer{
     width: 100%;
     background-color: #353535;
+    position: absolute;
+    height: 17.8rem;
+    bottom: 0;
 }
 
 footer .group1 {

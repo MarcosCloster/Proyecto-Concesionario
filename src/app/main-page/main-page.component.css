@@ -1,0 +1,103 @@
+main{
+    margin-top: 101px;
+}
+
+.banner{
+    width: 100%;
+    min-height: 40vh;
+    position: relative;
+    background-image: url('https://previews.dropbox.com/p/thumb/ACYHK3znVg9PX0HZjnAQnBJL-fkLBGeYSVQr7WoHgH2iclDwBn4S0PcGe5UbLeTOBREon4nokqBuh9oRBQEmpFF_NbzwIjNkmvMxU1JlBE9mHJcA8Vu1AOtgJ5x3VVP3JV9XwOeV5LA8-ixouFfjH14uY7jS1QjeYjPRn5sBQcltBHesudEHhp34whFmA6vb2DKxILAhgb7O3BebYVT-PVpLdFrqnVYGuOP9RE_jQhOLVsujljpcB5VMtvvFTFKcTUxCwnHgcLZz8mcbvmI0nRzDovY4rPSFXMLDFueoIUcIX6sFThZ2NcjBPUzoXkWsE6-Sq8XmfsU8AJGmkr3fXMgT/p.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.phrase {
+    position: absolute;
+    top: 50%; /* Centra verticalmente el texto */
+    left: 5%; /* Ajusta la alineación horizontal a la izquierda */
+    transform: translateY(-50%); /* Ajusta la posición del texto para centrarlo verticalmente */
+    color: white; /* Para que el texto sea visible sobre la imagen */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Añade sombra para que el texto sea más legible */
+}
+
+.category{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 860px) { /* Cambia 768px al tamaño que desees */
+    .category {
+        flex-direction: column; /* Cambia la dirección del flex a columna */
+        align-items: center; /* Centra los elementos en el eje horizontal */
+    }
+
+    .category div {
+        margin-right: 0; /* Elimina el margen derecho para apilar elementos */
+        margin-bottom: 20px; /* Añade un margen inferior para separar los elementos */
+        min-width: 90%; /* Ajusta el ancho mínimo para que ocupe más espacio */
+    }
+}
+
+.category div{
+    min-height: 37.8vh;
+    min-width: 37.8vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.new{
+    margin-right: 55px;
+    background-image: url('https://www.karvi.com.ar/_next/image/?url=https%3A%2F%2Fdjdnloyvqzzd3.cloudfront.net%2Far%2Fmodels%2Ffiat%2Fpulse%2Fdesktop%2Fthumbnail%2Ffiat-pulse_thumbnail.jpg&w=1440&q=75'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+}
+
+.used{
+    background-image: url('https://http2.mlstatic.com/D_NQ_NP_724614-MLA78670898419_082024-O.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.new, .used {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease; 
+}
+
+.new:hover, .used:hover {
+    transform: scale(1.1);
+}
+
+.category .text{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.category .title{
+    font-size: 3.5vh;
+}
+
+.category .info{
+    font-size: 2vh;
+}
+
+.category .btn{
+    margin-top: 1.5vh;
+    height: 4vh;
+    width: 15vh;
+    background-color: #253551;
+    color: white;
+    border: none;
+}
