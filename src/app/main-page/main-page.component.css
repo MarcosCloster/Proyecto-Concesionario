@@ -92,6 +92,10 @@ main{
     color: white;
 }
 
+.category a{
+    text-decoration: none;
+}
+
 .category .title{
     font-size: 3.5vh;
 }
@@ -100,7 +104,7 @@ main{
     font-size: 2vh;
 }
 
-.category .btn{
+.btn{
     margin-top: 1.5vh;
     height: auto;
     width: 15vh;
@@ -108,4 +112,76 @@ main{
     color: white;
     border: none;
     font-size: 1.8vh;
+    transform: color 0.3s ease;
+    transform: background-color 0.3 ease;
 }
+
+.btn:hover{
+    color: #e2e0e0;
+    background-color: #2e466e;
+}
+
+.latestCar{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 4vh;
+}
+
+.latestCar .cars{
+    display: flex;
+}
+
+.latestCar .cars .box{
+    transition: transform 0.3s ease;
+}
+
+.latestCar .cars .box:hover{
+    transform: scale(1.1);
+}
+
+.latestCar .cars .box{
+    margin: 2.5vh;
+    width: 27.3vh;
+    height: 40vh;
+}
+
+.latestCar .cars .box img{
+    width: 100%;
+    height: 25vh;
+}
+
+.latestCar .cars .box a{
+    text-decoration: none;
+    color: black;
+}
+
+.latestCar .cars .box a:hover {
+    text-decoration: underline;
+}
+
+.latestCar .cars .box .carInfo{
+    margin: 0.5vh;
+}
+
+.latestCar .cars .box .carName{
+    font-size: 2.1vh;
+}
+
+.latestCar .cars .box .carPrice{
+    font-size: 1.7vh;
+}
+
+.latestCar .btn{
+    margin-bottom: 1.5vh;
+    font-size: 2.5vh;
+    width: 20vh;
+}
+
+
+
+
+
