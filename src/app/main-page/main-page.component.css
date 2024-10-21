@@ -58,7 +58,7 @@ main{
 
 .new{
     margin-right: 55px;
-    background-image: url('https://www.karvi.com.ar/_next/image/?url=https%3A%2F%2Fdjdnloyvqzzd3.cloudfront.net%2Far%2Fmodels%2Ffiat%2Fpulse%2Fdesktop%2Fthumbnail%2Ffiat-pulse_thumbnail.jpg&w=1440&q=75'); /* Imagen de fondo */
+    background-image: url('https://res.cloudinary.com/dlp2ynio2/image/upload/v1729520908/banner1_qvsf03.png'); 
     background-size: cover;
     background-position: center;
 }
