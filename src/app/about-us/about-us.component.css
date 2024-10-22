@@ -1,0 +1,45 @@
+main{
+    padding-top: 140px;
+    display: flex;
+    height: auto;
+    width: 100%;
+    padding-bottom: 4vh;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.text{
+    margin-right: 4vh;
+}
+
+.text h1{
+    font-size: 7vh;
+}
+
+.text h3{
+    font-size: 4vh;
+}
+
+.text .info{
+    margin-top: 1.5vh;
+    font-size: 2vh;
+}
+
+.text .history{
+    margin-top: 2.5vh;
+}
+
+.text .answer{
+    margin-top: 2.5vh;
+}
+
+.image{
+    height: 100%;
+    margin-left: 4vh;
+    margin-right: 4vh;
+}
+
+.image img{
+    width: 100%;
+}
