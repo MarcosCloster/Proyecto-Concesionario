@@ -82,13 +82,18 @@ main{
     margin-top: 4vh;
 }
 
-form{
+form {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
     width: 50vh;
+    max-width: 100%;
+}
+
+textarea {
+    resize: vertical;
 }
 
 form input:focus{
@@ -103,6 +108,7 @@ form input , textarea{
     background-color: rgba(160, 160, 160, 0.226);
     border-radius: 10px;
     border: 0;
+    padding-left: 1.5vh;
 }
 
 .titleForm{
@@ -124,4 +130,37 @@ textarea{
 
 .input{
     padding-left: 1.5vh;
+}
+
+
+@media (max-width: 768px) {
+    form {
+        width: 70vh; 
+    }
+    
+    .text h1 {
+        font-size: 6vh; 
+    }
+    
+    .text h3 {
+        font-size: 3vh;
+    }
+}
+
+@media (max-width: 576px) {
+    form {
+        width: 90%;
+    }
+
+    .text h1 {
+        font-size: 4vh;
+    }
+    
+    .text h3 {
+        font-size: 2.5vh;
+    }
+
+    input, textarea {
+        padding-left: 1vh;
+    }
 }
