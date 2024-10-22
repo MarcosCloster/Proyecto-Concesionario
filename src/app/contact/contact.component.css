@@ -1,0 +1,142 @@
+main{
+    padding-top: 140px;
+    display: flex;
+    height: auto;
+    width: 100%;
+    padding-bottom: 4vh;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.text{
+    margin-left: 4vh;
+}
+
+.textPhone{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.textPhone h5{
+    height: 100%  ;
+    margin-right: 1vh;
+    margin-bottom: 0;
+}
+
+.phoneNumber{
+    margin: 0;
+}
+
+.numbers{
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.numbers .whatsapp{
+    margin-right: 5vh;
+}
+
+.text h1{
+    font-size: 8vh;
+}
+
+.text h3{
+    font-size: 4vh;
+}
+
+.text .info{
+    margin-top: 1.5vh;
+    font-size: 2vh;
+}
+
+.text .help{
+    margin-top: 2.5vh;
+}
+
+.text .answer{
+    margin-top: 2.5vh;
+}
+
+.image{
+    height: 100%;
+    margin-left: 4vh;
+    margin-right: 4vh;
+}
+
+.image img{
+    width: 100%;
+}
+
+.formGmail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 50vh;
+}
+
+form input:focus{
+    background-color: rgba(95, 95, 95, 0.226);
+}
+
+form input:-webkit-autofill{
+    -webkit-box-shadow: 0 0 0 1000px rgba(95, 95, 95, 0.226) inset;
+    box-shadow: 0 0 0 1000px rgba(95, 95, 95, 0.226) inset;
+    transition: background-color 0s;
+}
+
+
+form input , textarea{
+    margin: 1vh;
+    width: 100%;
+    min-height: 5vh;
+    max-height: 20vh;
+    background-color: rgba(95, 95, 95, 0.226);
+    border-radius: 10px;
+    border: 0;
+}
+
+.titleForm{
+    margin-bottom: 2vh;
+}
+
+textarea{
+    field-sizing: content;
+    justify-content: center;
+}
+
+.submit{
+    transition: background-color 0.3s ease;
+}
+
+.submit:hover{
+    background-color: rgba(95, 95, 95, 0.226);
+}
+
+.input{
+    padding-left: 1.5vh;
+}
+
+classñ{
+    transition: transform 0.3 ease;
+}
+
+class:hover{
+    transform: scale(1.1);
+}
