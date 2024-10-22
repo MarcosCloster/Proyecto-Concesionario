@@ -19,11 +19,13 @@ main{
 
 .text h3{
     font-size: 4vh;
+    text-align: start;
 }
 
 .text .info{
     margin-top: 1.5vh;
     font-size: 2vh;
+    text-align: justify;
 }
 
 .text .history{
