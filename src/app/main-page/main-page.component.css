@@ -6,7 +6,7 @@ main{
     width: 100%;
     min-height: 40vh;
     position: relative;
-    background-image: url('https://previews.dropbox.com/p/thumb/ACYHK3znVg9PX0HZjnAQnBJL-fkLBGeYSVQr7WoHgH2iclDwBn4S0PcGe5UbLeTOBREon4nokqBuh9oRBQEmpFF_NbzwIjNkmvMxU1JlBE9mHJcA8Vu1AOtgJ5x3VVP3JV9XwOeV5LA8-ixouFfjH14uY7jS1QjeYjPRn5sBQcltBHesudEHhp34whFmA6vb2DKxILAhgb7O3BebYVT-PVpLdFrqnVYGuOP9RE_jQhOLVsujljpcB5VMtvvFTFKcTUxCwnHgcLZz8mcbvmI0nRzDovY4rPSFXMLDFueoIUcIX6sFThZ2NcjBPUzoXkWsE6-Sq8XmfsU8AJGmkr3fXMgT/p.png');
+    background-image: url('https://res.cloudinary.com/dlp2ynio2/image/upload/v1729520908/banner1_qvsf03.png');
     background-size: cover;
     background-position: center;
 }
@@ -92,6 +92,8 @@ main{
     color: white;
 }
 
+
+
 .category a{
     text-decoration: none;
 }
@@ -119,6 +121,11 @@ main{
 .btn:hover{
     color: #e2e0e0;
     background-color: #2e466e;
+}
+
+.btn a{
+    text-decoration: none;
+    color: white;
 }
 
 .latestCar{

@@ -1,0 +1,108 @@
+main{
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4vh;
+}
+
+.category{
+    background-color: rgba(160, 160, 160, 0.226);
+    height: auto;
+    margin-right: 4vh;
+    padding: 1vh;
+    width: 25vh;
+    border-radius: 1vh;
+    margin-left: 1vh;
+    align-self: flex-start;
+}
+
+.category a{
+    text-decoration: none;
+    color: black;
+    transition: text-decoration 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+.category a:hover{
+    transform: scale(1.02);
+    text-decoration: underline;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    font-family: roboto;
+}
+
+.box h5{
+    margin-bottom: 1vh;
+    font-weight: 700;
+    font-size: 2vh;
+}
+
+hr{
+    width: 10vh; 
+    border-radius: 1vh;
+    height: 0.5vh; 
+    background-color: black; 
+}
+
+.box a{
+    margin-bottom: 0.3vh;
+    font-size: 1.7vh
+}
+
+.cars{
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1vh;
+    margin-right: 1vh;    
+}
+
+@media(max-width:1810px){
+    .cars{
+        justify-content: center;
+    }
+}
+
+.cars .car{
+    width: 26.9vh;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.car:hover{
+    transform: scale(1.03);
+}
+
+.cars .car a{
+    text-decoration: none;
+    color: black;
+}
+
+.cars .car img{
+    width: 100%;
+}
+
+.cars .car .type{
+    opacity: 0.6;
+    font-size: 1.8vh;
+    margin: 0;
+}
+
+.cars .car .title{
+    font-size: 2vh;
+    margin: 0;
+}
+
+.cars .car .price{
+    font-size: 1.5vh;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
