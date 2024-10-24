@@ -140,6 +140,8 @@ main{
 
 .latestCar .cars{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .latestCar .cars .box{

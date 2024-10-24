@@ -10,7 +10,7 @@ main{
 }
 
 .text{
-    margin-left: 4vh;
+    margin: 4vh;
 }
 
 .textPhone{
@@ -162,5 +162,12 @@ textarea{
 
     input, textarea {
         padding-left: 1vh;
+    }
+}
+
+@media (max-width: 1500px)
+{
+    main{
+        flex-direction: column;
     }
 }

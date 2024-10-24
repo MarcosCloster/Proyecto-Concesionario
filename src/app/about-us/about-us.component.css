@@ -10,7 +10,7 @@ main{
 }
 
 .text{
-    margin-right: 4vh;
+    margin: 4vh;
 }
 
 .text h1{
@@ -19,13 +19,13 @@ main{
 
 .text h3{
     font-size: 4vh;
-    text-align: start;
+    text-align: center;
 }
 
 .text .info{
     margin-top: 1.5vh;
     font-size: 2vh;
-    text-align: justify;
+    justify-content: center;
 }
 
 .text .history{
@@ -44,4 +44,11 @@ main{
 
 .image img{
     width: 100%;
+}
+
+@media (max-width: 1500px)
+{
+    main{
+        flex-direction: column;
+    }
 }
