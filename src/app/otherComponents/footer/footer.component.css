@@ -60,7 +60,10 @@ footer .group1 .box .socialMedia a{
 }
 
 footer .group1 .box .socialMedia a:hover{
-    color: #B1AFA3;
+    /* color: #B1AFA3; */
+    border-color: #e6dba1;
+    color: #e6dba1;
+    filter: drop-shadow(0 0 5px #e6dba1);
 
     transform: scale(1.2);
 }

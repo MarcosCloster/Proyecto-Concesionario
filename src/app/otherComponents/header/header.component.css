@@ -6,6 +6,7 @@ a{
 
 .nav{
     font-family: "Roboto", sans-serif;
+
 }
 
 nav{
@@ -20,3 +21,41 @@ nav{
     transform: scale(1.1);
 }
 
+
+.nav a::before,
+.nav a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+.nav a::before {
+  content: '';
+  right: -10px;
+  top: -10px;
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+  transform: translate(-100%, 50%);
+}
+
+.nav a:after {
+  content: '';
+  left: -10px;
+  bottom: -10px;
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+  transform: translate(100%, -50%)
+}
+
+.nav a:hover:before,
+.nav a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.nav a:hover {
+  color: white;
+}
