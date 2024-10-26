@@ -6,7 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { RouterOutlet } from '@angular/router';
-import { AdminViewComponent } from './admin-view/admin-view.component';
+import { AdminViewComponent } from './admin/admin-view/admin-view.component';
 
 @Component({
   selector: 'app-root',
