@@ -1,0 +1,71 @@
+
+
+.container{
+    position: absolute; /* O fixed si quieres que se quede fijo en la pantalla */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vh;
+    height: 70vh;
+    background-color: rgba(172, 172, 172, 0.5);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+}
+
+.container h1{
+    margin: 1vh;
+    font-size: 4vh;
+}
+
+.container h3{
+    margin: 2vh;
+    font-size: 3vh;
+    text-decoration: underline;
+}
+
+
+a{
+    font-size: 3vh;
+    font-family: roboto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: 1px transparent solid;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: black;
+    font-size: 3vh;
+}
+
+a:hover
+{
+    background-color: rgba(156, 156, 156, 0.5);
+}
+
+@media (width < 450px)
+{
+    .container{
+        width: auto;
+        height: 50vh;
+    }
+
+    .container h1{
+        font-size: 3vh;
+    }
+    
+    .container h3{
+        font-size: 2vh;
+    }
+    
+    a{
+        font-size: 2vh;
+    }
+}

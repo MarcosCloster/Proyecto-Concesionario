@@ -1,5 +1,6 @@
 main{
     margin-top: 101px;
+    padding-bottom: 17.8rem;
 }
 
 .banner{
@@ -30,7 +31,7 @@ main{
     justify-content: center;
 }
 
-@media (max-width: 860px) { 
+@media (max-width: 1400px) { 
     .category {
         flex-direction: column; 
         align-items: center;  

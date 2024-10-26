@@ -3,10 +3,10 @@ main{
     display: flex;
     height: auto;
     width: 100%;
-    padding-bottom: 4vh;
     justify-content: center;
     text-align: center;
     align-items: center;
+
 }
 
 .text{
@@ -170,4 +170,8 @@ textarea{
     main{
         flex-direction: column;
     }
+}
+
+section{
+    padding-bottom: 17.8rem;
 }

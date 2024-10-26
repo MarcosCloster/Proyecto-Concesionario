@@ -6,11 +6,12 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { RouterOutlet } from '@angular/router';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, MainPageComponent, ContactComponent, AboutUsComponent, ShopComponent, RouterOutlet],
+  imports: [HeaderComponent, FooterComponent, MainPageComponent, ContactComponent, AboutUsComponent, ShopComponent, RouterOutlet, AdminViewComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

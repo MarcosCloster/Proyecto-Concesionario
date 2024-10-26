@@ -3,10 +3,10 @@ main{
     display: flex;
     height: auto;
     width: 100%;
-    padding-bottom: 4vh;
     justify-content: center;
     text-align: center;
     align-items: center;
+    padding-bottom: 17.8rem;
 }
 
 .text{
