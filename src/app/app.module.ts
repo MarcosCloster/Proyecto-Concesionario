@@ -19,15 +19,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainPageComponent,
-    ShopComponent,
-    AboutUsComponent,
-    ContactComponent
-  ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes) 
