@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Auto } from 'src/app/interfaces/autos';
+import { JsonService } from 'src/app/services/json.service';
 
 @Component({
   selector: 'app-delete-car',
@@ -7,6 +9,50 @@ import { Component } from '@angular/core';
   templateUrl: './delete-car.component.html',
   styleUrl: './delete-car.component.css'
 })
-export class DeleteCarComponent {
+export class DeleteCarComponent implements OnInit{
+  ngOnInit(): void {
+    this.getCarJson()
+  }
+
+  carArray: Auto[] = []; 
+
+  carServicio = inject(JsonService)
+
+
+  addCar(car: Auto)
+  {
+    this.carArray.push(car);
+  }
+
+  getCarJson()
+  {
+    this.carServicio.getJson().subscribe(
+    {
+      next: (cars: Auto[]) => 
+      {
+        this.carArray = cars
+      },
+      error: (e: Error) =>
+      {
+        console.log(e.message)
+      }
+    })
+  }
+
+
+  darDeBaja(car: Auto) {
+    const updatedCar = { ...car, isActive: false };
+    console.log(updatedCar);
+    console.log(car.id)
+    this.carServicio.putJson(updatedCar, car.id).subscribe({
+      next: (response: Auto) => {
+        console.log(`Auto ${response.name} actualizado a inactivo`);
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+      }
+    });
+}
+
 
 }

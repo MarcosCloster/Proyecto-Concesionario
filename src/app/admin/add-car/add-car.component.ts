@@ -16,13 +16,15 @@ export class AddCarComponent{
 
   carService = inject(JsonService)
 
+  carArray: Auto[] = []; 
+
   car: Auto = 
   {
     id: 0,
     name: '', 
     model: '',
     year: 0,
-    fuel: 0,
+    fuel: '',
     doors: 0,
     Kph: 0,
     engine: '',
@@ -31,24 +33,48 @@ export class AddCarComponent{
     traction: '',
     price: 0,
     color: '',
-    photos: ''
+    photos: '',
+    isActive: true
   }
 
-  postCar ()
-  {
-    this.carService.postJson(this.car).subscribe(
-      {
+
+  
     
-        next: (car: Auto) => {
-          alert('Se ha agregado un auto')
-        } ,
-        error: (e: Error) => 
-        {
-          console.log(e.message)
-        },
-      })
-    
+  
+
+  postCar() {
+    this.carService.getJson().subscribe({
+      next: (cars: Auto[]) => {
+        this.carArray = cars;
+        console.log("LENGTH: ", this.carArray.length);
+        
+        let id;
+        if (this.carArray.length === 0) {
+          id = 1;
+        } else {
+          const maxId = Math.max(...this.carArray.map(car => car.id));
+          id = maxId + 1;
+        }
+  
+        console.log("id Final:", id);
+        this.car.id = id;
+        console.log(this.car);
+  
+        this.carService.postJson(this.car).subscribe({
+          next: (car: Auto) => {
+            alert('Se ha agregado un auto');
+          },
+          error: (e: Error) => {
+            console.log(e.message);
+          },
+        });
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+      }
+    });
   }
+  
 
 
 }

@@ -1,1 +1,18 @@
-<p>delete-car works!</p>
+<div class="cars">
+    @for(car of carArray; track $index) {
+        @if(car.isActive === true)
+        {
+            <div class="car">
+                        <img src="../../favicon.ico" alt="Imagen del auto">
+                        <div class="info">
+                            <p class="type">Kilómetros: {{car.Kph}}</p>
+                            <p class="title">Marca: {{car.name}}</p>
+                            <p class="price">Precio: ${{car.price}}</p>
+                        </div>
+                        <button type="button" (click)="darDeBaja(car)">Borrar Auto</button>
+                </div>
+        }
+        
+    }
+</div>
+

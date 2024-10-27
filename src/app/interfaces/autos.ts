@@ -4,7 +4,7 @@ export interface Auto
     name: string; 
     model: string;
     year: number;
-    fuel: number;
+    fuel: string;
     doors: number;
     Kph: number;
     engine: string;
@@ -14,4 +14,5 @@ export interface Auto
     price: number;
     color: string;
     photos: string;
+    isActive: boolean;
 }
