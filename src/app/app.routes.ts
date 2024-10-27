@@ -6,6 +6,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ShopComponent } from './shop/shop.component';
 import { AdminViewComponent } from './admin/admin-view/admin-view.component';
 import { AddCarComponent } from './admin/add-car/add-car.component';
+import { UpdateCarComponent } from './admin/update-car/update-car.component';
 
 export const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'admin', component: AdminViewComponent },
   { path: 'admin/add', component: AddCarComponent },
+  { path: 'admin/update', component: UpdateCarComponent},
   { path: '**', redirectTo: '' }
 ];

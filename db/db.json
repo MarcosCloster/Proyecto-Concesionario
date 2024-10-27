@@ -1,5 +1,68 @@
 {
-    "autos": [
-        
-    ]
+  "autos": [
+    {
+      "id": 1,
+      "name": "Toyota",
+      "model": "Corolla",
+      "year": 2020,
+      "fuel": 30,
+      "doors": 4,
+      "Kph": 180,
+      "engine": "1.8L",
+      "transmision": "Automatic",
+      "description": "A reliable car.",
+      "traction": "Front",
+      "price": 20000,
+      "color": "Blue",
+      "photos": "url_to_photo"
+    },
+    {
+      "id": 0,
+      "name": "Toyota",
+      "model": "corola",
+      "year": 2010,
+      "fuel": 0,
+      "doors": 0,
+      "Kph": 0,
+      "engine": "",
+      "transmision": "",
+      "description": "",
+      "traction": "",
+      "price": 15000,
+      "color": "",
+      "photos": ""
+    },
+    {
+      "id": 0,
+      "name": "Toyota",
+      "model": "corola",
+      "year": 2012,
+      "fuel": 0,
+      "doors": 3,
+      "Kph": 100000,
+      "engine": "1,8L",
+      "transmision": "Manual",
+      "description": "",
+      "traction": "Frontera",
+      "price": 150000,
+      "color": "Azul",
+      "photos": "C:\\fakepath\\Screenshot 2024-10-26 at 7.35.18 PM.png"
+    },
+    {
+      "id": 0,
+      "name": "Toyota",
+      "model": "corola",
+      "year": 2010,
+      "fuel": 0,
+      "doors": 4,
+      "Kph": 100000,
+      "engine": "1,8L",
+      "transmision": "Manual",
+      "description": "Auto confiable",
+      "traction": "delantera",
+      "price": 15000,
+      "color": "Azul",
+      "photos": "C:\\fakepath\\Screenshot 2024-10-26 at 7.35.18 PM.png"
+    }
+  ]
 }

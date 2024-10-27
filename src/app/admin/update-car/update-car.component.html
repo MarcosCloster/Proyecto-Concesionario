@@ -1,1 +1,14 @@
-<p>update-car works!</p>
+<div class="cars">
+    @for(car of carArray; track $index) {
+        <div class="car">
+            <a href="">
+                <img src="../../favicon.ico" alt="Imagen del auto">
+                <div class="info">
+                    <p class="type">Kilómetros: {{car.Kph}}</p>
+                    <p class="title">Marca: {{car.name}}</p>
+                    <p class="price">Precio: ${{car.price}}</p>
+                </div>
+            </a>
+        </div>
+    }
+</div>

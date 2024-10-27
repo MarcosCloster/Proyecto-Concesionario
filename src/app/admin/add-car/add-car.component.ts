@@ -14,8 +14,7 @@ import { JsonService } from 'src/app/services/json.service';
 export class AddCarComponent{
 
 
-
-
+  carService = inject(JsonService)
 
   car: Auto = 
   {
@@ -35,6 +34,21 @@ export class AddCarComponent{
     photos: ''
   }
 
+  postCar ()
+  {
+    this.carService.postJson(this.car).subscribe(
+      {
+    
+        next: (car: Auto) => {
+          alert('Se ha agregado un auto')
+        } ,
+        error: (e: Error) => 
+        {
+          console.log(e.message)
+        },
+      })
+    
+  }
 
 
 }

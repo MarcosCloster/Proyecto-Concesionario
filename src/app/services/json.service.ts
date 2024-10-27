@@ -11,7 +11,7 @@ export class JsonService {
   constructor(private http: HttpClient) { }
 
 
-  urlBase:string = 'http://localhost:3000/Autos'
+  urlBase:string = 'http://localhost:3000/autos'
 
   getJson (): Observable<Auto[]>
   {
