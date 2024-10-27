@@ -7,11 +7,12 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ShopComponent } from './shop/shop.component';
 import { RouterOutlet } from '@angular/router';
 import { AdminViewComponent } from './admin/admin-view/admin-view.component';
+import { AddCarComponent } from './admin/add-car/add-car.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, MainPageComponent, ContactComponent, AboutUsComponent, ShopComponent, RouterOutlet, AdminViewComponent],
+  imports: [HeaderComponent, FooterComponent, MainPageComponent, ContactComponent, AboutUsComponent, ShopComponent, RouterOutlet, AdminViewComponent, AddCarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })

@@ -1,1 +1,15 @@
-<p>add-car works!</p>
+<div class="container">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" [(ngModel)]="car.name">
+
+    <label for="model">Modelo:</label>
+    <input type="text" id="model" [(ngModel)]="car.model">
+
+    <label for="year">Año:</label>
+    <input type="number" id="year" [(ngModel)]="car.year">
+
+    <label for="price">Precio:</label>
+    <input type="number" id="price" [(ngModel)]="car.price">
+
+    <button >Agregar Auto</button>
+  </div>
