@@ -17,6 +17,15 @@ main{
     align-self: flex-start;
 }
 
+summary{
+    font-weight: 700;
+    font-size: 2vh;
+}
+
+details ul{
+    font-size: 1.7vh
+}
+
 .category a{
     text-decoration: none;
     color: black;

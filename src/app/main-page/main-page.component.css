@@ -31,7 +31,7 @@ main{
     justify-content: center;
 }
 
-@media (max-width: 1400px) { 
+@media (max-width: 600px) { 
     .category {
         flex-direction: column; 
         align-items: center;  

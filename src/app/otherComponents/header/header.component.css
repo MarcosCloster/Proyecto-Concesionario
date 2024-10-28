@@ -22,8 +22,8 @@ nav{
 }
 
 
-.nav a::before,
-.nav a::after {
+.navigation a::before,
+.navigation a::after {
   content: '';
   height: 14px;
   width: 14px;
@@ -32,7 +32,7 @@ nav{
   opacity: 0;
 }
 
-.nav a::before {
+.navigation a::before {
   content: '';
   right: -10px;
   top: -10px;
@@ -41,7 +41,7 @@ nav{
   transform: translate(-100%, 50%);
 }
 
-.nav a:after {
+.navigation a:after {
   content: '';
   left: -10px;
   bottom: -10px;
@@ -50,12 +50,12 @@ nav{
   transform: translate(100%, -50%)
 }
 
-.nav a:hover:before,
-.nav a:hover:after{
+.navigation a:hover:before,
+.navigation a:hover:after{
   transform: translate(0,0);
   opacity: 1;
 }
 
-.nav a:hover {
+.navigation a:hover {
   color: white;
 }

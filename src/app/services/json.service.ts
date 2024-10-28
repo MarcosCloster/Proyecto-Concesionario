@@ -25,12 +25,12 @@ export class JsonService {
   }
 
 
-  putJson (auto: Auto, id: number): Observable<Auto>
+  putJson (auto: Auto, id: string): Observable<Auto>
   {
     return this.http.put<Auto>(`${this.urlBase}/${id}`, auto)
   }
 
-  deleteJson(auto: Auto, id: number): Observable<Auto> {
+  deleteJson(auto: Auto, id: string): Observable<Auto> {
     return this.http.delete<Auto>(`${this.urlBase}/${id}`);
   }
 

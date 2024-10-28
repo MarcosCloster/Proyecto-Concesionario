@@ -43,8 +43,10 @@ export class DeleteCarComponent implements OnInit{
   darDeBaja(car: Auto) {
     const updatedCar = { ...car, isActive: false };
     console.log(updatedCar);
-    console.log(car.id)
-    this.carServicio.putJson(updatedCar, car.id).subscribe({
+    console.log(car.id);
+  
+    // Convierte el ID a string antes de pasarlo
+    this.carServicio.putJson(updatedCar, car.id.toString()).subscribe({
       next: (response: Auto) => {
         console.log(`Auto ${response.name} actualizado a inactivo`);
       },
@@ -52,7 +54,8 @@ export class DeleteCarComponent implements OnInit{
         console.log(e.message);
       }
     });
-}
+  }
+  
 
 
 }

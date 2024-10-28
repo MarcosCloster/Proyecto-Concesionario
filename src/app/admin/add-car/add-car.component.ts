@@ -20,7 +20,7 @@ export class AddCarComponent{
 
   car: Auto = 
   {
-    id: 0,
+    id: "",
     name: '', 
     model: '',
     year: 0,
@@ -37,27 +37,22 @@ export class AddCarComponent{
     isActive: true
   }
 
-
-  
-    
-  
-
   postCar() {
     this.carService.getJson().subscribe({
       next: (cars: Auto[]) => {
         this.carArray = cars;
         console.log("LENGTH: ", this.carArray.length);
         
-        let id;
+        let id: string;
         if (this.carArray.length === 0) {
-          id = 1;
+          id = '1'; // Primera ID como string
         } else {
-          const maxId = Math.max(...this.carArray.map(car => car.id));
-          id = maxId + 1;
+          const maxId = Math.max(...this.carArray.map(car => Number(car.id)));
+          id = (maxId + 1).toString(); // Convertir a string
         }
   
         console.log("id Final:", id);
-        this.car.id = id;
+        this.car.id = id; // Asegurarse de que el id sea string
         console.log(this.car);
   
         this.carService.postJson(this.car).subscribe({
@@ -74,6 +69,8 @@ export class AddCarComponent{
       }
     });
   }
+
+
   
 
 

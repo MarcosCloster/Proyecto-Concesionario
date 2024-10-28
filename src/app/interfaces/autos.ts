@@ -1,6 +1,6 @@
 export interface Auto
 {
-    id: number;
+    id: string;
     name: string; 
     model: string;
     year: number;

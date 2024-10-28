@@ -19,6 +19,9 @@
 .container h1{
     margin: 1vh;
     font-size: 4vh;
+    width: 80%;
+    height: 50%;
+    border-bottom: 1px rgb(150, 149, 149) solid;
 }
 
 .container h3{
