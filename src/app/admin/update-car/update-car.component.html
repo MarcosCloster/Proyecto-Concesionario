@@ -1,7 +1,7 @@
 <div class="cars">
     @for(car of carArray; track $index) {
         <div class="car">
-            <a href="">
+            <a [routerLink]="['/update', car.id]">
                 <img src="../../favicon.ico" alt="Imagen del auto">
                 <div class="info">
                     <p class="type">Kilómetros: {{car.Kph}}</p>

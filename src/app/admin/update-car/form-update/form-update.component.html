@@ -1,0 +1,48 @@
+<form [formGroup]="formProduct" >
+    <div class="container">
+      <label for="name">Marca:</label>
+      <input type="text" id="name" formControlName="nombre">
+  
+      <label for="model">Modelo:</label>
+      <input type="text" id="model" formControlName="model">
+  
+      <label for="year">Año:</label>
+      <input type="number" id="year" formControlName="year">
+  
+      <label for="fuel">Tipo de combustible:</label>
+      <select id="fuel" formControlName="fuel">
+        <option value="nafta">Nafta</option>
+        <option value="gas">Gas</option>
+      </select>
+  
+      <label for="doors">Puertas:</label>
+      <input type="number" id="doors" formControlName="doors">
+  
+      <label for="kph">Kilometros Recorridos:</label>
+      <input type="number" id="kph" formControlName="kph">
+  
+      <label for="engine">Motor:</label>
+      <input type="text" id="engine" formControlName="engine">
+  
+      <label for="transimision">Transimision:</label>
+      <input type="text" id="transimision" formControlName="transimision">
+  
+      <label for="traction">Traccion:</label>
+      <input type="text" id="traction" formControlName="traction">
+  
+      <label for="color">Color:</label>
+      <input type="text" id="color" formControlName="color">
+  
+      <label for="price">Precio:</label>
+      <input type="number" id="price" formControlName="price">
+  
+      <label for="photos">Fotos:</label>
+      <input type="file" id="photos" formControlName="photos">
+  
+      <label for="description">Descripción:</label>
+      <input type="text" id="description" formControlName="description">
+  
+      <button class='boton' type="submit">Agregar Auto</button>
+    </div>
+  </form>
+  

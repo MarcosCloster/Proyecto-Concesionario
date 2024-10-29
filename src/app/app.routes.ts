@@ -8,6 +8,7 @@ import { AdminViewComponent } from './admin/admin-view/admin-view.component';
 import { AddCarComponent } from './admin/add-car/add-car.component';
 import { UpdateCarComponent } from './admin/update-car/update-car.component';
 import { DeleteCarComponent } from './admin/delete-car/delete-car.component';
+import { FormUpdateComponent } from './admin/update-car/form-update/form-update.component';
 
 export const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -18,5 +19,6 @@ export const routes: Routes = [
   { path: 'admin/add', component: AddCarComponent },
   { path: 'admin/update', component: UpdateCarComponent},
   { path: 'admin/delete', component: DeleteCarComponent},
+  { path: 'update/:id', component: FormUpdateComponent },
   { path: '**', redirectTo: '' }
 ];

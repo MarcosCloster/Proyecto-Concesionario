@@ -1,11 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
 
 @Component({
   selector: 'app-update-car',
   standalone: true,
-  imports: [],
+  imports: [RouterModule, FormsModule],
   templateUrl: './update-car.component.html',
   styleUrl: './update-car.component.css'
 })

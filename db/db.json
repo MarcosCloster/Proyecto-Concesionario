@@ -50,6 +50,57 @@
       "color": "",
       "photos": "",
       "isActive": false
+    },
+    {
+      "id": "4",
+      "name": "1",
+      "model": "1",
+      "year": 1,
+      "fuel": "",
+      "doors": 1,
+      "Kph": 1,
+      "engine": "1",
+      "transmision": "1",
+      "description": "1",
+      "traction": "1",
+      "price": 1,
+      "color": "1",
+      "photos": "",
+      "isActive": true
+    },
+    {
+      "id": "5",
+      "name": "2",
+      "model": "2",
+      "year": 2,
+      "fuel": "",
+      "doors": 2,
+      "Kph": 2,
+      "engine": "2",
+      "transmision": "2",
+      "description": "1",
+      "traction": "22",
+      "price": 2,
+      "color": "1",
+      "photos": "",
+      "isActive": true
+    },
+    {
+      "id": "6",
+      "name": "Nissan",
+      "model": "Gtr",
+      "year": 2010,
+      "fuel": "",
+      "doors": 4,
+      "Kph": 10000,
+      "engine": "5,4L",
+      "transmision": "Manual",
+      "description": "Auto Confialble",
+      "traction": "Trasera",
+      "price": 200000,
+      "color": "Azul",
+      "photos": "",
+      "isActive": true
     }
   ]
 }

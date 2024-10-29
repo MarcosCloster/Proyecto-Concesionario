@@ -34,5 +34,10 @@ export class JsonService {
     return this.http.delete<Auto>(`${this.urlBase}/${id}`);
   }
 
+  getById (id: string | null): Observable<Auto>
+  {
+    return this.http.get<Auto>(`${this.urlBase}/${id}`)
+  }
+
 
 }

@@ -1,7 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
+import { FormUpdateComponent } from '../update-car/form-update/form-update.component';
 
 @Component({
   selector: 'app-add-car',
@@ -11,7 +12,7 @@ import { JsonService } from 'src/app/services/json.service';
   styleUrls: ['./add-car.component.css'],
 })
 
-export class AddCarComponent{
+export class AddCarComponent {
 
 
   carService = inject(JsonService)
@@ -36,6 +37,8 @@ export class AddCarComponent{
     photos: '',
     isActive: true
   }
+
+
 
   postCar() {
     this.carService.getJson().subscribe({
