@@ -25,7 +25,7 @@ export class JsonService {
   }
 
 
-  putJson (auto: Auto, id: string): Observable<Auto>
+  putJson (auto: Auto, id: string | null): Observable<Auto>
   {
     return this.http.put<Auto>(`${this.urlBase}/${id}`, auto)
   }

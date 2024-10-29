@@ -1,51 +1,46 @@
 <div class="container">
-    <label for="name">Marca:</label>
-    <input type="text" id="name" [(ngModel)]="car.name" name="car" >
+  <label for="name">Marca:</label>
+  <input type="text" id="name" [(ngModel)]="car.name" [ngModelOptions]="{standalone: true}">
 
-    <label for="model">Modelo:</label>
-    <input type="text" id="model" [(ngModel)]="car.model">
+  <label for="model">Modelo:</label>
+  <input type="text" id="model" [(ngModel)]="car.model" [ngModelOptions]="{standalone: true}">
 
-    <label for="year">Año:</label>
-    <input type="number" id="year" [(ngModel)]="car.year">
+  <label for="year">Año:</label>
+  <input type="number" id="year" [(ngModel)]="car.year" [ngModelOptions]="{standalone: true}">
 
+  <label for="fuel">Tipo de combustible:</label>
+  <select id="fuel" [(ngModel)]="car.fuel" [ngModelOptions]="{standalone: true}">
+    <option value="nafta">Nafta</option>
+    <option value="gas">Gas</option>
+  </select>
 
-    <form>
-      <label for="fuel">Tipo de combustible:</label>
-      <select id="fuel" [(ngModel)]="car.fuel">
-        <option value="nafta">Nafta</option>
-        <option value="gas">Gas</option>
-      </select>
-    </form>
+  <label for="doors">Puertas:</label>
+  <input type="number" id="doors" [(ngModel)]="car.doors" [ngModelOptions]="{standalone: true}">
 
-    
-    <label for="doors">Puertas:</label>
-    <input type="number" id="doors" [(ngModel)]="car.doors">
-    
-    <label for="kph">Kilometros Recorridos:</label>
-    <input type="number" id="kph" [(ngModel)]="car.Kph">
+  <label for="kph">Kilometros Recorridos:</label>
+  <input type="number" id="kph" [(ngModel)]="car.Kph" [ngModelOptions]="{standalone: true}">
 
-    <label for="engine">Motor:</label>
-    <input type="text" id="engine" [(ngModel)]="car.engine">
+  <label for="engine">Motor:</label>
+  <input type="text" id="engine" [(ngModel)]="car.engine" [ngModelOptions]="{standalone: true}">
 
-    <label for="Transimision">Transimision:</label>
-    <input type="text" id="Transimision" [(ngModel)]="car.transmision">
+  <label for="transimision">Transmision:</label>
+  <input type="text" id="transimision" [(ngModel)]="car.transmision" [ngModelOptions]="{standalone: true}">
 
-    <label for="traction">Traccion:</label>
-    <input type="text" id="traction" [(ngModel)]="car.traction">
+  <label for="traction">Traccion:</label>
+  <input type="text" id="traction" [(ngModel)]="car.traction" [ngModelOptions]="{standalone: true}">
 
-    <label for="color">Color:</label>
-    <input type="text" id="color" [(ngModel)]="car.color">
-    
-    
-    <label for="price">Precio:</label>
-    <input type="number" id="price" [(ngModel)]="car.price">
+  <label for="color">Color:</label>
+  <input type="text" id="color" [(ngModel)]="car.color" [ngModelOptions]="{standalone: true}">
 
-    <label for="photos">Fotos:</label>
-    <input type="file" id="photos" [(ngModel)]="car.photos">
+  <label for="price">Precio:</label>
+  <input type="number" id="price" [(ngModel)]="car.price" [ngModelOptions]="{standalone: true}">
 
-    <label for="description">description:</label>
-    <input type="text" id="description" [(ngModel)]="car.description">
-    
+  <label for="photos">Fotos:</label>
+  <input type="file" id="photos" [(ngModel)]="car.photos" [ngModelOptions]="{standalone: true}">
 
-    <button class='boton' (click)="postCar()">Agregar Auto</button>
-  </div>
+  <label for="description">Descripción:</label>
+  <input type="text" id="description" [(ngModel)]="car.description" [ngModelOptions]="{standalone: true}">
+
+  <button class='boton' (click)="postCar()">Agregar Auto</button>
+  <a href="/admin"><button type="button">Menu admin</button></a>
+</div>

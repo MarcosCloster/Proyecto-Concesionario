@@ -1,4 +1,4 @@
-<form [formGroup]="formProduct" >
+<form [formGroup]="formProduct" (ngSubmit)="updateCar()">
     <div class="container">
       <label for="name">Marca:</label>
       <input type="text" id="name" formControlName="nombre">
@@ -41,8 +41,10 @@
   
       <label for="description">Descripción:</label>
       <input type="text" id="description" formControlName="description">
-  
-      <button class='boton' type="submit">Agregar Auto</button>
+     
+        <button class='boton' type="submit">Agregar Auto</button>
+
+        <a href="/admin/update"><button type="button">Menu admin</button></a>
     </div>
   </form>
   
