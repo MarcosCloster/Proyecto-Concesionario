@@ -898,7 +898,7 @@
       "traction": "4x4",
       "price": 88000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_767964-MLA77916763992_082024-I.jpg",
+      "photos": "https://http2.mlstatic.com/D_767964-MLA77916763992_082024-O.jpg",
       "isActive": true
     },
     {
@@ -915,7 +915,7 @@
       "traction": "4x4",
       "price": 35000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_802174-MLA77304014945_062024-I.jpg",
+      "photos": "http://http2.mlstatic.com/D_802174-MLA77304014945_062024-O.jpg",
       "isActive": true
     },
     {
@@ -932,7 +932,7 @@
       "traction": "4x4",
       "price": 85000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_603322-MLA78652227763_082024-I.jpg",
+      "photos": "http://http2.mlstatic.com/D_603322-MLA78652227763_082024-O.jpg",
       "isActive": true
     },
     {
@@ -949,7 +949,7 @@
       "traction": "4x4",
       "price": 121000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_988826-MLA80111447337_102024-I.jpg",
+      "photos": "https://http2.mlstatic.com/D_988826-MLA80111447337_102024-O.jpg",
       "isActive": true
     },
     {
@@ -966,7 +966,7 @@
       "traction": "4x4",
       "price": 130000,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_995920-MLA79423742436_092024-I.jpg",
+      "photos": "http://http2.mlstatic.com/D_995920-MLA79423742436_092024-O.jpg",
       "isActive": true
     }
   ]

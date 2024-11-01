@@ -31,41 +31,15 @@
     <div class="latestCar">
         <h1>Ultimos autos</h1>
         <div class="cars">
+            @for (auto of highlightCar; track $index) {
             <div class="box">
-                <a href=""><img src="../../favicon.ico" alt=""></a>
+                <a href=""><img [src]="auto.photos" alt=""></a>
                 <div class="carInfo">
-                    <p class="carName"><a href="">Precio Nueva Fiat Strada Ultra Turbo Cvt Automatica At G"</a></p>
-                    <p class="carPrice">$25200000</p>  
+                    <p class="carName"><a href="">{{auto.name}}</a></p>
+                    <p class="carPrice">{{auto.price}}</p>  
                 </div>
             </div>
-            <div class="box">
-                <a href=""><img src="../../favicon.ico" alt=""></a>
-                <div class="carInfo">
-                    <p class="carName"><a href="">Precio Nueva Fiat Strada Ultra Turbo Cvt Automatica At G"</a></p>
-                    <p class="carPrice">$25200000</p>  
-                </div>
-            </div>
-            <div class="box">
-                <a href=""><img src="../../favicon.ico" alt=""></a>
-                <div class="carInfo">
-                    <p class="carName"><a href="">Precio Nueva Fiat Strada Ultra Turbo Cvt Automatica At G"</a></p>
-                    <p class="carPrice">$25200000</p>  
-                </div>
-            </div>
-            <div class="box">
-                <a href=""><img src="../../favicon.ico" alt=""></a>
-                <div class="carInfo">
-                    <p class="carName"><a href="">Precio Nueva Fiat Strada Ultra Turbo Cvt Automatica At G"</a></p>
-                    <p class="carPrice">$25200000</p>  
-                </div>
-            </div>
-            <div class="box">
-                <a href=""><img src="../../favicon.ico" alt=""></a>
-                <div class="carInfo">
-                    <p class="carName"><a href="">Precio Nueva Fiat Strada Ultra Turbo Cvt Automatica At G"</a></p>
-                    <p class="carPrice">$25200000</p>  
-                </div>
-            </div>
+            }
         </div>
         <button class="btn"><a href="/shop">Ver autos</a></button>
     </div>

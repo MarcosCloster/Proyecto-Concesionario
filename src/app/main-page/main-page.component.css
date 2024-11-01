@@ -157,10 +157,12 @@ main{
     margin: 2.5vh;
     width: 27.3vh;
     height: 40vh;
+    overflow: hidden;
 }
 
 .latestCar .cars .box img{
-    width: 100%;
+    width: auto;
+    
     height: 25vh;
 }
 
