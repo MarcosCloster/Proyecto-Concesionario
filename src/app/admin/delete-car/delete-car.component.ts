@@ -46,7 +46,7 @@ export class DeleteCarComponent implements OnInit{
     console.log(car.id);
   
     // Convierte el ID a string antes de pasarlo
-    this.carServicio.putJson(updatedCar, car.id.toString()).subscribe({
+    this.carServicio.putJson(updatedCar, car.id!.toString()).subscribe({
       next: (response: Auto) => {
         console.log(`Auto ${response.name} actualizado a inactivo`);
       },

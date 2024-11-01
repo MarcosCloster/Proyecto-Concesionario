@@ -32,14 +32,14 @@ export class FormUpdateComponent implements OnInit{
 
   formProduct = this.fb.group({
 
-    nombre: ['', Validators.required],
+    name: ['', Validators.required],
     model: ['', Validators.required],
     year: [0, [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]], // Asegúrate de establecer un valor por defecto
     fuel: ['', Validators.required],
     doors: [0, [Validators.required, Validators.min(1)]],
     kph: [0, Validators.required],
     engine: ['', Validators.required],
-    transimision: ['', Validators.required],
+    transmision: ['', Validators.required],
     traction: ['', Validators.required],
     color: ['', Validators.required],
     price: [0, [Validators.required, Validators.min(0)]],
@@ -49,24 +49,22 @@ export class FormUpdateComponent implements OnInit{
   
 
 
-  setProduct(car: Auto) {
-    console.log("SET", car); 
+  setProduct(car: Auto) { 
     this.formProduct.patchValue({
-      nombre: car.name,
+      name: car.name,
       model: car.model,
       year: car.year || 0, // Asignar 0 si es undefined
       fuel: car.fuel,
       doors: car.doors || 0, // Asignar 0 si es undefined
-      kph: car.Kph || 0, // Asignar 0 si es undefined
+      kph: car.kph || 0, // Asignar 0 si es undefined
       engine: car.engine,
-      transimision: car.transmision,
+      transmision: car.transmision,
       traction: car.traction,
       color: car.color,
       price: car.price || 0, // Asignar 0 si es undefined
       description: car.description,
     });
   }
-  
   
   getCarByID(id: string | null) {
     this.carService.getById(id).subscribe({

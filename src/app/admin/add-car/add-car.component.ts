@@ -1,13 +1,12 @@
-import { Component, ElementRef, inject, OnInit, viewChild } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
-import { FormUpdateComponent } from '../update-car/form-update/form-update.component';
 
 @Component({
   selector: 'app-add-car',
   standalone: true,
-  imports: [FormsModule,],
+  imports: [FormsModule],
   templateUrl: './add-car.component.html',
   styleUrls: ['./add-car.component.css'],
 })
@@ -27,7 +26,7 @@ export class AddCarComponent {
     year: 0,
     fuel: '',
     doors: 0,
-    Kph: 0,
+    kph: 0,
     engine: '',
     transmision: '',
     description: '',
@@ -37,8 +36,6 @@ export class AddCarComponent {
     photos: '',
     isActive: true
   }
-
-
 
   postCar() {
     this.carService.getJson().subscribe({

@@ -1,12 +1,12 @@
 export interface Auto
 {
-    id: string;
+    id?: string;
     name: string; 
     model: string;
     year: number;
     fuel: string;
     doors: number;
-    Kph: number;
+    kph: number;
     engine: string;
     transmision: string;
     description: string;
