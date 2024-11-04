@@ -18,12 +18,19 @@
         <div class="box">
             <hr>
             <h5>Marca</h5>
-            @for (item of marcaArray; track $index) {
-                <a [routerLink]="['/shop', item]">{{item}}</a>
-
-            }
-            
-            
+            <a href="/shop" (click)="filtrarPorMarca('Fiat')">Fiat</a>
+            <a href="">Ford</a>
+            <a href="">Chevrolet</a>
+            <a href="">Volkswagen</a>
+            <a href="">Nissan</a>
+            <a href="">Renault</a>
+            <a href="">Peugeot</a>
+            <a href="">Toyota</a>
+            <a href="">Audi</a>
+            <a href="">Jeep</a>
+            <a href="">Dodge</a>
+            <a href="">Ferrari</a>
+            <a href="">Porsche</a>
         </div>
         <div class="box">
             <hr>

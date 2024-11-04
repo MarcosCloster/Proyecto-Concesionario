@@ -14,11 +14,12 @@ export class MercadoLibreApiService {
 
   urlBase = "https://api.mercadolibre.com/sites/MLA/search?category=MLA1744"
 
-  getAutosUsados(): Observable<Auto[]>{
+  getAutosUsados(): Observable<Auto[]> {
     return this.http.get<any>(`${this.urlBase}&condition=used&limit=20`).pipe(
       map(response => {
         return response.results.map((item: any) => ({
           id: item.id, // Asegúrate de incluir un ID único
+          brand: item.attributes.find((attr: any) => attr.id === 'BRAND')?.value_name || '', // Agrega la marca
           name: item.title,
           model: item.attributes.find((attr: any) => attr.id === 'MODEL')?.value_name || '',
           year: parseInt(item.attributes.find((attr: any) => attr.id === 'VEHICLE_YEAR')?.value_name) || 0,
@@ -37,12 +38,14 @@ export class MercadoLibreApiService {
       })
     );
   }
+  
 
   getAutosNuevos(): Observable<Auto[]> {
     return this.http.get<any>(`${this.urlBase}&condition=new&limit=20`).pipe(
       map(response => {
         return response.results.map((item: any) => ({
-          id: item.id, // Asegúrate de incluir un ID único
+          id: item.id,
+          brand: item.attributes.find((attr: any) => attr.id === 'BRAND')?.value_name || '', // Agrega la marca
           name: item.title,
           model: item.attributes.find((attr: any) => attr.id === 'MODEL')?.value_name || '',
           year: parseInt(item.attributes.find((attr: any) => attr.id === 'VEHICLE_YEAR')?.value_name) || 0,
@@ -62,31 +65,10 @@ export class MercadoLibreApiService {
     );
   }
 
-  // Funcion para obtener autos que van en los componentes
-  // getAutos() {
-  //   this.sv.getAutosUsados().subscribe({
-  //     next: (autos: Auto[]) => {
-  //       for (let auto of autos) {
-  //         if (!this.autosGuardados.has(auto.id!)) {
-  //           this.function.postJson(auto).subscribe({
-  //             next: (car: Auto) => {
-  //               console.log('Respuesta del servidor:', car);
-  //               this.autosGuardados.add(car.id!); // Añadir el ID del auto a la lista de autos guardados
-  //             },
-  //             error: (e: Error) => {
-  //               console.log(e.message);
-  //             },
-  //           });
-  //         } else {
-  //           console.log(`El auto con ID ${auto.id} ya ha sido guardado.`);
-  //         }
-  //       }
-  //     },
-  //     error: (error: Error) => {
-  //       console.log(error);
-  //     }
-  //   });
-  // }
+  
+  
+
+  
   
   
   

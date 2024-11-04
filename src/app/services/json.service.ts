@@ -39,5 +39,9 @@ export class JsonService {
     return this.http.get<Auto>(`${this.urlBase}/${id}`)
   }
 
+  getAutosByID(brand: string | null): Observable<Auto[]>
+  {
+    return this.http.get<Auto[]>(`${this.urlBase}?brand=${brand}`);
+  }
 
 }

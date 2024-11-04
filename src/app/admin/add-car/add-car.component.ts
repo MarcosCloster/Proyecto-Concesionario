@@ -21,6 +21,7 @@ export class AddCarComponent {
   car: Auto = 
   {
     id: "",
+    brand: '',
     name: '', 
     model: '',
     year: 0,

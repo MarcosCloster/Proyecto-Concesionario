@@ -9,10 +9,34 @@ import { JsonService } from 'src/app/services/json.service';
   templateUrl: './admin-view.component.html',
   styleUrls: ['./admin-view.component.css'] // Corregido a `styleUrls`
 })
-export class AdminViewComponent {
+export class AdminViewComponent{
+
   sv = inject(MercadoLibreApiService);
   function = inject(JsonService);
   autosGuardados: Set<string> = new Set(); // Para llevar un registro de los autos guardados
 
-  
+   /*getAutos() {
+     this.sv.getAutosUsados().subscribe({
+       next: (autos: Auto[]) => {
+         for (let auto of autos) {
+           if (!this.autosGuardados.has(auto.id!)) {
+             this.function.postJson(auto).subscribe({
+               next: (car: Auto) => {
+                 console.log('Respuesta del servidor:', car);
+                 this.autosGuardados.add(car.id!); // Añadir el ID del auto a la lista de autos guardados
+               },
+               error: (e: Error) => {
+                 console.log(e.message);
+               },
+             });
+           } else {
+             console.log(`El auto con ID ${auto.id} ya ha sido guardado.`);
+           }
+         }
+       },
+       error: (error: Error) => {
+         console.log(error);
+       }
+     });
+   }*/
 }
