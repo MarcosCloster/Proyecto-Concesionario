@@ -31,7 +31,7 @@ export class JsonService {
   }
 
   deleteJson(auto: Auto, id: string): Observable<Auto> {
-    return this.http.delete<Auto>(`${this.urlBase}/${id}`);
+    return this.http.delete<Auto>(`${this.urlBase}/${id}`)
   }
 
   getById (id: string | null): Observable<Auto>
@@ -39,9 +39,13 @@ export class JsonService {
     return this.http.get<Auto>(`${this.urlBase}/${id}`)
   }
 
-  getAutosByID(brand: string | null): Observable<Auto[]>
+  getAutosByBrand(brand: string | null): Observable<Auto[]>
   {
-    return this.http.get<Auto[]>(`${this.urlBase}?brand=${brand}`);
+    return this.http.get<Auto[]>(`${this.urlBase}?brand=${brand}`)
+  }
+
+  getAutosByDescription(description: string){
+    return this.http.get<Auto[]>(`${this.urlBase}?description?${description}`)
   }
 
 }

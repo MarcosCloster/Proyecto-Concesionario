@@ -1,6 +1,8 @@
 <app-header></app-header>
 <main>
     <div class="category">
+        <a routerLink="/shop">Todos</a>
+        <hr>
         <details>
             <summary>Order by: </summary> <!-- Flecha hacia la derecha -->
             <ul>
@@ -12,25 +14,15 @@
         <div class="box">
             <hr>
             <h5>Type: </h5>
-            <a href="">Usado</a>
-            <a href="">0 KM</a>
+            <a [routerLink]="['/shop', 'Usado']">Usado</a>
+            <a [routerLink]="['/shop', 'Nuevo']">0 KM</a>
         </div>
         <div class="box">
             <hr>
             <h5>Marca</h5>
-            <a href="/shop" (click)="filtrarPorMarca('Fiat')">Fiat</a>
-            <a href="">Ford</a>
-            <a href="">Chevrolet</a>
-            <a href="">Volkswagen</a>
-            <a href="">Nissan</a>
-            <a href="">Renault</a>
-            <a href="">Peugeot</a>
-            <a href="">Toyota</a>
-            <a href="">Audi</a>
-            <a href="">Jeep</a>
-            <a href="">Dodge</a>
-            <a href="">Ferrari</a>
-            <a href="">Porsche</a>
+            @for (item of marcaArray; track $index) {
+                <a [routerLink]="['/shop', item]">{{item}}</a>
+            }
         </div>
         <div class="box">
             <hr>
@@ -49,7 +41,7 @@
         </div>
     </div>
     <div class="cars">
-        @for (item of carArray; track $index) {
+        @for (item of carArrayFiltrado; track $index) {
         <div class="car">
                 <a href="">
                     <img [src]="item.photos" alt="">

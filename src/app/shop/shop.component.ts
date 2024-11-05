@@ -21,6 +21,7 @@ export class ShopComponent implements OnInit {
   carArray: Auto[] = [];
   carService = inject(JsonService)
   marcaArray: string[] = []
+  description : string[] = ['Usado', 'Nuevo']
 
   getCars()
   {

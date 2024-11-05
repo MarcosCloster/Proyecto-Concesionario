@@ -1,6 +1,8 @@
 <app-header></app-header>
 <main>
     <div class="category">
+        <a routerLink="/shop">Todos</a>
+        <hr>
         <details>
             <summary>Order by: </summary> <!-- Flecha hacia la derecha -->
             <ul>
@@ -12,15 +14,14 @@
         <div class="box">
             <hr>
             <h5>Type: </h5>
-            <a href="">Usado</a>
-            <a href="">0 KM</a>
+            <a [routerLink]="['/shop', 'Usado']">Usado</a>
+            <a [routerLink]="['/shop', 'Nuevo']">0 KM</a>
         </div>
         <div class="box">
             <hr>
             <h5>Marca</h5>
             @for (item of marcaArray; track $index) {
-                <a [routerLink]="['/shop', item]">{{item}}</a>
-
+            <a [routerLink]="['/shop', item]">{{item}}</a>
             }
             
             

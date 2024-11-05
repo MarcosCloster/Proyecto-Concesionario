@@ -3,33 +3,36 @@ import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
 import { FooterComponent } from "../../otherComponents/footer/footer.component";
 import { HeaderComponent } from "../../otherComponents/header/header.component";
-import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-filtrado',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent],
+  imports: [FooterComponent, HeaderComponent, RouterModule],
   templateUrl: './filtrado.component.html',
   styleUrl: './filtrado.component.css'
 })
 export class FiltradoComponent implements OnInit{
   ngOnInit(): void {
     this.routes.paramMap.subscribe(params => {
-      this.getCarsByID(params.get('marca'))
+      this.getCarsByMarca(params.get('marca'))
+      this.getCars()
     })
     
   }
-  carArray: Auto[] = [];
+  carArrayFiltrado: Auto[] = [];
+  carArray: Auto[] = []
   carService = inject(JsonService)
   routes = inject(ActivatedRoute)
+  marcaArray: string[] = []
+  description : string[] = ['Usado', 'Nuevo']
 
-  getCarsByID(marca: string | null)
+  getCarsByMarca(marca: string | null)
   {
-    this.carService.getJson().subscribe({
+    this.carService.getAutosByBrand(marca).subscribe({
       next: (autos: Auto[]) =>
       {
-        this.carArray = autos;
+        this.carArrayFiltrado = autos;
       },
       error: (e: Error) =>
       {
@@ -39,9 +42,38 @@ export class FiltradoComponent implements OnInit{
     })
   }
 
+  getCars()
+  {
+    this.carService.getJson().subscribe({
+      next: (autos: Auto[]) =>
+      {
+        this.carArray = autos;
+        this.encontrarMarca()
+      },
+      error: (e: Error) =>
+      {
+        console.log(e.message);
+      }
+        
+    })
+  }
+
+  encontrarMarca()
+  {
+    let i =0 ;
+    for(let auto of this.carArray)
+    {
+      if(!this.marcaArray.find(el => el === auto.brand)){
+        this.marcaArray.push(auto.brand)
+      } 
+    }
+  }
+
   filtrarPorMarca(marca: string)
   {
-    this.carArray = this.carArray.filter(el => el.brand !== marca)
+    this.carArray = this.carArrayFiltrado.filter(el => el.brand !== marca)
     console.log(this.carArray)
   }
+
+  
 }
