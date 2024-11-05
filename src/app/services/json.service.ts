@@ -44,8 +44,12 @@ export class JsonService {
     return this.http.get<Auto[]>(`${this.urlBase}?brand=${brand}`)
   }
 
-  getAutosByDescription(description: string){
-    return this.http.get<Auto[]>(`${this.urlBase}?description?${description}`)
+  getAutosByDescription(description: string): Observable<Auto[]>{
+    return this.http.get<Auto[]>(`${this.urlBase}?description=${description}`)
+  }
+  
+  getAutosByFuel(fuel: string): Observable<Auto[]>{
+    return this.http.get<Auto[]>(`${this.urlBase}?fuel=${fuel}`)
   }
 
 }

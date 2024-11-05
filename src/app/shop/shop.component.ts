@@ -49,9 +49,7 @@ export class ShopComponent implements OnInit {
         
       } 
     }
-
   }
-
 
   filtrarPorMarca(marca: string)
   {

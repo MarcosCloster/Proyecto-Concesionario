@@ -13,13 +13,21 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
   styleUrl: './filtrado.component.css'
 })
 export class FiltradoComponent implements OnInit{
+
   ngOnInit(): void {
     this.routes.paramMap.subscribe(params => {
-      this.getCarsByMarca(params.get('marca'))
+      if(params.get('tipo') == 'marca'){
+        this.getCarsByMarca(params.get('info'))
+      } else if(params.get('tipo') == 'type'){
+        console.log('Hola')
+        this.getCarByDescription(params.get('info')!)
+      } else if(params.get('tipo') == 'fuel'){
+        this.getCarsByFuel(params.get('info')!)
+      }
       this.getCars()
     })
-    
   }
+
   carArrayFiltrado: Auto[] = [];
   carArray: Auto[] = []
   carService = inject(JsonService)
@@ -38,7 +46,24 @@ export class FiltradoComponent implements OnInit{
       {
         console.log(e.message);
       }
-        
+    })
+  }
+
+  getCarsByFuel(fuel: string){
+    this.carService.getAutosByFuel(fuel).subscribe({
+      next: (autos: Auto[]) => {
+        this.carArrayFiltrado = autos
+      },
+      error: console.log
+    })
+  }
+
+  getCarByDescription(description: string){
+    this.carService.getAutosByDescription(description).subscribe({
+      next: (autos: Auto[]) => {
+        this.carArrayFiltrado = autos
+      },
+      error : console.log
     })
   }
 

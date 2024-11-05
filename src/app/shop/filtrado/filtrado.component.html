@@ -13,15 +13,15 @@
         </details>     
         <div class="box">
             <hr>
-            <h5>Type: </h5>
-            <a [routerLink]="['/shop', 'Usado']">Usado</a>
-            <a [routerLink]="['/shop', 'Nuevo']">0 KM</a>
+            <h5>Tipo: </h5>
+            <a [routerLink]="['/shop', 'Usado', 'type']">Usado</a>
+            <a [routerLink]="['/shop', 'Nuevo', 'type']">0 KM</a>
         </div>
         <div class="box">
             <hr>
             <h5>Marca</h5>
             @for (item of marcaArray; track $index) {
-                <a [routerLink]="['/shop', item]">{{item}}</a>
+                <a [routerLink]="['/shop', item, 'marca']">{{item}}</a>
             }
         </div>
         <div class="box">
@@ -35,8 +35,8 @@
         <div class="box">
             <hr>
             <h5>Combustible</h5>
-            <a href="">Diesel</a>
-            <a href="">Nafta</a>
+            <a [routerLink]="['/shop', 'Diésel', 'fuel']">Diesel</a>
+            <a [routerLink]="['/shop', 'Nafta', 'fuel']">Nafta</a>
             <a href="">Gas</a>
         </div>
     </div>
@@ -52,6 +52,8 @@
                     </div>
                 </a>
             </div>
+        } @empty {
+            <h3 style="display: flex; align-items: center;">No hay vehiculos</h3>
         }
     </div>
 </main>

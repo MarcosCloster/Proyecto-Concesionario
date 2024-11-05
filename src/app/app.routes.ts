@@ -21,7 +21,7 @@ export const routes: Routes = [
   { path: 'admin/add', component: AddCarComponent },
   { path: 'admin/update', component: UpdateCarComponent},
   { path: 'admin/delete', component: DeleteCarComponent},
-  { path: 'shop/:marca', component: FiltradoComponent},
+  { path: 'shop/:info/:tipo', component: FiltradoComponent},
   { path: 'update/:id', component: FormUpdateComponent },
   { path: 'admin/activate', component: ActivateCarComponent},
   { path: '**', redirectTo: '' }
