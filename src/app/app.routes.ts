@@ -11,6 +11,7 @@ import { DeleteCarComponent } from './admin/delete-car/delete-car.component';
 import { FormUpdateComponent } from './admin/update-car/form-update/form-update.component';
 import { ActivateCarComponent } from './admin/activate-car/activate-car.component';
 import { FiltradoComponent } from './shop/filtrado/filtrado.component';
+import { ViewDetailsComponent } from './shop/view-details/view-details.component';
 
 export const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -22,6 +23,8 @@ export const routes: Routes = [
   { path: 'admin/update', component: UpdateCarComponent},
   { path: 'admin/delete', component: DeleteCarComponent},
   { path: 'shop/:info/:tipo', component: FiltradoComponent},
+  { path: 'shop/:precio', component: FiltradoComponent},
+  { path: 'shop/:id', component: ViewDetailsComponent},
   { path: 'update/:id', component: FormUpdateComponent },
   { path: 'admin/activate', component: ActivateCarComponent},
   { path: '**', redirectTo: '' }

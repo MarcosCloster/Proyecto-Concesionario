@@ -29,10 +29,10 @@
         <div class="box">
             <hr>
             <h5>Precio</h5>
-            <a href="">0 - 50000</a>
-            <a href="">50000 - 200000</a>
-            <a href="">200000 - 500000</a>
-            <a href="">500000 +</a>
+            <a [routerLink]="['/shop', 2000]">0 - 50000</a>
+            <a [routerLink]="['/shop', 75000]">50000 - 200000</a>
+            <a [routerLink]="['/shop', 250000]">200000 - 500000</a>
+            <a [routerLink]="['/shop', 600000]">500000 +</a>
         </div>
         <div class="box">
             <hr>
@@ -45,7 +45,7 @@
     <div class="cars">
         @for (item of carArray; track $index) {
         <div class="car">
-                <a href="">
+                <a [routerLink]="['/shop', item.id]">
                     <img [src]="item.photos" alt="">
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>

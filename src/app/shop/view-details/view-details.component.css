@@ -1,0 +1,114 @@
+/* Estilos principales */
+main {
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4vh;
+    padding-bottom: 5em;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Imagen del vehículo */
+main img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de columnas */
+.columns {
+    display: flex;
+    gap: 1em;
+    width: 100%;
+    text-align: left;
+}
+
+/* Estilos de cada columna */
+.column {
+    background-color: #1A1A1A; /* Color oscuro para las tarjetas */
+    color: #E0E0E0; /* Texto claro */
+    padding: 2em;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Títulos de cada columna */
+.column h2 {
+    font-size: 1.5em;
+    color: #E0E0E0;
+    border-bottom: 1px solid #555;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+/* Estilos de la información de la ficha técnica */
+.tech-details p,
+.features p,
+.price p {
+    font-size: 1em;
+    color: #B0B0B0;
+    margin: 0.5em 0;
+    line-height: 1.5;
+}
+
+.tech-details p strong,
+.features p strong,
+.price p strong {
+    color: #E0E0E0;
+}
+
+/* Estilos de precio destacado */
+.price p span {
+    font-size: 2em;
+    color: #0099FF;
+    font-weight: bold;
+    display: block;
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 1.5em;
+}
+
+button {
+    padding: 0.8em 1.5em;
+    border: 1px solid #0099FF;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #0099FF;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0099FF;
+    color: #fff;
+}
+
+button:active {
+    background-color: #007acc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    main {
+        padding-top: 100px;
+    }
+
+    .columns {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-bottom: 1em;
+    }
+}
