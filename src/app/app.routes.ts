@@ -12,6 +12,7 @@ import { FormUpdateComponent } from './admin/update-car/form-update/form-update.
 import { ActivateCarComponent } from './admin/activate-car/activate-car.component';
 import { FiltradoComponent } from './shop/filtrado/filtrado.component';
 import { ViewDetailsComponent } from './shop/view-details/view-details.component';
+import { CarritoComponent } from './carrito/carrito.component';
 
 export const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'shop/:precio', component: FiltradoComponent},
   { path: 'detail/:id', component: ViewDetailsComponent},
   { path: 'update/:id', component: FormUpdateComponent },
+  { path: 'carrito', component: CarritoComponent},
   { path: 'admin/activate', component: ActivateCarComponent},
   { path: '**', redirectTo: '' }
 ];

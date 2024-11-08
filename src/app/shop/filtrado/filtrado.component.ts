@@ -30,6 +30,7 @@ export class FiltradoComponent implements OnInit{
         const precioParam = params.get('precio');
         const precio = precioParam ? +precioParam : 0; // Convierte a número y usa un valor por defecto
         this.filtrarPorPrecio(precio);
+        
       }
       
     })
@@ -109,25 +110,47 @@ export class FiltradoComponent implements OnInit{
 
   filtrarPorPrecio(precio: number)
   {
-    this.getCars()
-    console.log(this.carArray) // aca me muestra que el array esta vacio
+    console.log('HOLA')
+    console.log(this.carArray) 
     if (precio > 500000)
     {
-      
-      this.carArrayFiltrado = this.carArray.filter(el => el.price > 500000)
-      console.log(this.carArrayFiltrado)
+      for(let car of this.carArray)
+        {
+          if(car.price > 500000)
+          {
+            this.carArrayFiltrado.push(car)
+          }
+        }
     } else if (precio < 500000 && precio > 200000)
     {
-      this.carArrayFiltrado = this.carArray.filter(el => el.price < 500000 && el.price > 200000)
-      console.log('askldalskf', this.carArrayFiltrado)
+      for(let car of this.carArray)
+        {
+          if(car.price < 500000 && car.price > 200000)
+          {
+            this.carArrayFiltrado.push(car)
+          }
+        }
     } else if (precio < 200000 && precio > 50000)
     {
-      this.carArrayFiltrado = this.carArray.filter(el => el.price < 200000 && el.price > 50000)
-      console.log(this.carArrayFiltrado)
-
+      for(let car of this.carArray)
+        {
+          if(car.price < 200000 && car.price > 50000)
+          {
+            this.carArrayFiltrado.push(car)
+          }
+        }
     } else if (precio < 50000)
     {
-      this.carArrayFiltrado = this.carArray.filter(el => el.price )
+      for(let car of this.carArray)
+      {
+        if(car.price < 50000)
+        {
+          this.carArrayFiltrado.push(car)
+          
+        }
+      }
+      console.log('fadadjkfb')
+      console.log(this.carArrayFiltrado)
     }
     
   }

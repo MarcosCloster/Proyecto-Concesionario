@@ -139,6 +139,14 @@ main{
     margin-bottom: 4vh;
 }
 
+.cars a{
+    text-decoration: none;
+}
+
+.cars p{
+    text-decoration: none;
+}
+
 .latestCar .cars{
     display: flex;
     flex-wrap: wrap;
@@ -183,6 +191,7 @@ main{
 }
 
 .latestCar .cars .box .carPrice{
+    color: black;
     font-size: 1.7vh;
 }
 

@@ -1,0 +1,33 @@
+<app-header></app-header>
+<main>
+    <h2>Carrito de Compras</h2>
+    @if(cartItems.length === 0)
+    {
+        <p>Tu carrito está vacío</p>
+    } @else
+    {
+        <div class="cars">
+            <li *ngFor="let car of cartItems; let i = index">
+                <div class="car">
+                    <a [routerLink]="['/detail', car.id]">
+                        <img [src]="car.photos" alt="Imagen del auto">
+                        <div class="info">
+                            <p class="type">Kilómetros: {{car.kph}}</p>
+                            <p class="title">Marca: {{car.name}}</p>
+                            <p class="price">Precio: ${{car.price}}</p>
+                        </div>
+                    </a>
+                    <button (click)="removeItem(i)">Eliminar</button>
+
+                </div>
+            </li>   
+            <button (click)="clearCart()">Vaciar Carrito</button>    
+        </div>
+        
+    }
+      
+
+    
+</main>
+
+<app-footer class="footer"></app-footer>
