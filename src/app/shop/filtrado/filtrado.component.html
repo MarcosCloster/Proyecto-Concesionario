@@ -43,7 +43,7 @@
     <div class="cars">
         @for (item of carArrayFiltrado; track $index) {
         <div class="car">
-                <a [routerLink]="['/shop', item.id]">
+                <a [routerLink]="['/detail', item.id]">
                     <img [src]="item.photos" alt="">
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>

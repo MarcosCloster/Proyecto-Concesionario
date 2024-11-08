@@ -45,7 +45,7 @@
     <div class="cars">
         @for (item of carArray; track $index) {
         <div class="car">
-                <a [routerLink]="['/shop', item.id]">
+                <a [routerLink]="['/detail', item.id]">
                     <img [src]="item.photos" alt="">
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>
@@ -55,7 +55,7 @@
                 </a>
             </div>
         } @empty {
-            <h3 style="display: flex; align-items: center;">No hay vehiculos</h3>
+            <h3>No hay vehiculos</h3>
         }
     </div>
 </main>
