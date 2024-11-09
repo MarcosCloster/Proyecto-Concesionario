@@ -22,7 +22,7 @@ nav{
 
 
 .navigation a::before,
-.navigation a::after {
+.navigation a::after:not(.carrito) {
   content: '';
   height: 14px;
   width: 14px;
@@ -31,7 +31,7 @@ nav{
   opacity: 0;
 }
 
-.navigation a::before {
+.navigation a::before:not(.carrito) {
   content: '';
   right: -10px;
   top: -10px;
@@ -40,7 +40,7 @@ nav{
   transform: translate(-100%, 50%);
 }
 
-.navigation a:after {
+.navigation a:after:not(.carrito) {
   content: '';
   left: -10px;
   bottom: -10px;
@@ -50,7 +50,7 @@ nav{
 }
 
 .navigation a:hover:before,
-.navigation a:hover:after{
+.navigation a:hover:after:not(.carrito){
   transform: translate(0,0);
   opacity: 1;
 }
@@ -62,3 +62,49 @@ nav{
 .me-5 {
   margin-left: 20px;
 }
+
+.nav-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+.navigation {
+  transition: all 0.3s ease;
+}
+
+.navigation.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 972px) {
+  .nav-toggle {
+      display: block;
+  }
+
+  .navigation {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: #353535;
+      width: 200px;
+      padding: 10px;
+      border-radius: 8px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-10px);
+  }
+
+  .navigation.active {
+      display: flex;
+  }
+}
+

@@ -73,6 +73,16 @@ hr{
     margin-left: 3vh;  
 }
 
+@media (max-width: 420px){
+    .category{
+        margin-right: 5px;
+    }
+
+    .cars{
+        margin-left: 5px;
+    }
+}
+
 @media(max-width:1810px){
     .cars{
         justify-content: center;

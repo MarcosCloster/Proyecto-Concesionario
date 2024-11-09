@@ -1,6 +1,6 @@
 /* Estilos principales */
 main {
-    padding-top: 140px;
+    padding-top: 115px;
     padding-bottom: 20rem;
     font-family: Arial, sans-serif;
     margin: 0 auto;
@@ -13,11 +13,25 @@ main {
     font-size: 6vh;
     font-weight: 300;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .image img{
     width: 500px;
     height: auto;
+}
+
+@media (max-width: 500px){
+    .title p{
+        font-size: 3vh;
+    }
+    .image img{
+        width: 300px;
+        height: auto;
+    }
+    .contact, .caracterist, .principal{
+        max-width: 290px;
+    }
 }
 
 .box{
@@ -88,4 +102,12 @@ main {
 .contact{
     color: black;
     background: linear-gradient(220deg, white, rgb(129, 172, 236));
+}
+
+@media (max-width:1150px){
+    .box{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
