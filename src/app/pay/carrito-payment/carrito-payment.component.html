@@ -4,15 +4,17 @@
         <div class="car-list">
           <h2>Resumen de Reserva</h2>
           <div class="car-item">
+            @for (car of cartArray; track $index) {
             <li>
                 <img [src]="car.photos" alt="Foto del auto" class="car-image">
                 <div class="car-details">
                 <p><strong>Auto:</strong> {{ car.name }}</p>
                 <p><strong>Año:</strong> {{ car.year }}</p>
-                <p><strong>Precio:</strong> {{ car.price | currency }}</p>
+                <p><strong>Precio:</strong> {{ car.price}}</p>
                 <p><strong>Estado:</strong> {{ car.description }}</p>
                 </div>
             </li>
+            }
           </div>
         </div>
       
@@ -20,10 +22,10 @@
           <h2>Información de Pago</h2>
           <form [formGroup]="form">
             <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
-            <input type="date" id="reservationDate" [(ngModel)]="selectedDate" name="reservationDate" required>
+            <input type="date" id="reservationDate" [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}" name="reservationDate" required>
       
             <label for="reservationTime">Seleccione un horario:</label>
-            <select id="reservationTime" [(ngModel)]="selectedTime" name="reservationTime" required>
+            <select id="reservationTime" [(ngModel)]="selectedTime" [ngModelOptions]="{standalone: true}" name="reservationTime" required>
               <option value="10:00 AM">10:00 AM</option>
               <option value="12:00 PM">12:00 PM</option>
               <option value="2:00 PM">2:00 PM</option>
@@ -35,7 +37,7 @@
             @if (form.get('cardNumber')?.invalid && form.get('cardNumber')?.touched) {
                 <span style="color: red;">Completar Formulario</span>
             }
-            @if (form.get('cardNumber')?.getError('minlength')) {
+            @if (form.get('cardNumber')?.hasError('invalidCardLength') && form.get('cardNumber')?.touched ) {
                 <span style="color: red; display: flex; flex-direction: column;">Minimo de Numeros Requeridos</span>
             }
 
@@ -61,7 +63,7 @@
             @if (form.get('cvv')?.invalid && form.get('cvv')?.touched) {
                 <span style="color: red;">Completar Formulario</span>
             }
-            @if (form.get('cvv')?.getError('minlength')) {
+            @if (form.get('cvv')?.hasError('invalidCvvLength') && form.get('cvv')?.touched) {
                 <span style="color: red; display: flex; flex-direction: column;">Minimo de Numeros Requeridos</span>
             }
 
@@ -70,7 +72,6 @@
           </form>
         </div>
       </div>      
-                 
+
 </main>
 <app-footer></app-footer>
-  

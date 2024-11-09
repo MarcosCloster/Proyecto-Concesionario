@@ -12,12 +12,14 @@
                         <p class="carPrice">{{item.price}}</p>  
                     </div>
                 </a>
+                <button type="button" (click)="removeItem($index)">Borrar</button>
             </div>
         } @empty {
             <h3>No hay vehiculos</h3>
         }
     </div>
     <button (click)="clearCart()">Vaciar Carrito</button> 
+    <button (click)="sendCarrito()">Reservar</button>
 </main>
 
 <app-footer class="footer"></app-footer>

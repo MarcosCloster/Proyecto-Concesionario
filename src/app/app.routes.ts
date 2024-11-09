@@ -16,6 +16,7 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { PayComponent } from './pay/pay.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AuthGuard } from './auth/auth.guard';
+import { CarritoPaymentComponent } from './pay/carrito-payment/carrito-payment.component';
 
 export const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -33,7 +34,7 @@ export const routes: Routes = [
   { path: 'update/:id', component: FormUpdateComponent },
   { path: 'carrito', component: CarritoComponent},
   { path: 'admin/activate', component: ActivateCarComponent},
-  { path: 'shop/payment/:id', component: PayComponent},
-  { path: 'carrito/payment', component: PayComponent},
+  { path: 'carrito/payment', component: CarritoPaymentComponent},
+  { path: 'payment/:id', component: PayComponent},
   { path: '**', redirectTo: '' }
 ];

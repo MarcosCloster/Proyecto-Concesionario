@@ -45,7 +45,6 @@ main{
     margin: 5px 0;
 }
   
-  /* Estilos para la información de pago */
 .payment-info {
     flex: 1;
     background-color: #fff;
@@ -97,6 +96,7 @@ button[type="submit"]:disabled {
 button[type="submit"]:hover {
     background-color: blue;
 }
+
   
   
   

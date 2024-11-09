@@ -1,11 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { Auto } from '../interfaces/autos';
 import { CarritoService } from '../services/carrito.service';
 import { FooterComponent } from '../otherComponents/footer/footer.component';
 import { HeaderComponent } from '../otherComponents/header/header.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-carrito',
@@ -15,8 +15,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './carrito.component.css'
 })
 export class CarritoComponent implements OnInit{
-  cartItems: any[] = [];
 
+  cartItems: Auto[] = [];
+  router = inject(Router)
   constructor(private cartService: CarritoService) {}
 
   ngOnInit(): void {
@@ -36,6 +37,18 @@ export class CarritoComponent implements OnInit{
   clearCart() {
     this.cartService.clearCart();
     this.loadCartItems();
+  }
+
+  sendCarrito()
+  {
+    if(this.cartItems.length > 0)
+    {
+      this.router.navigateByUrl('/carrito/payment')
+    } else
+    {
+      alert('No se puede pagar por un carrito vacio')
+    }
+    
   }
   
 }

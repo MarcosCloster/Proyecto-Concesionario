@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Auto } from 'src/app/interfaces/autos';
 import { FooterComponent } from 'src/app/otherComponents/footer/footer.component';
 import { HeaderComponent } from 'src/app/otherComponents/header/header.component';
@@ -26,6 +26,7 @@ export class ViewDetailsComponent implements OnInit{
 
   routes = inject(ActivatedRoute)
   carService = inject(JsonService)
+  router = inject(Router)
 
   getCarByID(id: string | null)
   {
@@ -46,4 +47,6 @@ export class ViewDetailsComponent implements OnInit{
   redirection() {
     window.open('https://wa.me/5492236566864?text=Holacomoestas?', '_blank');
   }
+  
 }
+
