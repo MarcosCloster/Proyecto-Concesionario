@@ -1,0 +1,11 @@
+.container {
+
+    margin-top: 20vh;
+    display: flex;
+    background-color: aqua;
+    width: 400px;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+

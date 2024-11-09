@@ -13,21 +13,27 @@ import { ActivateCarComponent } from './admin/activate-car/activate-car.componen
 import { FiltradoComponent } from './shop/filtrado/filtrado.component';
 import { ViewDetailsComponent } from './shop/view-details/view-details.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { PayComponent } from './pay/pay.component';
+import { LoginComponent } from './admin/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'about', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'shop', component: ShopComponent },
-  { path: 'admin', component: AdminViewComponent },
-  { path: 'admin/add', component: AddCarComponent },
-  { path: 'admin/update', component: UpdateCarComponent},
-  { path: 'admin/delete', component: DeleteCarComponent},
+  { path: 'admin', component: LoginComponent},
+  { path: 'admin/view', component: AdminViewComponent, canActivate: [AuthGuard]},
+  { path: 'admin/add', component: AddCarComponent, canActivate: [AuthGuard] },
+  { path: 'admin/update', component: UpdateCarComponent, canActivate: [AuthGuard]},
+  { path: 'admin/delete', component: DeleteCarComponent, canActivate: [AuthGuard]},
   { path: 'shop/:info/:tipo', component: FiltradoComponent},
   { path: 'shop/:precio', component: FiltradoComponent},
   { path: 'detail/:id', component: ViewDetailsComponent},
   { path: 'update/:id', component: FormUpdateComponent },
   { path: 'carrito', component: CarritoComponent},
   { path: 'admin/activate', component: ActivateCarComponent},
+  { path: 'shop/payment/:id', component: PayComponent},
+  { path: 'carrito/payment', component: PayComponent},
   { path: '**', redirectTo: '' }
 ];

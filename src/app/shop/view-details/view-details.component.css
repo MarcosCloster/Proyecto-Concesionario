@@ -45,7 +45,9 @@ main {
     margin-bottom: 30px;
     text-transform: uppercase;
 }
-
+.contact a{
+    text-decoration: none;
+}
 .btn{
     margin-top: 1.5vh;
     height: 5vh;

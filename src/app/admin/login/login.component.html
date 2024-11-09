@@ -1,0 +1,17 @@
+<form action="" [formGroup]="form" autocomplete="off">
+    <div class="container">
+        <label for="inicio">Nombre:</label>
+        <input type="text" id="inicio" name="inicio" placeholder="ingresa un nombre" formControlName="name">
+        @if (form.get('name')?.invalid && form.get('name')?.touched) {
+            <span>Completar formulario</span>
+        }
+        <label for="password">Contraseña:</label>
+        <input [type]="showPassword ? 'text' : 'password'" name="password" id="password" formControlName="password">        @if (form.get('password')?.invalid && form.get('password')?.touched) {
+            <span>Completar formulario</span>
+        }
+
+        <button type="button" (click)="togglePasswordVisibility()"> {{ showPassword ? 'Ocultar' : 'Mostrar' }} Contraseña </button>
+
+        <button type="button" (click)="verificarLogin()">ingresar</button>
+    </div>
+</form>
