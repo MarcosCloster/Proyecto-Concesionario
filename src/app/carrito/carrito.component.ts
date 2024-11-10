@@ -18,6 +18,7 @@ export class CarritoComponent implements OnInit{
 
   cartItems: Auto[] = [];
   router = inject(Router)
+  totalPrice: number = 0;
   constructor(private cartService: CarritoService) {}
 
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class CarritoComponent implements OnInit{
 
   loadCartItems() {
     this.cartItems = this.cartService.getCartItems();
+    this.precioTotal();
     console.log(this.cartItems)
   }
 
@@ -49,6 +51,17 @@ export class CarritoComponent implements OnInit{
       alert('No se puede pagar por un carrito vacio')
     }
     
+  }
+
+  precioTotal()
+  {
+    let sum=0;
+    for(let cart of this.cartItems)
+    {
+      console.log('price', cart.price)
+      sum += cart.price
+    }
+    this.totalPrice = sum;
   }
   
 }

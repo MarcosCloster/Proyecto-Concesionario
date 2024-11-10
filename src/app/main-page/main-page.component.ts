@@ -4,11 +4,12 @@ import { HeaderComponent } from '../otherComponents/header/header.component';
 import { JsonService } from '../services/json.service';
 import { Auto } from '../interfaces/autos';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, RouterModule],
+  imports: [FooterComponent, HeaderComponent, RouterModule, CommonModule],
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
 })

@@ -25,9 +25,16 @@ main{
         margin-right: 5px;
     }
 
-    .cars{
-        margin-left: 5px;
+    .total {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;        
+        width: 80%;
+    
+        
     }
+
+    
 }
 
 @media(max-width:1810px){
@@ -124,6 +131,19 @@ main{
 
 .car .btn{
     margin-bottom: 15px;
+}
+
+.total p{
+    margin: 5vh auto;
+
+    background-color: #253551;
+    height: 50px;
+    width: 400px;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+    font-size: 25px;
+
 }
 
 

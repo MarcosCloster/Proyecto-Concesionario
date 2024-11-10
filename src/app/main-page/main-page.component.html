@@ -9,7 +9,8 @@
     
     <div class="category">
         <div class="new">
-            <a href="">
+            <a [routerLink]="['/shop', 'Nuevo', 'type']">
+
                 <div class="text">
                     <p class="title">0 KM</p>
                     <p class="info">Maneja tu auto ahora!</p>
@@ -18,7 +19,7 @@
             </a>
         </div>
         <div class="used">
-            <a href="">
+            <a [routerLink]="['/shop', 'Usado', 'type']">
                 <div class="text">
                     <p class="title">Usados</p>
                     <p class="info">Calidad asegurada en todos los autos</p>
@@ -37,7 +38,7 @@
                 <a href=""><img [src]="auto.photos" alt=""></a>
                 <div class="carInfo">
                     <p class="carName"><a href="">{{auto.name}}</a></p>
-                    <p class="carPrice">$ {{auto.price}}</p>  
+                    <p class="carPrice">$ {{auto.price | number:'1.2-2' }}</p>  
                 </div>
             </div>
             </a>

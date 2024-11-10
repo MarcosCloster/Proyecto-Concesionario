@@ -5,11 +5,12 @@ import { FooterComponent } from "../../otherComponents/footer/footer.component";
 import { HeaderComponent } from "../../otherComponents/header/header.component";
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { identifierName } from '@angular/compiler';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-filtrado',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, RouterModule],
+  imports: [FooterComponent, HeaderComponent, RouterModule, CommonModule],
   templateUrl: './filtrado.component.html',
   styleUrl: './filtrado.component.css'
 })

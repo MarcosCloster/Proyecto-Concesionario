@@ -65,7 +65,7 @@
         <div class="contact">
             <h4><strong>Precio</strong></h4>
             <hr>
-            <span>$ {{car.price}}</span>
+            <span>$ {{car.price | number:'1.2-2' }}</span>
             <div class="row">
                 <button [routerLink]="['/payment', car.id]"  class="btn" type="button" style="align-items: center; display: flex; justify-content: center;" >
                     <svg style="margin-right: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16">

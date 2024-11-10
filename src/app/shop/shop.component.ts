@@ -5,11 +5,12 @@ import { JsonService } from '../services/json.service';
 import { Auto } from '../interfaces/autos';
 import { filter } from 'rxjs';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, RouterModule],
+  imports: [FooterComponent, HeaderComponent, RouterModule, CommonModule],
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })

@@ -6,11 +6,12 @@ import { Auto } from 'src/app/interfaces/autos';
 import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { DateService } from 'src/app/services/date.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-carrito-payment',
   standalone: true,
-  imports: [HeaderComponent, CarritoComponent, FooterComponent, FormsModule, ReactiveFormsModule],
+  imports: [HeaderComponent, CarritoComponent, FooterComponent, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './carrito-payment.component.html',
   styleUrl: './carrito-payment.component.css'
 })

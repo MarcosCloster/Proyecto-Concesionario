@@ -160,12 +160,12 @@ main{
 .latestCar .cars .box{
     transition: transform 0.3s ease;
     margin: 2.5vh;
-    width: 35vh;
+    width: 30vh;
     min-height: 50vh;
+    border: 1px black solid;
     overflow: hidden;
     border-radius: 15px;
-    box-shadow: 0 0 20px grey;
-
+   
 }
 
 .latestCar .cars .box img{

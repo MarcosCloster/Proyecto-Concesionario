@@ -10,7 +10,7 @@
                 <div class="car-details">
                     <p><strong>Auto:</strong> {{ car.name }}</p>
                     <p><strong>Año:</strong> {{ car.year }}</p>
-                    <p><strong>Precio:</strong> {{ car.price}}</p>
+                    <p><strong>Precio:</strong> {{ car.price | number:'1.2-2' }}</p>
                     <p><strong>Estado:</strong> {{ car.description }}</p>
                 </div>
             </div>

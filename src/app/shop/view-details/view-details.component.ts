@@ -45,7 +45,7 @@ export class ViewDetailsComponent implements OnInit{
   }
 
   redirection() {
-    window.open('https://wa.me/5492236566864?text=Holacomoestas?', '_blank');
+    window.open('https://wa.me/5492236566864?text=Hola+como+estas?', '_blank');
   }
   
 }
