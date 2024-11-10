@@ -4,7 +4,6 @@
         <div class="car-list">
           <h2>Resumen de Reserva</h2>
           <div class="car-item">
-            <li>
                 <img [src]="car.photos" alt="Foto del auto" class="car-image">
                 <div class="car-details">
                 <p><strong>Auto:</strong> {{ car.name }}</p>
@@ -12,7 +11,6 @@
                 <p><strong>Precio:</strong> {{ car.price | currency }}</p>
                 <p><strong>Estado:</strong> {{ car.description }}</p>
                 </div>
-            </li>
           </div>
         </div>
       
@@ -22,13 +20,11 @@
             <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
             <input type="date" id="reservationDate" [(ngModel)]="selectedDate" name="reservationDate" required>
       
-            <label for="reservationTime">Seleccione un horario:</label>
-            <select id="reservationTime" [(ngModel)]="selectedTime" name="reservationTime" required>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="12:00 PM">12:00 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="4:00 PM">4:00 PM</option>
-            </select>
+            <label for="titular">Nombre del titular:</label>
+            <input type="text" id="titular" name="titular" formControlName="titular">
+            @if (form.get('titular')?.invalid && form.get('titular')?.touched) {
+                <span style="color: red;">Completar Formulario</span>
+            }
       
             <label for="cardNumber">Número de tarjeta:</label>
             <input type="number" id="cardNumber" formControlName="cardNumber">

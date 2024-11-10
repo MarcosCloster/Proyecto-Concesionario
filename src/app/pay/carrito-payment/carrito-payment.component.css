@@ -23,7 +23,7 @@ main{
 }
   
 .car-item {
-    display: flex;
+    display: block;
     align-items: center;
     margin-bottom: 20px;
     padding: 10px;

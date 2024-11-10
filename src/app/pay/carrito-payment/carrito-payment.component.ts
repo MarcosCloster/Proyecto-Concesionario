@@ -81,6 +81,7 @@ export class CarritoPaymentComponent implements OnInit{
     }
     
     form = this.fb.group({
+      titular: ['', [Validators.required]],
       cardNumber: ['', [Validators.required, Validators.minLength(16)]],
       cardName: ['', [Validators.required, this.cardLengthValidator()]],
       expiracyDate: ['', [Validators.required, this.expiracyDateValidator()]],
