@@ -22,8 +22,19 @@
             <h2>Información de Pago</h2>
             <form [formGroup]="form">
                 <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
-                <input type="date" id="reservationDate" [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}"
-                    name="reservationDate" required>
+                <input type="date" id="reservationDate" formControlName="reservationDate" (change)="onDateChange($event)">
+
+                @if (isDateReserved(form.get('reservationDate')!.value)) {
+                    <span style="color: red;">¡Esta fecha ya está reservada! Elija otra</span>
+                }
+
+                @if (form.get('reservationDate')?.touched && form.get('reservationDate')?.invalid) {
+                    <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+                }
+
+                @if (form.get('reservationDate')?.hasError('invalidDate') && form.get('reservationDate')?.touched) {
+                    <span style="color: red; display: flex; flex-direction: column;">La fecha de reserva no puede ser anterior a la fecha actual</span>
+                }
 
                 <label for="titular">Nombre del titular:</label>
                 <input type="text" id="titular" name="titular" formControlName="titular">

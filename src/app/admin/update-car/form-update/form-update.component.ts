@@ -15,7 +15,7 @@ export class FormUpdateComponent implements OnInit{
   fb = inject(FormBuilder)
   carService = inject(JsonService)
   route = inject(ActivatedRoute)
-  router = inject(Router); // Inyectar el Router
+  router = inject(Router); 
 
   
 
@@ -30,20 +30,20 @@ export class FormUpdateComponent implements OnInit{
   }
 
 
-  formProduct = this.fb.group({
+  formCar = this.fb.group({
 
-    name: ['', Validators.required],
-    brand: ['', Validators.required],
-    model: ['', Validators.required],
-    year: [0, [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]], // Asegúrate de establecer un valor por defecto
+    name: ['', [Validators.required, Validators.maxLength(50)]],
+    brand: ['', [Validators.required, Validators.maxLength(20)]],
+    model: ['', [Validators.required, Validators.maxLength(20)]],
+    year: [0, [Validators.required, Validators.min(1970), Validators.max(new Date().getFullYear())]],
     fuel: ['', Validators.required],
-    doors: [0, [Validators.required, Validators.min(1)]],
-    kph: [0, Validators.required],
+    doors: [0, [Validators.required, Validators.min(3)]],
+    kph: [0, [Validators.required, Validators.min(0)]],
     engine: ['', Validators.required],
     transmision: ['', Validators.required],
     traction: ['', Validators.required],
     color: ['', Validators.required],
-    price: [0, [Validators.required, Validators.min(0)]],
+    price: [0, [Validators.required, Validators.min(1000)]],
     photos: [''],
     description: ['', Validators.required],
   });
@@ -51,7 +51,7 @@ export class FormUpdateComponent implements OnInit{
 
 
   setProduct(car: Auto) { 
-    this.formProduct.patchValue({
+    this.formCar.patchValue({
       name: car.name,
       brand: car.brand,
       model: car.model,
@@ -82,7 +82,7 @@ export class FormUpdateComponent implements OnInit{
 
   updateCar ()
   {
-    const car = this.formProduct.getRawValue() as unknown as Auto
+    const car = this.formCar.getRawValue() as Auto
     this.carService.putJson(car, this.id).subscribe
     ({
      next: () => {

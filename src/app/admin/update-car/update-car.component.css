@@ -45,9 +45,9 @@
     width: 26.9vh;
     height: auto;
     transition: transform 0.3s ease;
-    border: 1px black solid;
     border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 0 15px grey;
 }
 
 .car:hover{

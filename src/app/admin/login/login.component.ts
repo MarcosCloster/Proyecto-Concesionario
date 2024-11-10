@@ -29,7 +29,7 @@ export class LoginComponent {
   
     if (this.authService.login(name!, password!)) {
       this.router.navigateByUrl('/admin/view');
-      this.form.reset(); // Resetea el formulario después de un login exitoso
+      this.form.reset();
     } else {
       alert('Nombre de usuario o contraseña incorrectos');
     }

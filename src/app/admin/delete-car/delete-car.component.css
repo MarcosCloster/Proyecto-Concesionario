@@ -45,13 +45,13 @@
     width: 26.9vh;
     height: auto;
     transition: transform 0.3s ease;
-    border: 1px black solid;
     border-radius: 15px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 0 15px grey;
 }
 
 .car:hover{
@@ -93,6 +93,7 @@
 .cars .car .info{
     margin-left: 2px;
     margin-right: 2px;
+    padding: 5px;
 }
 
 .btn{

@@ -1,28 +1,62 @@
 <div class="container position-absolute top-50 start-50 translate-middle">
-  <div class="row">
+  <h1>Agregar</h1>
+  <form class="row" [formGroup]="formCar">
     <div class="col-md-6">
       <label class="form-label" for="name">Nombre:</label>
-      <input class="form-control" type="text" id="name" [(ngModel)]="car.name" [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="text" id="name" formControlName="name">
     </div>
+    @if (formCar.get('name')?.touched && formCar.get('name')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('name')?.getError('maxlength')) {
+      <span style="color: red; display: flex; flex-direction: column;">Maximo de letras requerido</span>
+    }
 
     <div class="col-md-6">
       <label class="form-label" for="brand">Marca:</label>
-      <input class="form-control" type="text" id="brand" [(ngModel)]="car.brand" [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="text" id="brand" formControlName="brand">
     </div>
+    @if (formCar.get('brand')?.touched && formCar.get('brand')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('brand')?.getError('maxlength')) {
+      <span style="color: red; display: flex; flex-direction: column;">Maximo de letras requerido</span>
+    }
 
     <div class="col-md-3">
       <label class="form-label" for="model">Modelo:</label>
-      <input class="form-control" type="text" id="model" [(ngModel)]="car.model" [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="text" id="model" formControlName="model">
     </div>
+    @if (formCar.get('model')?.touched && formCar.get('model')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('model')?.getError('maxlength')) {
+      <span style="color: red; display: flex; flex-direction: column;">Maximo de letras requerido</span>
+    }
 
     <div class="col-md-3">
       <label class="form-label" for="year">Año:</label>
-      <input class="form-control" value="" type="number" id="year" [(ngModel)]="car.year" [ngModelOptions]="{standalone: true}">
+      <input class="form-control" value="" type="number" id="year" formControlName="year">
     </div>
+    @if (formCar.get('year')?.touched && formCar.get('year')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('year')?.hasError('min') && formCar.get('year')?.touched) {
+      <span style="color: red; display: flex; flex-direction: column;">El año debe ser mayor al 1970</span>
+
+    }
+
+    @if (formCar.get('year')?.hasError('max') && formCar.get('year')?.touched) {
+      <span style="color: red; display: flex; flex-direction: column;">El año no puede ser mayor al actual</span>
+    }
 
     <div class="col-md-3">
       <label class="form-label" for="fuel">Tipo de combustible:</label>
-      <select class="form-select" id="fuel" [(ngModel)]="car.fuel" [ngModelOptions]="{standalone: true}">
+      <select class="form-select" id="fuel" formControlName="fuel">
         <option value="" disabled selected>Options...</option>
         <option value="nafta">Nafta</option>
         <option value="gas">Gas</option>
@@ -32,30 +66,49 @@
 
     <div class="col-md-3">
       <label class="form-label" for="doors">Puertas:</label>
-      <input class="form-control" type="number" id="doors" [(ngModel)]="car.doors"
-        [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="number" id="doors" formControlName="doors">
     </div>
+    @if (formCar.get('doors')?.touched && formCar.get('doors')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('doors')?.hasError('min') && formCar.get('doors')?.touched) {
+      <span style="color: red; display: flex; flex-direction: column;">El auto debe tener 3 puertas o más</span>
+
+    }
 
     <div class="col-md-2">
       <label class="form-label" for="kph">Kilometros:</label>
-      <input class="form-control" type="number" id="kph" [(ngModel)]="car.kph" [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="number" id="kph" formControlName="kph">
     </div>
+    @if (formCar.get('kph')?.touched && formCar.get('kph')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('kph')?.hasError('min') && formCar.get('kph')?.touched) {
+      <span style="color: red; display: flex; flex-direction: column;">El auto debe tener al menos 0 Kilómetros</span>
+    }
 
     <div class="col-md-3">
       <label class="form-label" for="engine">Motor:</label>
-      <input class="form-control" type="text" id="engine" [(ngModel)]="car.engine"
-        [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="text" id="engine" formControlName="engine">
     </div>
+    @if (formCar.get('engine')?.touched && formCar.get('engine')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
 
     <div class="col-md-3">
       <label class="form-label" for="transmision">Transmision:</label>
-      <input class="form-control" type="text" id="transmision" [(ngModel)]="car.transmision"
-        [ngModelOptions]="{standalone: true}">
+      <select class="form-select" name="transmision" id="transmision" formControlName="transmision">
+      <option value="Manual">Manual</option>
+      <option value="Automatico">Automatico</option>
+      </select>
     </div>
+   
 
     <div class="col-md-4">
       <label class="form-label" for="description">Descripción:</label>
-      <select class="form-select" id="description" [(ngModel)]="car.description" [ngModelOptions]="{standalone: true}">
+      <select class="form-select" id="description" formControlName="description">
       <option value="" disabled selected>Options...</option>
       <option value="Usado">Usado</option>
       <option value="Nuevo">Nuevo</option>
@@ -64,28 +117,39 @@
 
     <div class="col-md-4">
       <label class="form-label" for="traction">Traccion:</label>
-      <input class="form-control" type="text" id="traction" [(ngModel)]="car.traction"
-        [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="text" id="traction" formControlName="traction">
     </div>
+    @if (formCar.get('traction')?.touched && formCar.get('traction')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
 
     <div class="col-md-4">
       <label class="form-label" for="price">Precio:</label>
-      <input class="form-control" type="number" id="price" [(ngModel)]="car.price"
-        [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="number" id="price" formControlName="price">
     </div>
+    @if (formCar.get('price')?.touched && formCar.get('price')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
+
+    @if (formCar.get('price')?.hasError('min') && formCar.get('price')?.touched ) {
+      <span style="color: red; display: flex; flex-direction: column;">El Precio debe ser mayor a 1000</span>
+
+    }
 
     <div class="col-md-4">
       <label class="form-label" for="color">Color:</label>
-      <input class="form-control" type="text" id="color" [(ngModel)]="car.color" [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="text" id="color" formControlName="color">
     </div>
+    @if (formCar.get('color')?.touched && formCar.get('color')?.invalid) {
+      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+    }
 
     <div class="col-12">
       <label class="form-label" for="photos">Fotos:</label>
-      <input class="form-control" type="file" id="photos" [(ngModel)]="car.photos"
-        [ngModelOptions]="{standalone: true}">
+      <input class="form-control" type="file" id="photos" formControlName="photos">
     </div>
 
-  </div>
+  </form>
 
   <div class="buttons">
     <button class='btn' (click)="postCar()">Agregar Auto</button>

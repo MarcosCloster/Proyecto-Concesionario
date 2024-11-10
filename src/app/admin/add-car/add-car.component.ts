@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
@@ -7,7 +7,7 @@ import { JsonService } from 'src/app/services/json.service';
 @Component({
   selector: 'app-add-car',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, ReactiveFormsModule],
   templateUrl: './add-car.component.html',
   styleUrls: ['./add-car.component.css'],
 })
@@ -18,6 +18,7 @@ export class AddCarComponent {
   carService = inject(JsonService)
   route = inject(Router)
   carArray: Auto[] = []; 
+  fb = inject(FormBuilder);
 
   car: Auto = 
   {
@@ -57,6 +58,24 @@ export class AddCarComponent {
       }
     });
   }
+
+  formCar = this.fb.group({
+
+    name: ['', [Validators.required, Validators.maxLength(50)]],
+    brand: ['', [Validators.required, Validators.maxLength(20)]],
+    model: ['', [Validators.required, Validators.maxLength(20)]],
+    year: [0, [Validators.required, Validators.min(1970), Validators.max(new Date().getFullYear())]],
+    fuel: ['', Validators.required],
+    doors: [0, [Validators.required, Validators.min(3)]],
+    kph: [0, [Validators.required, Validators.min(0)]],
+    engine: ['', Validators.required],
+    transmision: ['', Validators.required],
+    traction: ['', Validators.required],
+    color: ['', Validators.required],
+    price: [0, [Validators.required, Validators.min(1000)]],
+    photos: [''],
+    description: ['', Validators.required],
+  });
 
 
   
