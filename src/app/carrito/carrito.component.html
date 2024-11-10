@@ -1,6 +1,10 @@
 <app-header></app-header>
 <main>
     <h2>Carrito de Compras</h2>
+    <div class="buttons">
+        <button class="btn" (click)="clearCart()">Vaciar Carrito</button> 
+        <button class="btn" (click)="sendCarrito()">Reservar</button>
+    </div>
     <div class="cars">
         @for (item of cartItems; track $index) {
         <div class="car">
@@ -9,17 +13,15 @@
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>
                         <p class="carName"><a href="">{{item.name}}</a></p>
-                        <p class="carPrice">{{item.price}}</p>  
+                        <p class="carPrice">$ {{item.price}}</p>  
                     </div>
                 </a>
-                <button type="button" (click)="removeItem($index)">Borrar</button>
+                <button class="btn" type="button" (click)="removeItem($index)">Borrar</button>
             </div>
         } @empty {
             <h3>No hay vehiculos</h3>
         }
     </div>
-    <button (click)="clearCart()">Vaciar Carrito</button> 
-    <button (click)="sendCarrito()">Reservar</button>
 </main>
 
 <app-footer class="footer"></app-footer>

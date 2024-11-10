@@ -142,7 +142,7 @@
       "price": 27100000,
       "color": "Gris",
       "photos": "http://http2.mlstatic.com/D_668473-MLA80430990819_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951045810",
@@ -700,7 +700,7 @@
       "price": 13500000,
       "color": "Blanco",
       "photos": "http://http2.mlstatic.com/D_981588-MLA80172686260_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951065604",
@@ -721,6 +721,5 @@
       "isActive": true
     }
   ],
-
   "date": []
 }

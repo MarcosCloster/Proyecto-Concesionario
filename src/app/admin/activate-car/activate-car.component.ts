@@ -1,10 +1,11 @@
-import { Component, inject, OnInit } from '@angular/core';import { Auto } from 'src/app/interfaces/autos';
+import { Component, inject, OnInit } from '@angular/core';import { RouterLink } from '@angular/router';
+import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
 
 @Component({
   selector: 'app-activate-car',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './activate-car.component.html',
   styleUrl: './activate-car.component.css'
 })
@@ -41,13 +42,10 @@ export class ActivateCarComponent implements OnInit {
 
   darDeAlta(car: Auto) {
     const updatedCar = { ...car, isActive: true };
-    console.log(updatedCar);
-    console.log(car.id);
-  
-    // Convierte el ID a string antes de pasarlo
     this.carServicio.putJson(updatedCar, car.id!.toString()).subscribe({
       next: (response: Auto) => {
         console.log(`Auto ${response.name} actualizado a inactivo`);
+        window.location.reload();
       },
       error: (e: Error) => {
         console.log(e.message);

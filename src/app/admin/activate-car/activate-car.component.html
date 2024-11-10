@@ -1,18 +1,20 @@
-<div class="cars">
-    @for(car of carArray; track $index) {
-        @if(car.isActive === false)
-        {
-            <div class="car">
-                        <img src="../../favicon.ico" alt="Imagen del auto">
-                        <div class="info">
-                            <p class="type">Kilómetros: {{car.kph}}</p>
-                            <p class="title">Marca: {{car.name}}</p>
-                            <p class="price">Precio: ${{car.price}}</p>
-                        </div>
-                        <button type="button" (click)="darDeAlta(car)">Borrar Auto</button>
-                </div>
+<div class="container">
+    <button routerLink="/admin/view" class="btn" type="button">Menu admin</button>
+    <div class="cars">
+        @for (item of carArray; track $index) {
+        @if (item.isActive === false) {
+        <div class="car">
+            <img [src]="item.photos" alt="">
+            <div class="info">
+                <p class="type"><a href="">{{item.description}}</a></p>
+                <p class="carName"><a href="">{{item.name}}</a></p>
+                <p class="carPrice">{{item.price}}</p>
+            </div>
+            <button class="btn" type="button" (click)="darDeAlta(item)">Agregar Auto</button>
+        </div>
         }
-        
-    }
-    <a href="/admin/view"><button type="button">Menu admin</button></a>
+        } @empty {
+        <h3>No hay vehiculos</h3>
+        }
+    </div>
 </div>

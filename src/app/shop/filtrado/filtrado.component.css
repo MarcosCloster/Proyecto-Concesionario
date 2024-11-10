@@ -66,10 +66,21 @@ hr{
     width: 60%;
     height: auto;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 1vh;
+    gap: 2vh;
     margin-right: 1vh;
     margin-left: 3vh;  
+}
+
+@media (max-width: 420px){
+    .category{
+        margin-right: 5px;
+    }
+
+    .cars{
+        margin-left: 5px;
+    }
 }
 
 @media(max-width:1810px){
@@ -80,7 +91,8 @@ hr{
 
 .cars .car{
     width: 26.9vh;
-    height: auto;
+    border-radius: 15px;
+    height: 50vh;
     transition: transform 0.3s ease;
     view-timeline-name: --car;
     view-timeline-axis: block;
@@ -89,6 +101,7 @@ hr{
     animation-range: entry 25% cover 30%;
     animation-fill-mode: both;
     overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 .car:hover{
@@ -101,9 +114,9 @@ hr{
 }
 
 .cars .car img {
-    width: 100%;       
-    height: 20vh;      
-    object-fit: cover; 
+    width: 100%;       /* Hace que la imagen ocupe todo el ancho del contenedor */
+    height: 20vh;      /* Ajusta la altura según la apariencia que prefieras */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
 }
 
 .cars .car .type{
@@ -112,17 +125,19 @@ hr{
     margin: 0;
 }
 
-.cars .car .title{
-    font-size: 2vh;
-    margin: 0;
-}
-
-.cars .car .price{
-    font-size: 1.5vh;
+.cars .car .carPrice{
+    font-size: 2.5vh;
+    margin-top: 5px;
 }
 
 .cars .car .carName{
     margin: 0;
+    font-size: 3vh;
+}
+
+.car .info{
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 ul{
@@ -141,4 +156,3 @@ ul{
         scale: 100%;
     }
 }
-

@@ -38,4 +38,5 @@ export class LoginComponent {
   togglePasswordVisibility() { 
     this.showPassword = !this.showPassword; 
   }
+  
 }

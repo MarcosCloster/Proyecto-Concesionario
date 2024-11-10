@@ -56,19 +56,19 @@ a:hover
 @media (width < 450px)
 {
     .container{
-        width: auto;
-        height: 50vh;
+        width: 240px;
+        height: 55vh;
     }
 
     .container h1{
-        font-size: 3vh;
+        font-size: 4vh;
     }
     
     .container h3{
-        font-size: 2vh;
+        font-size: 3vh;
     }
     
     a{
-        font-size: 2vh;
+        font-size: 3vh;
     }
 }

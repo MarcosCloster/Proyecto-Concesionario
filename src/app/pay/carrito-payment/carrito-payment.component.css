@@ -16,16 +16,16 @@ main{
   
 .car-list {
     flex: 2;
-    background-color: #f9f9f9;
+    background-color: rgba(249, 249, 249, 0.7);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
   
 .car-item {
-    display: block;
+    display: flex;
+    width: 100%;
     align-items: center;
-    margin-bottom: 20px;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -47,7 +47,7 @@ main{
   
 .payment-info {
     flex: 1;
-    background-color: #fff;
+    background-color: rgba(249, 249, 249, 0.7);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

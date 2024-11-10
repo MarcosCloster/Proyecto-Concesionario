@@ -1,9 +1,44 @@
 .container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    margin: 0 auto;
+    width: 60%;
+    background-color: rgba(172, 172, 172, 0.5);
+    padding: 20px;
+    border-radius: 15px;
 }
 
-.boton{
-    margin-top: 10vh;
+
+.btn{
+    margin-top: 1.5vh;
+    height: auto;
+    width: 15vh;
+    background-color: #253551;
+    color: white;
+    border: none;
+    font-size: 1.8vh;
+    transform: color 0.3s ease;
+    transform: background-color 0.3 ease;
+}
+
+.btn:hover{
+    color: #e2e0e0;
+    background-color: #2e466e;
+}
+
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+
+.buttons{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttons button{
+    font-size: 2vh;
+    width: 20vh;
 }

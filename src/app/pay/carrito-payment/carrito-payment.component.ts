@@ -61,7 +61,7 @@ export class CarritoPaymentComponent implements OnInit{
     cvvLengthValidator(): ValidatorFn {
       return (control: AbstractControl): ValidationErrors | null => {
         const value = control.value ? control.value.toString() : '';
-        if (value.length === 4) {
+        if (value.length === 3) {
           return null;
         } else {
           return { invalidCvvLength: true };
@@ -83,7 +83,7 @@ export class CarritoPaymentComponent implements OnInit{
     form = this.fb.group({
       titular: ['', [Validators.required]],
       cardNumber: ['', [Validators.required, Validators.minLength(16)]],
-      cardName: ['', [Validators.required, this.cardLengthValidator()]],
+      cardName: ['', [Validators.required]],
       expiracyDate: ['', [Validators.required, this.expiracyDateValidator()]],
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
     });

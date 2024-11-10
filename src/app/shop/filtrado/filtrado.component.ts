@@ -25,12 +25,12 @@ export class FiltradoComponent implements OnInit{
         this.getCarByDescription(params.get('info')!)
       } else if(params.get('tipo') == 'fuel'){
         this.getCarsByFuel(params.get('info')!)
-      } else if (params.get('precio') !== null && !isNaN(Number(params.get('precio'))))
-      {
+      } else if (params.get('precio') !== null && !isNaN(Number(params.get('precio')))){
         const precioParam = params.get('precio');
         const precio = precioParam ? +precioParam : 0; // Convierte a número y usa un valor por defecto
         this.filtrarPorPrecio(precio);
-        
+      } else if (params.get('tipo') === 'filter'){
+        this.sortArray(params.get('info')!);
       }
       
     })
@@ -153,6 +153,25 @@ export class FiltradoComponent implements OnInit{
       console.log(this.carArrayFiltrado)
     }
     
+  }
+
+  sortArray(tipo: string){
+    this.carService.getJson().subscribe({
+      next: (autos) => {
+        if(tipo === 'lowestPrice'){
+          console.log('Hola')
+          autos.sort((a, b) => a.price - b.price)
+        } else if(tipo === 'highestPrice'){
+          console.log('Hola1')
+          autos.sort((a, b) => b.price - a.price)
+        } else if(tipo === 'name'){
+          console.log('Hola2')
+          autos.sort((a, b) => a.name.localeCompare(b.name))
+        }
+        
+        this.carArrayFiltrado = autos
+      }
+    })
   }
   
 }

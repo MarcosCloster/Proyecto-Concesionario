@@ -1,50 +1,88 @@
-<form [formGroup]="formProduct" (ngSubmit)="updateCar()">
-    <div class="container">
-      <label for="name">Marca:</label>
-      <input type="text" id="name" formControlName="name">
-  
-      <label for="model">Modelo:</label>
-      <input type="text" id="model" formControlName="model">
-  
-      <label for="year">Año:</label>
-      <input type="number" id="year" formControlName="year">
-  
-      <label for="fuel">Tipo de combustible:</label>
-      <select id="fuel" formControlName="fuel">
+<div class="container position-absolute top-50 start-50 translate-middle">
+  <form class="row" [formGroup]="formProduct">
+    <div class="col-md-6">
+      <label class="form-label" for="name">Nombre:</label>
+      <input class="form-control" type="text" id="name" formControlName="name">
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label" for="brand">Marca:</label>
+      <input class="form-control" type="text" id="brand" formControlName="brand">
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="model">Modelo:</label>
+      <input class="form-control" type="text" id="model" formControlName="model">
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="year">Año:</label>
+      <input class="form-control" value="" type="number" id="year" formControlName="year">
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="fuel">Tipo de combustible:</label>
+      <select class="form-select" id="fuel" formControlName="fuel">
+        <option value="" disabled selected>Options...</option>
         <option value="nafta">Nafta</option>
         <option value="gas">Gas</option>
+        <option value="Diésel">Diésel</option>
       </select>
-  
-      <label for="doors">Puertas:</label>
-      <input type="number" id="doors" formControlName="doors">
-  
-      <label for="kph">Kilometros Recorridos:</label>
-      <input type="number" id="kph" formControlName="kph">
-  
-      <label for="engine">Motor:</label>
-      <input type="text" id="engine" formControlName="engine">
-  
-      <label for="transimision">Transimision:</label>
-      <input type="text" id="transimision" formControlName="transmision">
-  
-      <label for="traction">Traccion:</label>
-      <input type="text" id="traction" formControlName="traction">
-  
-      <label for="color">Color:</label>
-      <input type="text" id="color" formControlName="color">
-  
-      <label for="price">Precio:</label>
-      <input type="number" id="price" formControlName="price">
-  
-      <label for="photos">Fotos:</label>
-      <input type="file" id="photos" formControlName="photos">
-  
-      <label for="description">Descripción:</label>
-      <input type="text" id="description" formControlName="description">
-     
-        <button class='boton' type="submit">Agregar Auto</button>
-
-        <a href="/admin/view"><button type="button">Menu admin</button></a>
     </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="doors">Puertas:</label>
+      <input class="form-control" type="number" id="doors" formControlName="doors">
+    </div>
+
+    <div class="col-md-2">
+      <label class="form-label" for="kph">Kilometros:</label>
+      <input class="form-control" type="number" id="kph" formControlName="kph">
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="engine">Motor:</label>
+      <input class="form-control" type="text" id="engine" formControlName="engine">
+    </div>
+
+    <div class="col-md-3">
+      <label class="form-label" for="transmision">Transmision:</label>
+      <input class="form-control" type="text" id="transmision" formControlName="transmision">
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="description">Descripción:</label>
+      <select class="form-select" id="description" formControlName="description">
+      <option value="" disabled selected>Options...</option>
+      <option value="Usado">Usado</option>
+      <option value="Nuevo">Nuevo</option>
+      </select>
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="traction">Traccion:</label>
+      <input class="form-control" type="text" id="traction" formControlName="traction">
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="price">Precio:</label>
+      <input class="form-control" type="number" id="price" formControlName="price">
+    </div>
+
+    <div class="col-md-4">
+      <label class="form-label" for="color">Color:</label>
+      <input class="form-control" type="text" id="color" formControlName="color">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label" for="photos">Fotos:</label>
+      <input class="form-control" type="file" id="photos" formControlName="photos">
+    </div>
+
   </form>
-  
+
+  <div class="buttons">
+    <button class='btn' (click)="updateCar()">Agregar Auto</button>
+    <button class="btn" type="button" routerLink="/admin/view">Menu admin</button>
+  </div>
+</div>

@@ -33,6 +33,7 @@ export class FormUpdateComponent implements OnInit{
   formProduct = this.fb.group({
 
     name: ['', Validators.required],
+    brand: ['', Validators.required],
     model: ['', Validators.required],
     year: [0, [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]], // Asegúrate de establecer un valor por defecto
     fuel: ['', Validators.required],
@@ -52,16 +53,17 @@ export class FormUpdateComponent implements OnInit{
   setProduct(car: Auto) { 
     this.formProduct.patchValue({
       name: car.name,
+      brand: car.brand,
       model: car.model,
-      year: car.year || 0, // Asignar 0 si es undefined
+      year: car.year , 
       fuel: car.fuel,
-      doors: car.doors || 0, // Asignar 0 si es undefined
-      kph: car.kph || 0, // Asignar 0 si es undefined
+      doors: car.doors, 
+      kph: car.kph, 
       engine: car.engine,
       transmision: car.transmision,
       traction: car.traction,
       color: car.color,
-      price: car.price || 0, // Asignar 0 si es undefined
+      price: car.price,
       description: car.description,
     });
   }
@@ -69,7 +71,6 @@ export class FormUpdateComponent implements OnInit{
   getCarByID(id: string | null) {
     this.carService.getById(id).subscribe({
       next: (car: Auto) => {
-        console.log('Auto obtenido:', car); // Verifica la estructura aquí
         this.setProduct(car);
       },
       error: (e: Error) => {
@@ -82,12 +83,10 @@ export class FormUpdateComponent implements OnInit{
   updateCar ()
   {
     const car = this.formProduct.getRawValue() as unknown as Auto
-
-    console.log('jkdjkdz', car)
     this.carService.putJson(car, this.id).subscribe
     ({
      next: () => {
-      this.router.navigate(['/admin'])
+      this.router.navigate(['/admin/view'])
       alert('Tarea actualizada')
      } ,
      error: (e: Error) => {

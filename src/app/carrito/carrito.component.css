@@ -7,19 +7,17 @@ main{
     justify-content: center;
     text-align: center;
     align-items: center;
-    padding-bottom: 19em;
+    padding-bottom: 50vh;
 }
 
 
 .cars{
-    width: 60%;
+    width: 70%;
     height: auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1vh;
-    margin-right: 1vh;
-    margin-left: 3vh;  
+    gap: 4vh;  
 }
 
 @media (max-width: 420px){
@@ -39,16 +37,12 @@ main{
 }
 
 .cars .car{
-    padding-top: 5px;
-    width: 26.9vh;
+    width: 30vh;
     height: auto;
-    transition: transform 0.3s ease;
     animation-name: show;
     overflow: hidden;
-}
-
-.car:hover{
-    transform: scale(1.03);
+    border-radius: 15px;
+    box-shadow: 0 0 20px gray;
 }
 
 .cars .car a{
@@ -58,7 +52,7 @@ main{
 
 .cars .car img {
     width: 100%;      
-    height: 20vh;     
+    height: auto;     
     object-fit: cover;
 }
 
@@ -83,5 +77,53 @@ main{
     margin: 0;
 }
 
+.car .info{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn{
+    height: auto;
+    width: 15vh;
+    background-color: #253551;
+    color: white;
+    border: none;
+    font-size: 1.8vh;
+    transform: color 0.3s ease;
+    transform: background-color 0.3 ease;
+}
+
+.btn:hover{
+    color: #e2e0e0;
+    background-color: #2e466e;
+}
+
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+
+.buttons{
+    margin-top: 20px;
+    display: flex;
+    margin-bottom: 35px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.buttons .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    margin-left: 20px;
+    font-size: 3vh;
+    width: 25vh;
+}
+
+.car .btn{
+    margin-bottom: 15px;
+}
 
 

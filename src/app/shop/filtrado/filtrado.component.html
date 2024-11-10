@@ -6,9 +6,9 @@
         <details>
             <summary>Order by: </summary> <!-- Flecha hacia la derecha -->
             <ul>
-                <a href="#">Menor Precio</a>
-                <a href="#">Mayor Precio</a>
-                <a href="#">Nombre</a>
+                <a [routerLink]="['/shop', 'lowestPrice', 'filter']">Menor Precio</a>
+                <a [routerLink]="['/shop', 'highestPrice', 'filter']">Mayor Precio</a>
+                <a [routerLink]="['/shop', 'name', 'filter']">Nombre</a>
             </ul>
         </details>     
         <div class="box">
@@ -48,7 +48,7 @@
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>
                         <p class="carName"><a href="">{{item.name}}</a></p>
-                        <p class="carPrice">{{item.price}}</p>  
+                        <p class="carPrice">$ {{item.price}}</p>  
                     </div>
                 </a>
             </div>

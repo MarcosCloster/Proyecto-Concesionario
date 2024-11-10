@@ -87,7 +87,7 @@ export class PayComponent implements OnInit{
       cardNumber: ['', [Validators.required, Validators.minLength(16)]],
       cardName: ['', [Validators.required]],
       expiracyDate: ['', [Validators.required, this.expiracyDateValidator()]],
-      cvv: ['', [Validators.required, Validators.minLength(4)]]
+      cvv: ['', [Validators.required, Validators.minLength(3)]]
     });
 
   confirmSubmit()

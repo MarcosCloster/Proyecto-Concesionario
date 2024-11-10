@@ -1,16 +1,19 @@
-<div class="cars">
-    @for(car of carArray; track $index) {
+<div class="container">
+    <button routerLink="/admin/view" class="btn" type="button">Menu admin</button>
+    <div class="cars">
+        @for (item of carArray; track $index) {
         <div class="car">
-            <a [routerLink]="['/update', car.id]">
-                <img src="../../favicon.ico" alt="Imagen del auto">
+            <a [routerLink]="['/update', item.id]">
+                <img [src]="item.photos" alt="">
                 <div class="info">
-                    <p class="type">Kilómetros: {{car.kph}}</p>
-                    <p class="title">Marca: {{car.name}}</p>
-                    <p class="price">Precio: ${{car.price}}</p>
+                    <p class="type"><a href="">{{item.description}}</a></p>
+                    <p class="carName"><a href="">{{item.name}}</a></p>
+                    <p class="carPrice">{{item.price}}</p>
                 </div>
             </a>
         </div>
-    }
-    <a href="/admin/view"><button type="button">Menu admin</button></a>
-
+        } @empty {
+        <h3>No hay vehiculos</h3>
+        }
+    </div>
 </div>

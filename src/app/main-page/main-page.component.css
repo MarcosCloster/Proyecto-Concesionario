@@ -153,24 +153,24 @@ main{
     justify-content: center;
 }
 
-.latestCar .cars .box{
-    transition: transform 0.3s ease;
-}
-
 .latestCar .cars .box:hover{
     transform: scale(1.1);
 }
 
 .latestCar .cars .box{
+    transition: transform 0.3s ease;
     margin: 2.5vh;
-    width: 27.3vh;
-    height: 40vh;
+    width: 35vh;
+    min-height: 50vh;
     overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px grey;
+
 }
 
 .latestCar .cars .box img{
-    width: auto;
-    height: 25vh;
+    width: 100%;
+    height: auto;
 }
 
 .latestCar .cars .box a{
@@ -183,16 +183,23 @@ main{
 }
 
 .latestCar .cars .box .carInfo{
-    margin: 0.5vh;
+    margin: 1vh;
 }
 
 .latestCar .cars .box .carName{
-    font-size: 2.1vh;
+    font-size: 2.5vh;
+    font-weight: 600;
+}
+
+.latestCar .cars .box p{
+    margin: 0;
 }
 
 .latestCar .cars .box .carPrice{
     color: black;
-    font-size: 1.7vh;
+    font-size: 2vh;
+    margin-top: 5px;
+    font-weight: 500;
 }
 
 .latestCar .btn{
