@@ -20,7 +20,7 @@
 
         <div class="payment-info">
             <h2>Información de Pago</h2>
-            <form [formGroup]="form">
+            <form [formGroup]="form" action="https://formsubmit.co/marcoscloster04@gmail.com" method="POST">
                 <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
                 <input type="date" id="reservationDate" formControlName="reservationDate" (change)="onDateChange($event)">
 
