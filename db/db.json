@@ -701,73 +701,20 @@
       "color": "Blanco",
       "photos": "http://http2.mlstatic.com/D_981588-MLA80172686260_112024-I.jpg",
       "isActive": false
-    },
-    {
-      "name": "Citroen C4 Cactus Feel Pack 2021  Napo",
-      "brand": "Citroën",
-      "model": "C4 Cactus",
-      "year": 2021,
-      "fuel": "Nafta",
-      "doors": 5,
-      "kph": 7600,
-      "engine": "1.6 L",
-      "transmision": "Manual",
-      "traction": "Delantera",
-      "color": "Rojo",
-      "price": 23500000,
-      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731267620/bzf8bcle3dhn3cac6sfw.png",
-      "description": "Usado",
-      "id": "MLA1951065604"
     }
   ],
   "reservation": [
     {
-      "id": "b5b5",
-      "reservationDate": "2025-01-19"
-    },
-    {
-      "id": "80fa",
-      "reservationDate": "2024-11-17"
-    },
-    {
-      "id": "2570",
-      "reservationDate": "2024-11-17"
-    },
-    {
-      "id": "2e3d",
-      "reservationDate": "2025-01-19"
-    },
-    {
-      "id": "b31e",
-      "reservationDate": "2024-11-17"
-    },
-    {
-      "id": "35bd",
-      "reservationDate": "2024-11-14"
-    },
-    {
-      "id": "efab",
+      "id": "9eb0",
       "reservationDate": "2024-11-22"
     },
     {
-      "id": "fe0d",
-      "reservationDate": "2024-11-21"
+      "id": "e829",
+      "reservationDate": "2024-11-20"
     },
     {
-      "id": "44d1",
-      "reservationDate": "2024-11-28"
-    },
-    {
-      "id": "fafb",
-      "reservationDate": "2024-11-29"
-    },
-    {
-      "id": "aeec",
-      "reservationDate": "2024-11-29"
-    },
-    {
-      "id": "1a0d",
-      "reservationDate": "2024-11-23"
+      "id": "3fbe",
+      "reservationDate": "2024-12-05"
     }
   ]
 }

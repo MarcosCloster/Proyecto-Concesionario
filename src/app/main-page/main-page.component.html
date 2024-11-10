@@ -33,7 +33,8 @@
         <h1>Ultimos autos</h1>
         <div class="cars">
             @for (auto of highlightCar; track $index) {
-            <a [routerLink]="['/detail', auto.id]">
+                @if (auto.isActive === true) {
+                   <a [routerLink]="['/detail', auto.id]">
             <div class="box">
                 <a href=""><img [src]="auto.photos" alt=""></a>
                 <div class="carInfo">
@@ -41,7 +42,8 @@
                     <p class="carPrice">$ {{auto.price | number:'1.2-2' }}</p>  
                 </div>
             </div>
-            </a>
+            </a> 
+                }
             }
         </div>
         <button class="btn"><a href="/shop">Ver autos</a></button>

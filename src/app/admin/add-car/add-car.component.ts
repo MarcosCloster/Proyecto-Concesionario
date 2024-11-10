@@ -108,6 +108,7 @@ export class AddCarComponent {
         const imageUrl = response.secure_url;
         const newCar = this.formCar.getRawValue() as Auto;
         newCar.photos = imageUrl 
+        newCar.isActive = true
         
         this.postCar(newCar);
       },

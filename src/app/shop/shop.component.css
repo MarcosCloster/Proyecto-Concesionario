@@ -84,6 +84,20 @@ hr{
     }
 }
 
+@media(width > 420px){
+    .category a{
+        font-size: 2.5vh
+    }
+
+    .category h5{
+        font-size: 3vh;
+    }
+
+    summary{
+        font-size: 3vh;
+    }
+}
+
 @media(max-width:1810px){
     .cars{
         justify-content: center;

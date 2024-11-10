@@ -1,5 +1,5 @@
 <div class="container position-absolute top-50 start-50 translate-middle">
-  <h1>Editar Formulario</h1>
+  <h1>Agregar Auto</h1>
   <form class="row" [formGroup]="formCar">
     <div class="col-md-6">
       <label class="form-label" for="name">Nombre:</label>
@@ -11,7 +11,6 @@
         <div *ngIf="formCar.get('name')?.errors?.['maxlength']">Máximo de letras alcanzado.</div>
       </div>
     </div>
-
     <div class="col-md-6">
       <label class="form-label" for="brand">Marca:</label>
       <input class="form-control"

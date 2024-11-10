@@ -10,7 +10,7 @@
                 <a [routerLink]="['/shop', 'highestPrice', 'filter']">Mayor Precio</a>
                 <a [routerLink]="['/shop', 'name', 'filter']">Nombre</a>
             </ul>
-        </details>     
+        </details>
         <div class="box">
             <hr>
             <h5>Tipo: </h5>
@@ -21,39 +21,33 @@
             <hr>
             <h5>Marca</h5>
             @for (item of marcaArray; track $index) {
-                <a [routerLink]="['/shop', item, 'marca']">{{item}}</a>
+            <a [routerLink]="['/shop', item, 'marca']">{{item}}</a>
             }
-        </div>
-        <div class="box">
-            <hr>
-            <h5>Precio</h5>
-            <a [routerLink]="['/shop', 2000]">0 - 50000</a>
-            <a [routerLink]="['/shop', 75000]">50000 - 200000</a>
-            <a [routerLink]="['/shop', 250000]">200000 - 500000</a>
-            <a [routerLink]="['/shop', 600000]">500000 +</a>
         </div>
         <div class="box">
             <hr>
             <h5>Combustible</h5>
             <a [routerLink]="['/shop', 'Diésel', 'fuel']">Diesel</a>
             <a [routerLink]="['/shop', 'Nafta', 'fuel']">Nafta</a>
-            <a href="">Gas</a>
+            <a [routerLink]="['/shop', 'Gas', 'fuel']">Gas</a>
         </div>
     </div>
     <div class="cars">
         @for (item of carArrayFiltrado; track $index) {
-        <div class="car">
+            @if (item.isActive) {
+            <div class="car">
                 <a [routerLink]="['/detail', item.id]">
                     <img [src]="item.photos" alt="">
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>
-                        <p class="carName"  style="font-weight: 500;"><a href="">{{item.name}}</a></p>
-                        <p class="carPrice">$ {{item.price | number:'1.2-2' }}</p>  
-                    </div>
+                        <p class="carName" style="font-weight: 500;"><a href="">{{item.name}}</a></p>
+                        <p class="carPrice">$ {{item.price | number:'1.2-2' }}</p>
+                -    </div>
                 </a>
             </div>
+            }
         } @empty {
-            <h3 style="display: flex; align-items: center;">No hay vehiculos</h3>
+        <h3 style="display: flex; align-items: center;">No hay vehiculos</h3>
         }
     </div>
 </main>

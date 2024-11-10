@@ -26,9 +26,14 @@ export class MainPageComponent implements OnInit{
       next: (auto: Auto[]) => {
         auto.reverse();
         let i = 0;
-        while(i != 5)
+        let f = 0;
+        while(f != 5)
         {
-          this.highlightCar.push(auto[i])
+          if(auto[i].isActive)
+          {
+            this.highlightCar.push(auto[i])
+            f++
+          }
           i++
         }
         console.log(this.highlightCar)

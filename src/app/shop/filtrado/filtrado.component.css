@@ -89,6 +89,20 @@ hr{
     }
 }
 
+@media(width > 420px){
+    .category a{
+        font-size: 2.5vh
+    }
+
+    .category h5{
+        font-size: 3vh;
+    }
+
+    summary{
+        font-size: 3vh;
+    }
+}
+
 .cars .car{
     width: 26.9vh;
     border-radius: 15px;

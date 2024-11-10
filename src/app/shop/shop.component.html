@@ -28,14 +28,6 @@
         </div>
         <div class="box">
             <hr>
-            <h5>Precio</h5>
-                <a [routerLink]="['/shop', 2000]">0 - 50000</a>
-                <a [routerLink]="['/shop', 250000]">50000 - 200000</a>
-                <a [routerLink]="['/shop', 250000]">200000 - 500000</a>
-                <a [routerLink]="['/shop', 600000]">500000 +</a>
-        </div>
-        <div class="box">
-            <hr>
             <h5>Combustible</h5>
             <a [routerLink]="['/shop', 'Diésel', 'fuel']">Diesel</a>
             <a [routerLink]="['/shop', 'Nafta', 'fuel']">Nafta</a>
@@ -44,7 +36,8 @@
     </div>
     <div class="cars">
         @for (item of carArray; track $index) {
-        <div class="car">
+            @if (item.isActive) {
+               <div class="car">
                 <a [routerLink]="['/detail', item.id]">
                     <img [src]="item.photos" alt="">
                     <div class="info">
@@ -53,7 +46,8 @@
                         <p class="carPrice" >$ {{item.price | number:'1.2-2' }}</p>  
                     </div>
                 </a>
-            </div>
+            </div> 
+            }
         } @empty {
             <h3>No hay vehiculos</h3>
         }

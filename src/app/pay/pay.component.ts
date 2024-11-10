@@ -132,7 +132,7 @@ export class PayComponent implements OnInit{
       const isConfirmed = window.confirm('¿Está seguro de que desea enviar?');
       if (isConfirmed) {
         
-      alert('Reserva pagada')
+        alert('Reserva pagada')
       this.postReservationDate(formData!)
 
       } else {

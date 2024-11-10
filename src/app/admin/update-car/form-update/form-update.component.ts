@@ -86,7 +86,7 @@ export class FormUpdateComponent implements OnInit{
 
   updateCar (car: Auto)
   {
-    
+    car.isActive = true;
     this.carService.putJson(car, this.id).subscribe
     ({
      next: () => {
