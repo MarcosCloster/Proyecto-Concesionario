@@ -1,158 +1,220 @@
 <div class="container position-absolute top-50 start-50 translate-middle">
-  <h1>Agregar</h1>
+  <h1>Editar Formulario</h1>
   <form class="row" [formGroup]="formCar">
     <div class="col-md-6">
       <label class="form-label" for="name">Nombre:</label>
-      <input class="form-control" type="text" id="name" formControlName="name">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('name')?.invalid && formCar.get('name')?.touched, 'is-valid': formCar.get('name')?.valid && formCar.get('name')?.touched}"
+        type="text" id="name" formControlName="name">
+      <div *ngIf="formCar.get('name')?.touched && formCar.get('name')?.invalid" class="invalid-feedback">
+        <div *ngIf="formCar.get('name')?.errors?.['required']">Por favor, ingresa un nombre.</div>
+        <div *ngIf="formCar.get('name')?.errors?.['maxlength']">Máximo de letras alcanzado.</div>
+      </div>
     </div>
-    @if (formCar.get('name')?.touched && formCar.get('name')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
-
-    @if (formCar.get('name')?.getError('maxlength')) {
-      <span style="color: red; display: flex; flex-direction: column;">Maximo de letras requerido</span>
-    }
 
     <div class="col-md-6">
       <label class="form-label" for="brand">Marca:</label>
-      <input class="form-control" type="text" id="brand" formControlName="brand">
-    </div>
-    @if (formCar.get('brand')?.touched && formCar.get('brand')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('brand')?.invalid && formCar.get('brand')?.touched, 'is-valid': formCar.get('brand')?.valid && formCar.get('brand')?.touched}"
+        type="text" id="brand" formControlName="brand">
+      @if (formCar.get('brand')?.touched && formCar.get('brand')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese una marca
+      </div>
+      }
 
-    @if (formCar.get('brand')?.getError('maxlength')) {
-      <span style="color: red; display: flex; flex-direction: column;">Maximo de letras requerido</span>
-    }
+      @if (formCar.get('brand')?.getError('maxlength')) {
+      <div class="invalid-feedback">
+        Maximo de letras alcanzado
+      </div>
+      }
+    </div>
 
     <div class="col-md-3">
       <label class="form-label" for="model">Modelo:</label>
-      <input class="form-control" type="text" id="model" formControlName="model">
-    </div>
-    @if (formCar.get('model')?.touched && formCar.get('model')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('model')?.invalid && formCar.get('model')?.touched, 'is-valid': formCar.get('model')?.valid && formCar.get('model')?.touched}"
+        type="text" id="model" formControlName="model">
+      @if (formCar.get('brand')?.touched && formCar.get('brand')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese un modelo
+      </div>
+      }
 
-    @if (formCar.get('model')?.getError('maxlength')) {
-      <span style="color: red; display: flex; flex-direction: column;">Maximo de letras requerido</span>
-    }
+      @if (formCar.get('brand')?.getError('maxlength')) {
+      <div class="invalid-feedback">
+        Maximo de letras alcanzado
+      </div>
+      }
+
+    </div>
 
     <div class="col-md-3">
       <label class="form-label" for="year">Año:</label>
-      <input class="form-control" value="" type="number" id="year" formControlName="year">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('year')?.invalid && formCar.get('year')?.touched, 'is-valid': formCar.get('year')?.valid && formCar.get('year')?.touched}"
+        value="" type="number" id="year" formControlName="year">
+      @if (formCar.get('year')?.touched && formCar.get('year')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese una fecha
+      </div>
+      }
+
+      @if (formCar.get('year')?.hasError('min') && formCar.get('year')?.touched) {
+      <div class="invalid-feedback">
+        El año debe ser mayor a 1970
+      </div>
+      }
+
+      @if (formCar.get('year')?.hasError('max') && formCar.get('year')?.touched) {
+      <div class="invalid-feedback">
+        El año debe ser mayor al actual
+      </div>
+      }
     </div>
-    @if (formCar.get('year')?.touched && formCar.get('year')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
 
-    @if (formCar.get('year')?.hasError('min') && formCar.get('year')?.touched) {
-      <span style="color: red; display: flex; flex-direction: column;">El año debe ser mayor al 1970</span>
-
-    }
-
-    @if (formCar.get('year')?.hasError('max') && formCar.get('year')?.touched) {
-      <span style="color: red; display: flex; flex-direction: column;">El año no puede ser mayor al actual</span>
-    }
 
     <div class="col-md-3">
       <label class="form-label" for="fuel">Tipo de combustible:</label>
       <select class="form-select" id="fuel" formControlName="fuel">
         <option value="" disabled selected>Options...</option>
-        <option value="nafta">Nafta</option>
-        <option value="gas">Gas</option>
+        <option value="Nafta">Nafta</option>
+        <option value="Gas">Gas</option>
         <option value="Diésel">Diésel</option>
       </select>
     </div>
 
     <div class="col-md-3">
       <label class="form-label" for="doors">Puertas:</label>
-      <input class="form-control" type="number" id="doors" formControlName="doors">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('doors')?.invalid && formCar.get('doors')?.touched, 'is-valid': formCar.get('doors')?.valid && formCar.get('doors')?.touched}"
+        type="number" id="doors" formControlName="doors">
+      @if (formCar.get('doors')?.touched && formCar.get('doors')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese cantidad de puertas
+      </div>
+      }
+
+      @if (formCar.get('doors')?.hasError('min') && formCar.get('doors')?.touched) {
+      <div class="invalid-feedback">
+        El auto debe tener 3 puertas o mas
+      </div>
+      }
     </div>
-    @if (formCar.get('doors')?.touched && formCar.get('doors')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
 
-    @if (formCar.get('doors')?.hasError('min') && formCar.get('doors')?.touched) {
-      <span style="color: red; display: flex; flex-direction: column;">El auto debe tener 3 puertas o más</span>
-
-    }
 
     <div class="col-md-2">
       <label class="form-label" for="kph">Kilometros:</label>
-      <input class="form-control" type="number" id="kph" formControlName="kph">
-    </div>
-    @if (formCar.get('kph')?.touched && formCar.get('kph')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('kph')?.invalid && formCar.get('kph')?.touched, 'is-valid': formCar.get('kph')?.valid && formCar.get('kph')?.touched}"
+        type="number" id="kph" formControlName="kph">
+      @if (formCar.get('kph')?.touched && formCar.get('kph')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingresar kilometros
+      </div>
+      }
 
-    @if (formCar.get('kph')?.hasError('min') && formCar.get('kph')?.touched) {
-      <span style="color: red; display: flex; flex-direction: column;">El auto debe tener al menos 0 Kilómetros</span>
-    }
+      @if (formCar.get('kph')?.hasError('min') && formCar.get('kph')?.touched) {
+      <div class="invalid-feedback">
+        El auto debe tener al menos 0 kilometros
+      </div>
+      }
+    </div>
+
 
     <div class="col-md-3">
       <label class="form-label" for="engine">Motor:</label>
-      <input class="form-control" type="text" id="engine" formControlName="engine">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('engine')?.invalid && formCar.get('engine')?.touched, 'is-valid': formCar.get('engine')?.valid && formCar.get('engine')?.touched}"
+        type="text" id="engine" formControlName="engine">
+      @if (formCar.get('engine')?.touched && formCar.get('engine')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese un motor
+      </div>
+      }
+
     </div>
-    @if (formCar.get('engine')?.touched && formCar.get('engine')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
 
     <div class="col-md-3">
       <label class="form-label" for="transmision">Transmision:</label>
       <select class="form-select" name="transmision" id="transmision" formControlName="transmision">
-      <option value="Manual">Manual</option>
-      <option value="Automatico">Automatico</option>
+        <option value="" disabled selected>Options...</option>
+        <option value="Manual">Manual</option>
+        <option value="Automática">Automática</option>
       </select>
     </div>
-   
+
 
     <div class="col-md-4">
       <label class="form-label" for="description">Descripción:</label>
       <select class="form-select" id="description" formControlName="description">
-      <option value="" disabled selected>Options...</option>
-      <option value="Usado">Usado</option>
-      <option value="Nuevo">Nuevo</option>
+        <option value="" disabled selected>Options...</option>
+        <option value="Usado">Usado</option>
+        <option value="Nuevo">Nuevo</option>
       </select>
     </div>
 
     <div class="col-md-4">
       <label class="form-label" for="traction">Traccion:</label>
-      <input class="form-control" type="text" id="traction" formControlName="traction">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('traction')?.invalid && formCar.get('traction')?.touched, 'is-valid': formCar.get('traction')?.valid && formCar.get('traction')?.touched}"
+        type="text" id="traction" formControlName="traction">
+      @if (formCar.get('traction')?.touched && formCar.get('traction')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese una traccion
+      </div>
+      }
     </div>
-    @if (formCar.get('traction')?.touched && formCar.get('traction')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
+
 
     <div class="col-md-4">
       <label class="form-label" for="price">Precio:</label>
-      <input class="form-control" type="number" id="price" formControlName="price">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('price')?.invalid && formCar.get('price')?.touched, 'is-valid': formCar.get('price')?.valid && formCar.get('price')?.touched}"
+        type="number" id="price" formControlName="price">
+      @if (formCar.get('price')?.touched && formCar.get('price')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese un precio
+      </div>
+      }
+
+      @if (formCar.get('price')?.hasError('min') && formCar.get('price')?.touched ) {
+      <div class="invalid-feedback">
+        El precio debe ser mayor a 1000
+      </div>
+
+      }
     </div>
-    @if (formCar.get('price')?.touched && formCar.get('price')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
 
-    @if (formCar.get('price')?.hasError('min') && formCar.get('price')?.touched ) {
-      <span style="color: red; display: flex; flex-direction: column;">El Precio debe ser mayor a 1000</span>
-
-    }
 
     <div class="col-md-4">
       <label class="form-label" for="color">Color:</label>
-      <input class="form-control" type="text" id="color" formControlName="color">
+      <input class="form-control"
+        [ngClass]="{'is-invalid': formCar.get('color')?.invalid && formCar.get('color')?.touched, 'is-valid': formCar.get('color')?.valid && formCar.get('color')?.touched}"
+        type="text" id="color" formControlName="color">
+      @if (formCar.get('color')?.touched && formCar.get('color')?.getError('required')) {
+      <div class="invalid-feedback">
+        Ingrese un color
+      </div>
+      }
     </div>
-    @if (formCar.get('color')?.touched && formCar.get('color')?.invalid) {
-      <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-    }
 
-    <div class="col-12">
-      <label class="form-label" for="photos">Fotos:</label>
-      <input class="form-control" type="file" id="photos" formControlName="photos">
+    <div class="mt-4">
+      <ngx-dropzone (change)="onSelect($event)">
+        <ngx-dropzone-label>Arrastra la imagen o haz click</ngx-dropzone-label>
+        <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+          <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+        </ngx-dropzone-preview>
+      </ngx-dropzone>
+      <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+      </ngx-dropzone-image-preview>
+
     </div>
-
   </form>
 
   <div class="buttons">
-    <button class='btn' (click)="postCar()">Agregar Auto</button>
+    <button class='btn' (click)="upload()">Agregar Auto</button>
     <button class="btn" type="button" routerLink="/admin/view">Menu admin</button>
   </div>
 </div>

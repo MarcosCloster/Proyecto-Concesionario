@@ -10,29 +10,34 @@
     transform: translate(-50%, -50%);
 }
 
-.container label{
+.container label {
     margin-top: 15px;
     margin-bottom: 5px;
 }
 
-.pass{
+.pass {
     display: flex;
-    justify-content: center;
     align-items: center;
     position: relative;
 }
 
-.pass input{
-    padding-right: 30%;
+.pass input {
+    padding-right: 2.5rem; /* Espacio para el ícono de ojo */
     width: 100%;
 }
 
-.pass span{
+.pass span {
     position: absolute;
     right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.btn{
+.invalid-feedback {
+    display: block;
+}
+
+.btn {
     margin: 15px auto;
     height: auto;
     width: 15vh;
@@ -40,19 +45,23 @@
     color: white;
     border: none;
     font-size: 2.5vh;
-    transform: color 0.3s ease;
-    transform: background-color 0.3 ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.btn:hover{
+.btn:hover {
     color: #e2e0e0;
     background-color: #2e466e;
 }
 
-.btn a{
+.btn a {
     text-decoration: none;
     color: white;
 }
 
+.invalid{
+    margin-right: 20px;
+}
 
-
+.valid{
+    margin-right: 20px;
+}

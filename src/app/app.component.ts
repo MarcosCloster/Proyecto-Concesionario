@@ -11,6 +11,7 @@ import { AddCarComponent } from './admin/add-car/add-car.component';
 import { UpdateCarComponent } from './admin/update-car/update-car.component';
 import { PayComponent } from "./pay/pay.component";
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

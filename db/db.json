@@ -703,9 +703,8 @@
       "isActive": false
     },
     {
-      "id": "MLA1951065604",
-      "brand": "Citroën",
       "name": "Citroen C4 Cactus Feel Pack 2021  Napo",
+      "brand": "Citroën",
       "model": "C4 Cactus",
       "year": 2021,
       "fuel": "Nafta",
@@ -713,12 +712,12 @@
       "kph": 7600,
       "engine": "1.6 L",
       "transmision": "Manual",
-      "description": "Usado",
       "traction": "Delantera",
-      "price": 23500000,
       "color": "Rojo",
-      "photos": "http://http2.mlstatic.com/D_765732-MLA80428952471_112024-I.jpg",
-      "isActive": true
+      "price": 23500000,
+      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731267620/bzf8bcle3dhn3cac6sfw.png",
+      "description": "Usado",
+      "id": "MLA1951065604"
     }
   ],
   "reservation": [

@@ -3,11 +3,15 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Auto } from 'src/app/interfaces/autos';
 import { JsonService } from 'src/app/services/json.service';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { CommonModule } from '@angular/common';
+import { UploadService } from 'src/app/services/upload.service';
+
 
 @Component({
   selector: 'app-form-update',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule, NgxDropzoneModule],
   templateUrl: './form-update.component.html',
   styleUrl: './form-update.component.css'
 })
@@ -16,9 +20,9 @@ export class FormUpdateComponent implements OnInit{
   carService = inject(JsonService)
   route = inject(ActivatedRoute)
   router = inject(Router); 
-
+  uploadService = inject(UploadService)
   
-
+  files: File[] = [];
   id: string | null = '';
 
 
@@ -50,7 +54,7 @@ export class FormUpdateComponent implements OnInit{
   
 
 
-  setProduct(car: Auto) { 
+  setCar(car: Auto) { 
     this.formCar.patchValue({
       name: car.name,
       brand: car.brand,
@@ -71,7 +75,7 @@ export class FormUpdateComponent implements OnInit{
   getCarByID(id: string | null) {
     this.carService.getById(id).subscribe({
       next: (car: Auto) => {
-        this.setProduct(car);
+        this.setCar(car);
       },
       error: (e: Error) => {
         console.log(e.message);
@@ -80,9 +84,9 @@ export class FormUpdateComponent implements OnInit{
   }
   
 
-  updateCar ()
+  updateCar (car: Auto)
   {
-    const car = this.formCar.getRawValue() as Auto
+    
     this.carService.putJson(car, this.id).subscribe
     ({
      next: () => {
@@ -93,5 +97,48 @@ export class FormUpdateComponent implements OnInit{
       console.log(e.message)
      }
     })
+  }
+
+  onSelect(event: any) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+  
+  onRemove(event: any) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  upload() {
+    if (this.files.length === 0) {
+      console.log("No hay archivos para cargar");
+      return false;
+    }
+    
+    const file_data = this.files[0];
+    const data = new FormData();
+  
+    data.append('file', file_data);
+    data.append('upload_preset', 'DynamicDrive');
+    data.append('cloud_name', 'dbbhvsxue');
+  
+    this.uploadService.uploadImg(data).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        alert('Subida exitosa a Cloudinary');
+        
+        const imageUrl = response.secure_url;
+        
+        const newCar = this.formCar.getRawValue() as Auto;
+        newCar.photos = imageUrl 
+        
+        this.updateCar(newCar);
+      },
+      error: (e: Error) => {
+        console.error("Error en la subida:", e.message);
+        alert("Ocurrió un error al subir la imagen. Verifica la configuración de Cloudinary.");
+      }
+    });
+    return true;
   }
 }
