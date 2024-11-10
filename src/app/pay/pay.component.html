@@ -16,9 +16,9 @@
       
         <div class="payment-info">
           <h2>Información de Pago</h2>
-          <form [formGroup]="form" action="https://formsubmit.co/marcoscloster04@gmail.com" method="POST">
+          <form [formGroup]="form" action="https://formsubmit.co/akitomas7600@gmail.com" method="POST">
             <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
-                <input type="date" id="reservationDate" formControlName="reservationDate" (change)="onDateChange($event)">
+                <input type="date" id="reservationDate" name="reservationDate" formControlName="reservationDate" (change)="onDateChange($event)" required>
 
                 @if (isDateReserved(form.get('reservationDate')!.value)) {
                     <span style="color: red;">¡Esta fecha ya está reservada! Elija otra</span>
@@ -33,13 +33,13 @@
                 }
       
             <label for="titular">Nombre del titular:</label>
-            <input type="text" id="titular" name="titular" formControlName="titular">
+            <input type="text" id="titular" name="titular" formControlName="titular" required>
             @if (form.get('titular')?.invalid && form.get('titular')?.touched) {
                 <span style="color: red;">Completar Formulario</span>
             }
       
             <label for="cardNumber">Número de tarjeta:</label>
-            <input type="number" id="cardNumber" formControlName="cardNumber">
+            <input type="number" id="cardNumber" name="cardNumber" formControlName="cardNumber" required>
             @if (form.get('cardNumber')?.invalid && form.get('cardNumber')?.touched) {
                 <span style="color: red;">Completar Formulario</span>
             }
@@ -48,7 +48,7 @@
             }
 
             <label for="cardName">Nombre en la tarjeta:</label>
-            <select name="cardName" id="cardName" formControlName="cardName">
+            <select name="cardName" id="cardName" name="cardName" formControlName="cardName" required>
                 <option value="Visa">Visa</option>
                 <option value="Mastercard">Mastercard</option>
                 <option value="BBVA">BBVA</option>
@@ -59,13 +59,13 @@
             }
       
             <label for="expiracyDate">Fecha de expiración:</label>
-            <input formControlName="expiracyDate" type="date" id="expiracyDate" placeholder="YYYY-MM-DD">
+            <input formControlName="expiracyDate" type="date" id="expiracyDate" name="expiracyDate" placeholder="YYYY-MM-DD" required>
             @if (form.get('expiracyDate')?.hasError('minYear')) {
                 <span style="color: red;">El año de expiración debe ser 2025 o posterior</span>
             }
       
             <label for="cvv">CVV:</label>
-            <input type="number" id="cvv" name="cvv" formControlName="cvv">
+            <input type="number" id="cvv" name="cvv" formControlName="cvv" req>
             @if (form.get('cvv')?.invalid && form.get('cvv')?.touched) {
                 <span style="color: red;">Completar Formulario</span>
             }

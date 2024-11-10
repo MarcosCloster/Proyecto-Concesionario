@@ -7,6 +7,7 @@ import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, Validat
 import { CarritoService } from 'src/app/services/carrito.service';
 import { DateService } from 'src/app/services/date.service';
 import { CommonModule } from '@angular/common';
+import { JsonService } from 'src/app/services/json.service';
 
 @Component({
   selector: 'app-carrito-payment',
@@ -27,6 +28,7 @@ export class CarritoPaymentComponent implements OnInit{
   reservationService= inject(DateService)  
   cartService = inject(CarritoService)
   fb = inject(FormBuilder)
+  carService = inject(JsonService)
 
 
     getCarrito()
@@ -113,7 +115,7 @@ export class CarritoPaymentComponent implements OnInit{
       if(this.form.invalid) return alert("Completar todos los formularios")
       const isConfirmed = window.confirm('¿Está seguro de que desea enviar?');
       if (isConfirmed) {
-        
+      this.updateCarrito()
       this.postReservationDate(formData!)
 
       } else {
@@ -165,4 +167,21 @@ export class CarritoPaymentComponent implements OnInit{
     }
   }
 
+  updateCarrito()
+  {
+    for(let car of this.cartArray)
+    {
+      car.isActive = false
+      this.carService.putJson(car,car.id!).subscribe({
+        next: () =>
+        {
+          console.log('Auto modificado')
+        },
+        error: (e: Error) =>
+        {
+          console.log(e.message)
+        }
+      })
+    }
+  }
 }

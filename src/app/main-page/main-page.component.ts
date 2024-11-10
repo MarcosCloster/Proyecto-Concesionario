@@ -5,6 +5,8 @@ import { JsonService } from '../services/json.service';
 import { Auto } from '../interfaces/autos';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarritoComponent } from '../carrito/carrito.component';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-main-page',
@@ -16,7 +18,9 @@ import { CommonModule } from '@angular/common';
 export class MainPageComponent implements OnInit{
   sv = inject(JsonService)
   highlightCar: Auto[] = []
-
+  carritoService = inject(CarritoService)
+  filteredCarArray: Auto[] = [];
+  carArray: Auto[] = []
   ngOnInit(): void {
     this.getAutos()
   }
@@ -27,20 +31,27 @@ export class MainPageComponent implements OnInit{
         auto.reverse();
         let i = 0;
         let f = 0;
+        this.carArray = auto
+        this.filterCars()
         while(f != 5)
         {
-          if(auto[i].isActive)
+          if(this.filteredCarArray[i].isActive)
           {
-            this.highlightCar.push(auto[i])
+            this.highlightCar.push(this.filteredCarArray[i])
             f++
           }
           i++
         }
-        console.log(this.highlightCar)
       },
       error: (error: Error) => {
         console.log(error)
       }
     })
   }
+
+  filterCars() { 
+    const cartItems = this.carritoService.getCartItems(); 
+    this.filteredCarArray = this.carArray.filter(auto => !cartItems.some(item => item.id === auto.id)); 
+  }
+
 }

@@ -68,6 +68,21 @@ export class PayComponent implements OnInit{
       })
     }
 
+    updateCar()
+    {
+      this.car.isActive = false;
+      this.carService.putJson(this.car, this.car.id!).subscribe({
+        next: () =>
+        {
+          console.log('Auto modificado')
+        },
+        error: (e: Error) => 
+        {
+          console.log(e.message)
+        }
+      })
+    }
+
     expiracyDateValidator(): ValidatorFn {
       return (control: AbstractControl): ValidationErrors | null => {
         if (control.value) {
@@ -134,6 +149,7 @@ export class PayComponent implements OnInit{
         
         alert('Reserva pagada')
       this.postReservationDate(formData!)
+      this.updateCar()
 
       } else {
       console.log('El usuario canceló la acción');

@@ -16,7 +16,7 @@
       "price": 18660015,
       "color": "Plateado",
       "photos": "http://http2.mlstatic.com/D_940863-MLA80431333315_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951218780",
@@ -322,7 +322,7 @@
       "price": 21850012,
       "color": "Negro",
       "photos": "http://http2.mlstatic.com/D_991164-MLA80174471106_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951019910",
@@ -340,7 +340,7 @@
       "price": 26990015,
       "color": "Plateado",
       "photos": "http://http2.mlstatic.com/D_743915-MLA80174480066_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951006612",
@@ -715,6 +715,34 @@
     {
       "id": "3fbe",
       "reservationDate": "2024-12-05"
+    },
+    {
+      "id": "245d",
+      "reservationDate": "2024-11-24"
+    },
+    {
+      "id": "2e2f",
+      "reservationDate": "2024-11-12"
+    },
+    {
+      "id": "22e7",
+      "reservationDate": "2024-11-23"
+    },
+    {
+      "id": "2703",
+      "reservationDate": "2024-11-14"
+    },
+    {
+      "id": "00c8",
+      "reservationDate": "2024-11-14"
+    },
+    {
+      "id": "1600",
+      "reservationDate": "2024-11-13"
+    },
+    {
+      "id": "a1c6",
+      "reservationDate": "2024-11-29"
     }
   ]
 }

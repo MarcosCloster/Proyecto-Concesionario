@@ -22,9 +22,7 @@
             <h5>Marca</h5>
             @for (item of marcaArray; track $index) {
             <a [routerLink]="['/shop', item, 'marca']">{{item}}</a>
-            }
-            
-            
+            }  
         </div>
         <div class="box">
             <hr>
@@ -35,7 +33,8 @@
         </div>
     </div>
     <div class="cars">
-        @for (item of carArray; track $index) {
+        
+        @for (item of filteredCarArray; track $index) {
             @if (item.isActive) {
                <div class="car">
                 <a [routerLink]="['/detail', item.id]">

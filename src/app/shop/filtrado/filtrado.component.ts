@@ -6,6 +6,7 @@ import { HeaderComponent } from "../../otherComponents/header/header.component";
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { identifierName } from '@angular/compiler';
 import { CommonModule } from '@angular/common';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-filtrado',
@@ -38,11 +39,14 @@ export class FiltradoComponent implements OnInit{
   }
 
   carArrayFiltrado: Auto[] = [];
-  carArray: Auto[] = []
-  carService = inject(JsonService)
-  routes = inject(ActivatedRoute)
-  marcaArray: string[] = []
-  description : string[] = ['Usado', 'Nuevo']
+  carArray: Auto[] = [];
+  carService = inject(JsonService);
+  routes = inject(ActivatedRoute);
+  marcaArray: string[] = [];
+  description : string[] = ['Usado', 'Nuevo'];
+  carritoService = inject(CarritoService);
+  filteredCarArray: Auto[] = [];
+
 
   getCarsByMarca(marca: string | null)
   {
@@ -50,6 +54,8 @@ export class FiltradoComponent implements OnInit{
       next: (autos: Auto[]) =>
       {
         this.carArrayFiltrado = autos;
+        this.filterCars()
+        this.encontrarMarca()
       },
       error: (e: Error) =>
       {
@@ -95,7 +101,7 @@ export class FiltradoComponent implements OnInit{
   encontrarMarca()
   {
     let i =0 ;
-    for(let auto of this.carArray)
+    for(let auto of this.filteredCarArray)
     {
       if(!this.marcaArray.find(el => el === auto.brand)){
         this.marcaArray.push(auto.brand)
@@ -173,6 +179,11 @@ export class FiltradoComponent implements OnInit{
         this.carArrayFiltrado = autos
       }
     })
+  }
+
+  filterCars() { 
+    const cartItems = this.carritoService.getCartItems(); 
+    this.filteredCarArray = this.carArray.filter(auto => !cartItems.some(item => item.id === auto.id)); 
   }
   
 }

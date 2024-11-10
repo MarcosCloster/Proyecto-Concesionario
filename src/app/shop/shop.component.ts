@@ -6,6 +6,7 @@ import { Auto } from '../interfaces/autos';
 import { filter } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-shop',
@@ -15,14 +16,17 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-  ngOnInit(): void {
-    this.getCars()
-    
-  }
+
   carArray: Auto[] = [];
   carService = inject(JsonService)
+  filteredCarArray: Auto[] = [];
   marcaArray: string[] = []
   description : string[] = ['Usado', 'Nuevo']
+  carritoService = inject(CarritoService)
+
+  ngOnInit(): void {
+    this.getCars()
+  }
 
   getCars()
   {
@@ -30,7 +34,9 @@ export class ShopComponent implements OnInit {
       next: (autos: Auto[]) =>
       {
         this.carArray = autos;
+        this.filterCars()
         this.encontrarMarca()
+        console.log(this.filteredCarArray)
       },
       error: (e: Error) =>
       {
@@ -43,13 +49,17 @@ export class ShopComponent implements OnInit {
   encontrarMarca()
   {
     let i =0 ;
-    for(let auto of this.carArray)
+    for(let auto of this.filteredCarArray)
     {
       if(!this.marcaArray.find(el => el === auto.brand)){
         this.marcaArray.push(auto.brand)
-        
       } 
     }
+  }
+
+  filterCars() { 
+    const cartItems = this.carritoService.getCartItems(); 
+    this.filteredCarArray = this.carArray.filter(auto => !cartItems.some(item => item.id === auto.id)); 
   }
 
   filtrarPorMarca(marca: string)
