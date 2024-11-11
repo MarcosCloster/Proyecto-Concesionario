@@ -6,6 +6,7 @@ import { JsonService } from 'src/app/services/json.service';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { CommonModule } from '@angular/common';
 import { UploadService } from 'src/app/services/upload.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-add-car',
@@ -26,17 +27,25 @@ export class AddCarComponent {
 
 
   postCar(newCar: Auto) {
-    
     this.carService.postJson(newCar).subscribe({
       next: (car: Auto) => {
-        alert('Se ha agregado un auto');
-        this.route.navigate(['/admin/view']);
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'El auto ha sido agregado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.route.navigate(['/admin/view']);
+          }
+        });
       },
       error: (e: Error) => {
         console.log(e.message);
+        this.mostrarAlertaError();
       }
     });
-}
+  }
 
   formCar = this.fb.group({
 
@@ -103,7 +112,6 @@ export class AddCarComponent {
     this.uploadService.uploadImg(data).subscribe({
       next: (response: any) => {
         console.log(response);
-        alert('Subida exitosa a Cloudinary');
         
         const imageUrl = response.secure_url;
         const newCar = this.formCar.getRawValue() as Auto;
@@ -114,10 +122,27 @@ export class AddCarComponent {
       },
       error: (e: Error) => {
         console.error("Error en la subida:", e.message);
-        alert("Ocurrió un error al subir la imagen. Verifica la configuración de Cloudinary.");
+        this.mostrarAlertaError()
       }
     });
     return true;
   }
 
+  mostrarAlerta() {
+    Swal.fire({
+      title: '¡Éxito!',
+      text: 'El auto ha sido agregado correctamente.',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+  }
+
+  mostrarAlertaError() {
+    Swal.fire({
+      title: '¡Éxito!',
+      text: 'Error! El auto no ha sido agregado correctamente.',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+  }
 }

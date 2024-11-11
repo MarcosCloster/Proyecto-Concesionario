@@ -8,6 +8,9 @@ import { CarritoService } from 'src/app/services/carrito.service';
 import { DateService } from 'src/app/services/date.service';
 import { CommonModule } from '@angular/common';
 import { JsonService } from 'src/app/services/json.service';
+import Swal from 'sweetalert2'
+import { routes } from 'src/app/app.routes';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-carrito-payment',
@@ -29,11 +32,17 @@ export class CarritoPaymentComponent implements OnInit{
   cartService = inject(CarritoService)
   fb = inject(FormBuilder)
   carService = inject(JsonService)
+  router= inject(Router)
 
 
     getCarrito()
     {
       this.cartArray = this.cartService.getCartItems()
+    }
+
+    clearCarrito()
+    {
+      this.cartService.clearCart()
     }
 
     expiracyDateValidator(): ValidatorFn {
@@ -101,27 +110,58 @@ export class CarritoPaymentComponent implements OnInit{
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
     });
 
-  confirmSubmit()
-    {
+    confirmSubmit() {
       const formData = this.form.get('reservationDate')?.value;
       console.log(formData)
-
+    
       const selectedDate = this.form.get('reservationDate')?.value;
       if (this.isDateReserved(selectedDate!)) {
-        alert('¡Esta fecha ya está reservada! Elija otra fecha.');
+        Swal.fire({
+          title: '¡Error!',
+          text: '¡Esta fecha ya está reservada! Elija otra fecha.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
         return; 
       }
-          
-      if(this.form.invalid) return alert("Completar todos los formularios")
-      const isConfirmed = window.confirm('¿Está seguro de que desea enviar?');
-      if (isConfirmed) {
-      this.updateCarrito()
-      this.postReservationDate(formData!)
+              
+      if (this.form.invalid) {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'Por favor, complete todos los campos del formulario.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+        return;
+      }
+    
+      Swal.fire({
+        title: 'Confirmación',
+        text: '¿Está seguro de que desea enviar?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, enviar',
+        cancelButtonText: 'No, cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.postReservationDate(formData!)
+          Swal.fire({
+            title: '¡Reserva pagada!',
+            text: 'La reserva se ha realizado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          }).then((result)=>
+          {
+            this.clearCarrito()
+            this.router.navigateByUrl('')
 
-      } else {
-      console.log('El usuario canceló la acción');
+          })
+          
+        } else {
+          console.log('El usuario canceló la acción');
+        }
+      });
     }
-  }
 
   postReservationDate(reservation: string)
   {
@@ -184,4 +224,6 @@ export class CarritoPaymentComponent implements OnInit{
       })
     }
   }
+
+
 }

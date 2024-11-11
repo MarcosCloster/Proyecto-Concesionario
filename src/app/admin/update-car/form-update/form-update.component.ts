@@ -6,6 +6,7 @@ import { JsonService } from 'src/app/services/json.service';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { CommonModule } from '@angular/common';
 import { UploadService } from 'src/app/services/upload.service';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -69,6 +70,7 @@ export class FormUpdateComponent implements OnInit{
       color: car.color,
       price: car.price,
       description: car.description,
+      photos: car.photos
     });
   }
   
@@ -76,6 +78,7 @@ export class FormUpdateComponent implements OnInit{
     this.carService.getById(id).subscribe({
       next: (car: Auto) => {
         this.setCar(car);
+
       },
       error: (e: Error) => {
         console.log(e.message);
@@ -84,19 +87,27 @@ export class FormUpdateComponent implements OnInit{
   }
   
 
-  updateCar (car: Auto)
-  {
+  updateCar(car: Auto) {
     car.isActive = true;
-    this.carService.putJson(car, this.id).subscribe
-    ({
-     next: () => {
-      this.router.navigate(['/admin/view'])
-      alert('Tarea actualizada')
-     } ,
-     error: (e: Error) => {
-      console.log(e.message)
-     }
-    })
+    this.carService.putJson(car, this.id).subscribe({
+      next: () => {
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'El auto ha sido actualizado correctamente.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Navegar a la ruta solo después de que el usuario haga clic en "Aceptar"
+            this.router.navigate(['/admin/update']);
+          }
+        });
+      },
+      error: (e: Error) => {
+        console.log(e.message);
+        this.mostrarAlertaError();
+      }
+    });
   }
 
   onSelect(event: any) {
@@ -111,10 +122,11 @@ export class FormUpdateComponent implements OnInit{
 
   upload() {
     if (this.files.length === 0) {
-      console.log("No hay archivos para cargar");
+      const newCar = this.formCar.getRawValue() as Auto;
+        this.updateCar(newCar);
       return false;
     }
-    
+  
     const file_data = this.files[0];
     const data = new FormData();
   
@@ -125,20 +137,39 @@ export class FormUpdateComponent implements OnInit{
     this.uploadService.uploadImg(data).subscribe({
       next: (response: any) => {
         console.log(response);
-        alert('Subida exitosa a Cloudinary');
-        
+        Swal.fire({
+          title: '¡Éxito!',
+          text: 'Imagen subida exitosamente a Cloudinary.',
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+  
         const imageUrl = response.secure_url;
-        
+  
         const newCar = this.formCar.getRawValue() as Auto;
-        newCar.photos = imageUrl 
-        
+        newCar.photos = imageUrl;
+  
         this.updateCar(newCar);
       },
       error: (e: Error) => {
         console.error("Error en la subida:", e.message);
-        alert("Ocurrió un error al subir la imagen. Verifica la configuración de Cloudinary.");
+        Swal.fire({
+          title: 'Error',
+          text: 'Ocurrió un error al subir la imagen. Verifica la configuración de Cloudinary.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
       }
     });
     return true;
+  }
+
+  mostrarAlertaError() {
+    Swal.fire({
+      title: '¡Error!',
+      text: 'No se pudo modificar el auto. Por favor, intenta nuevamente.',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
   }
 }

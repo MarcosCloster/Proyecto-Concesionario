@@ -27,11 +27,7 @@ export class FiltradoComponent implements OnInit{
         this.getCarByDescription(params.get('info')!)
       } else if(params.get('tipo') == 'fuel'){
         this.getCarsByFuel(params.get('info')!)
-      } else if (params.get('precio') !== null && !isNaN(Number(params.get('precio')))){
-        const precioParam = params.get('precio');
-        const precio = precioParam ? +precioParam : 0; // Convierte a número y usa un valor por defecto
-        this.filtrarPorPrecio(precio);
-      } else if (params.get('tipo') === 'filter'){
+      }  else if (params.get('tipo') === 'filter'){
         this.sortArray(params.get('info')!);
       }
       this.getCars()
@@ -118,53 +114,6 @@ export class FiltradoComponent implements OnInit{
   {
     this.carArray = this.carArrayFiltrado.filter(el => el.brand !== marca)
     console.log(this.carArray)
-  }
-
-  filtrarPorPrecio(precio: number)
-  {
-    console.log('HOLA')
-    console.log(this.carArray) 
-    if (precio > 500000)
-    {
-      for(let car of this.carArray)
-        {
-          if(car.price > 500000)
-          {
-            this.carArrayFiltrado.push(car)
-          }
-        }
-    } else if (precio < 500000 && precio > 200000)
-    {
-      for(let car of this.carArray)
-        {
-          if(car.price < 500000 && car.price > 200000)
-          {
-            this.carArrayFiltrado.push(car)
-          }
-        }
-    } else if (precio < 200000 && precio > 50000)
-    {
-      for(let car of this.carArray)
-        {
-          if(car.price < 200000 && car.price > 50000)
-          {
-            this.carArrayFiltrado.push(car)
-          }
-        }
-    } else if (precio < 50000)
-    {
-      for(let car of this.carArray)
-      {
-        if(car.price < 50000)
-        {
-          this.carArrayFiltrado.push(car)
-          
-        }
-      }
-      console.log('fadadjkfb')
-      console.log(this.carArrayFiltrado)
-    }
-    
   }
 
   sortArray(tipo: string){

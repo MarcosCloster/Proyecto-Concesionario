@@ -14,4 +14,6 @@ export class UploadService {
   {
     return this.http.post(this.url, data)
   }
+
+  
 }

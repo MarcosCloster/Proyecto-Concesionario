@@ -7,6 +7,7 @@ import { JsonService } from '../services/json.service';
 import { HeaderComponent } from "../otherComponents/header/header.component";
 import { FooterComponent } from "../otherComponents/footer/footer.component";
 import { DateService } from '../services/date.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-pay',
@@ -132,29 +133,53 @@ export class PayComponent implements OnInit{
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
     });
 
-    confirmSubmit()
-    {
+    confirmSubmit() {
       const formData = this.form.get('reservationDate')?.value;
       console.log(formData)
-
+    
       const selectedDate = this.form.get('reservationDate')?.value;
       if (this.isDateReserved(selectedDate!)) {
-        alert('¡Esta fecha ya está reservada! Elija otra fecha.');
+        Swal.fire({
+          title: '¡Error!',
+          text: '¡Esta fecha ya está reservada! Elija otra fecha.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
         return; 
       }
-          
-      if(this.form.invalid) return alert("Completar todos los formularios")
-      const isConfirmed = window.confirm('¿Está seguro de que desea enviar?');
-      if (isConfirmed) {
-        
-        alert('Reserva pagada')
-      this.postReservationDate(formData!)
-      this.updateCar()
-
-      } else {
-      console.log('El usuario canceló la acción');
+              
+      if (this.form.invalid) {
+        Swal.fire({
+          title: '¡Error!',
+          text: 'Por favor, complete todos los campos del formulario.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+        return;
+      }
+    
+      Swal.fire({
+        title: 'Confirmación',
+        text: '¿Está seguro de que desea enviar?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, enviar',
+        cancelButtonText: 'No, cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: '¡Reserva pagada!',
+            text: 'La reserva se ha realizado correctamente.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          });
+          this.postReservationDate(formData!)
+          this.updateCar()
+        } else {
+          console.log('El usuario canceló la acción');
+        }
+      });
     }
-  }
 
   postReservationDate(reservation: string)
   {

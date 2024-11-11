@@ -12,6 +12,8 @@ main{
     background-position: center;
 }
 
+
+
 .phrase {
     position: absolute;
     top: 50%; /* Centra verticalmente el texto */

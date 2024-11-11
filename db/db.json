@@ -1,27 +1,26 @@
 {
   "autos": [
     {
-      "id": "MLA1951085056",
-      "brand": "Fiat",
       "name": "Fiat Mobi 1.0 Trekking",
+      "brand": "dsjfjksdf",
       "model": "Mobi",
       "year": 2024,
       "fuel": "Nafta",
-      "doors": 5,
+      "doors": 3,
       "kph": 0,
       "engine": "1 L",
-      "transmision": "Manual",
-      "description": "Nuevo",
+      "transmision": "Automática",
       "traction": "Delantera",
-      "price": 18660015,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_940863-MLA80431333315_112024-I.jpg",
-      "isActive": false
+      "price": 18660015,
+      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731335439/j7svvjhsngcgi2hbbrov.jpg",
+      "description": "Nuevo",
+      "isActive": true,
+      "id": "MLA1951085056"
     },
     {
-      "id": "MLA1951218780",
-      "brand": "Fiat",
       "name": "Fiat Fiorino Endurance 1.4 Mt5",
+      "brand": "Fiat",
       "model": "Fiorino",
       "year": 2023,
       "fuel": "Nafta",
@@ -29,17 +28,17 @@
       "kph": 0,
       "engine": "1.4 L",
       "transmision": "Manual",
-      "description": "Nuevo",
       "traction": "Delantera",
-      "price": 21850014,
       "color": "Negro",
+      "price": 21850014,
       "photos": "http://http2.mlstatic.com/D_933751-MLA80431266503_112024-I.jpg",
-      "isActive": true
+      "description": "Nuevo",
+      "isActive": true,
+      "id": "MLA1951218780"
     },
     {
-      "id": "MLA1951071932",
-      "brand": "Fiat",
       "name": "Cronos Drive 1.3 Gse Cvt My24",
+      "brand": "Fiat",
       "model": "Cronos",
       "year": 2023,
       "fuel": "Nafta",
@@ -47,12 +46,13 @@
       "kph": 0,
       "engine": "1.3 L",
       "transmision": "Automática",
-      "description": "Nuevo",
       "traction": "Delantera",
-      "price": 23700019,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_807366-MLA80174693810_112024-I.jpg",
-      "isActive": true
+      "price": 23700019,
+      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731334794/rtegrzrispbyhwacgiip.avif",
+      "description": "Nuevo",
+      "isActive": true,
+      "id": "MLA1951071932"
     },
     {
       "id": "MLA1951033470",
@@ -142,7 +142,7 @@
       "price": 27100000,
       "color": "Gris",
       "photos": "http://http2.mlstatic.com/D_668473-MLA80430990819_112024-I.jpg",
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951045810",
@@ -178,7 +178,7 @@
       "price": 23700016,
       "color": "Blanco",
       "photos": "http://http2.mlstatic.com/D_932108-MLA80174551500_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951218304",
@@ -196,7 +196,7 @@
       "price": 21850013,
       "color": "Blanco",
       "photos": "http://http2.mlstatic.com/D_604371-MLA80431040287_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1458788571",
@@ -682,7 +682,7 @@
       "price": 16200000,
       "color": "Negro",
       "photos": "http://http2.mlstatic.com/D_692290-MLA80429073911_112024-I.jpg",
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951027630",
@@ -701,7 +701,78 @@
       "color": "Blanco",
       "photos": "http://http2.mlstatic.com/D_981588-MLA80172686260_112024-I.jpg",
       "isActive": false
+    },
+    {
+      "id": "b86e",
+      "name": "1",
+      "brand": "1",
+      "model": "1",
+      "year": 2010,
+      "fuel": "Nafta",
+      "doors": 3,
+      "kph": 0,
+      "engine": "1 L",
+      "transmision": "Manual",
+      "traction": "Frontera",
+      "color": "Plateado",
+      "price": 100000,
+      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731333539/kidxzgnbm2o0kdrymkjb.jpg",
+      "description": "Usado",
+      "isActive": true
+    },
+    {
+      "id": "b046",
+      "name": "Toyota",
+      "brand": "Fiat",
+      "model": "Gtr",
+      "year": 2010,
+      "fuel": "Gas",
+      "doors": 3,
+      "kph": 0,
+      "engine": "1 L",
+      "transmision": "Automática",
+      "traction": "Delantera",
+      "color": "Gris",
+      "price": 100000,
+      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731333641/m3jgixtnptua8cks0xvg.jpg",
+      "description": "Nuevo",
+      "isActive": true
+    },
+    {
+      "id": "c079",
+      "name": "Fiat Mobi 1.0 Trekking",
+      "brand": "Fiat",
+      "model": "Gtr",
+      "year": 2010,
+      "fuel": "Gas",
+      "doors": 10,
+      "kph": 0,
+      "engine": "1 L",
+      "transmision": "Manual",
+      "traction": "Delantera",
+      "color": "Plateado",
+      "price": 10000,
+      "photos": "https://res.cloudinary.com/dbbhvsxue/image/upload/v1731335610/f3rs2qsfymhbu8r2rvgl.jpg",
+      "description": "Nuevo",
+      "isActive": true
     }
   ],
-  "reservation": []
+  "reservation": [
+    {
+      "id": "09da",
+      "reservationDate": "2024-11-16"
+    },
+    {
+      "id": "472f",
+      "reservationDate": "2024-11-17"
+    },
+    {
+      "id": "fc1e",
+      "reservationDate": "2024-11-14"
+    },
+    {
+      "id": "34d7",
+      "reservationDate": "2024-11-21"
+    }
+  ]
 }
