@@ -46,14 +46,14 @@ export class ShopComponent implements OnInit {
     })
   }
 
-  encontrarMarca()
-  {
-    let i =0 ;
-    for(let auto of this.filteredCarArray)
-    {
-      if(!this.marcaArray.find(el => el === auto.brand)){
-        this.marcaArray.push(auto.brand)
-      } 
+  encontrarMarca() {
+    this.marcaArray = [];
+    const autosActivos = this.filteredCarArray.filter(auto => auto.isActive);
+  
+    for (let auto of autosActivos) {
+      if (!this.marcaArray.includes(auto.brand)) {
+        this.marcaArray.push(auto.brand);
+      }
     }
   }
 

@@ -42,42 +42,51 @@ export class FiltradoComponent implements OnInit{
   description : string[] = ['Usado', 'Nuevo'];
   carritoService = inject(CarritoService);
   filteredCarArray: Auto[] = [];
+  carArrayMarca: string[] = []
 
+  mostrarMarcasFiltradas() {
+    // Filtramos los autos activos (isActive = true)
+    const autosActivos = this.carArray.filter(auto => auto.isActive);
+  
+    // Extraemos solo las marcas de los autos activos
+    const marcasActivas = autosActivos.map(auto => auto.brand);
+  
+    // Eliminamos marcas duplicadas usando un Set
+    this.carArrayMarca = [...new Set(marcasActivas)];
+    console.log('Car Array', this.carArrayMarca)
+  }
 
-  getCarsByMarca(marca: string | null)
-  {
+  getCarsByMarca(marca: string | null) {
     this.carService.getAutosByBrand(marca).subscribe({
-      next: (autos: Auto[]) =>
-      {
-        
-        
-        this.filterCars()
+      next: (autos: Auto[]) => {
         this.carArrayFiltrado = autos;
-        this.encontrarMarca()
+        this.filterCars(); // Filtrar después de asignar carArrayFiltrado
+        this.mostrarMarcasFiltradas()
       },
-      error: (e: Error) =>
-      {
+      error: (e: Error) => {
         console.log(e.message);
       }
-    })
+    });
   }
 
-  getCarsByFuel(fuel: string){
+  getCarsByFuel(fuel: string) {
     this.carService.getAutosByFuel(fuel).subscribe({
       next: (autos: Auto[]) => {
-        this.carArrayFiltrado = autos
+        this.carArrayFiltrado = autos;
+        this.filterCars(); // Filtrar después de asignar carArrayFiltrado
       },
       error: console.log
-    })
+    });
   }
 
-  getCarByDescription(description: string){
+  getCarByDescription(description: string) {
     this.carService.getAutosByDescription(description).subscribe({
       next: (autos: Auto[]) => {
-        this.carArrayFiltrado = autos
+        this.carArrayFiltrado = autos;
+        this.filterCars(); // Filtrar después de asignar carArrayFiltrado
       },
-      error : console.log
-    })
+      error: console.log
+    });
   }
 
   getCars()
@@ -86,8 +95,8 @@ export class FiltradoComponent implements OnInit{
       next: (autos: Auto[]) =>
       {
         this.carArray = autos;
+        this.filterCars()
         this.encontrarMarca()
-        console.log(this.marcaArray)
 
       },
       error: (e: Error) =>
@@ -98,46 +107,42 @@ export class FiltradoComponent implements OnInit{
     })
   }
 
-  encontrarMarca()
-  {
-    let i =0 ;
-    for(let auto of this.carArray)
-    {
-  
-      if(!this.marcaArray.find(el => el === auto.brand)){
-        this.marcaArray.push(auto.brand)
-      } 
+  encontrarMarca() {
+    this.marcaArray = [];
+    const autosActivos = this.carArray.filter(auto => auto.isActive);
+    for (let auto of autosActivos) {
+      if (!this.marcaArray.includes(auto.brand)) {
+        this.marcaArray.push(auto.brand);
+      }
     }
   }
 
   filtrarPorMarca(marca: string)
   {
-    this.carArray = this.carArrayFiltrado.filter(el => el.brand !== marca)
+    this.carArray = this.carArray.filter(el => el.brand !== marca)
     console.log(this.carArray)
   }
 
-  sortArray(tipo: string){
+  sortArray(tipo: string) {
     this.carService.getJson().subscribe({
       next: (autos) => {
-        if(tipo === 'lowestPrice'){
-          console.log('Hola')
-          autos.sort((a, b) => a.price - b.price)
-        } else if(tipo === 'highestPrice'){
-          console.log('Hola1')
-          autos.sort((a, b) => b.price - a.price)
-        } else if(tipo === 'name'){
-          console.log('Hola2')
-          autos.sort((a, b) => a.name.localeCompare(b.name))
+        if (tipo === 'lowestPrice') {
+          autos.sort((a, b) => a.price - b.price);
+        } else if (tipo === 'highestPrice') {
+          autos.sort((a, b) => b.price - a.price);
+        } else if (tipo === 'name') {
+          autos.sort((a, b) => a.name.localeCompare(b.name));
         }
-        
-        this.carArrayFiltrado = autos
+  
+        this.carArrayFiltrado = autos;
+        this.filterCars();
       }
-    })
+    });
   }
 
   filterCars() { 
     const cartItems = this.carritoService.getCartItems(); 
-    this.filteredCarArray = this.carArray.filter(auto => !cartItems.some(item => item.id === auto.id)); 
+    this.carArrayFiltrado = this.carArrayFiltrado.filter(auto => !cartItems.some(item => item.id === auto.id)); 
   }
   
 }
