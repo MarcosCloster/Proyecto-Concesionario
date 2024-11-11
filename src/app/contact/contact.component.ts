@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from '../otherComponents/footer/footer.component';
 import { HeaderComponent } from '../otherComponents/header/header.component';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-contact',
@@ -10,5 +11,14 @@ import { HeaderComponent } from '../otherComponents/header/header.component';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-
+  Alerta()
+  {
+    Swal.fire({
+    title: '¡Éxito!',
+    text: 'El correo ha sido enviado',
+    icon: 'success',
+    confirmButtonText: 'Aceptar'
+    });
+  }
 }
+  

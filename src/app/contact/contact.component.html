@@ -44,12 +44,12 @@
 <section>
     <div class="formGmail">
         <h1 class="titleForm">Envia un mensaje</h1>
-        <form action="https://formsubmit.co/marcoscloster04@gmail.com" method="POST">
+        <form action="https://formsubmit.co/marcoscloster04@gmail.com" method="POST" >
             <input class="input" type="text" name="name" placeholder="Nombre y Apellido" autocomplete="off">
             <input class="input" type="email" name="email" placeholder="your@email.com" autocomplete="off">
             <input class="input" type="text" name="subject" placeholder="Tema" autocomplete="off">
             <textarea class="input" name="comments" id="comments" placeholder="Tu mensaje"></textarea>
-            <input type="submit" value="Enviar" class="submit">
+            <input type="submit" value="Enviar" class="submit" (click)="Alerta()">
         </form>
     </div>
 </section>
