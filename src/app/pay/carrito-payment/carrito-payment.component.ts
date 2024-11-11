@@ -11,6 +11,7 @@ import { JsonService } from 'src/app/services/json.service';
 import Swal from 'sweetalert2'
 import { routes } from 'src/app/app.routes';
 import { Router } from '@angular/router';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-carrito-payment',
@@ -21,9 +22,14 @@ import { Router } from '@angular/router';
 })
 export class CarritoPaymentComponent implements OnInit{
   reservedDates: string[] = [];
+  totalPrice: number = 0;
   ngOnInit(): void {
-    this.getCarrito()
-    this.getFechas()
+    this.getCarrito();
+    this.getFechas();
+    this.getNameCart(); 
+    this.getCarritoPrice();
+    console.log('askldaksld',this.nameCartArray)
+    console.log(this.totalPrice)
   }
 
   cartArray!: Auto[]
@@ -33,7 +39,7 @@ export class CarritoPaymentComponent implements OnInit{
   fb = inject(FormBuilder)
   carService = inject(JsonService)
   router= inject(Router)
-
+  nameCartArray: String[] = [];
 
     getCarrito()
     {
@@ -102,9 +108,12 @@ export class CarritoPaymentComponent implements OnInit{
     }
     
     form = this.fb.group({
+      email: ['', Validators.required],
       reservationDate: ['', [Validators.required,  this.DateValidator()]],
       titular: ['', [Validators.required]],
       cardNumber: ['', [Validators.required, this.cardLengthValidator()]],
+      name: '',
+      price: 0,
       cardName: ['', [Validators.required]],
       expiracyDate: ['', [Validators.required, this.expiracyDateValidator()]],
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
@@ -112,8 +121,8 @@ export class CarritoPaymentComponent implements OnInit{
 
     confirmSubmit() {
       const formData = this.form.get('reservationDate')?.value;
-      console.log(formData)
-    
+      console.log(formData);
+      
       const selectedDate = this.form.get('reservationDate')?.value;
       if (this.isDateReserved(selectedDate!)) {
         Swal.fire({
@@ -144,19 +153,23 @@ export class CarritoPaymentComponent implements OnInit{
         cancelButtonText: 'No, cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.postReservationDate(formData!)
+          this.form.patchValue({
+            name: this.nameCartArray.join(', '),
+            price: this.totalPrice
+          });
+    
+          this.postReservationDate(formData!);
           Swal.fire({
             title: '¡Reserva pagada!',
             text: 'La reserva se ha realizado correctamente.',
             icon: 'success',
             confirmButtonText: 'Aceptar'
-          }).then((result)=>
-          {
-            this.clearCarrito()
-            this.router.navigateByUrl('')
-
-          })
-          
+          }).then(() => {
+            this.send();
+            this.clearCarrito();
+            this.router.navigateByUrl('');
+            this.updateCar();
+          });
         } else {
           console.log('El usuario canceló la acción');
         }
@@ -225,5 +238,57 @@ export class CarritoPaymentComponent implements OnInit{
     }
   }
 
+  getCarritoPrice ()
+  {
 
+    let sum=0;
+    for(let cart of this.cartArray)
+    {
+      console.log('price', cart.price)
+      sum += cart.price
+    }
+    this.totalPrice = sum;
+    console.log(this.totalPrice)
+  }
+
+  async send() {
+    emailjs.init('KsWLMXjVTX33CiV2t');
+    const response = await emailjs.send("service_mzntda3", "template_68b4nyg", {
+      email: this.form.value.email,
+      name: this.form.value.name, // Se envía el valor actualizado
+      price: this.form.value.price, // Se envía el precio total actualizado
+      fecha: this.form.value.reservationDate
+    });
+  }
+
+  getNameCart()
+  {
+    for(let car of this.cartArray)
+    {
+      this.nameCartArray.push(car.name)
+      
+    }
+    console.log(this.nameCartArray)
+  }
+
+  updateCar()
+    {
+      for (let car of this.cartArray)
+      {
+        car.isActive = false;
+        this.carService.putJson(car, car.id!).subscribe({
+          next: () =>
+          {
+            console.log('Auto modificado')
+          },
+          error: (e: Error) => 
+          {
+            console.log(e.message)
+          }
+        })
+      }
+      }
+      
+  
 }
+

@@ -2,12 +2,13 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormsModule, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Auto } from '../interfaces/autos';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JsonService } from '../services/json.service';
 import { HeaderComponent } from "../otherComponents/header/header.component";
 import { FooterComponent } from "../otherComponents/footer/footer.component";
 import { DateService } from '../services/date.service';
 import Swal from 'sweetalert2'
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-pay',
@@ -39,6 +40,7 @@ export class PayComponent implements OnInit{
   cardName: string = '';
   expiryDate: string = '';
   cvv: string = '';
+  router = inject(Router)
 
   
     makeReservation() {
@@ -125,17 +127,20 @@ export class PayComponent implements OnInit{
     }
 
     form = this.fb.group({
+      email: ['', Validators.required],
       reservationDate: ['', [Validators.required,  this.DateValidator()]],
       titular: ['', [Validators.required]],
       cardNumber: ['', [Validators.required, this.cardLengthValidator()]],
       cardName: ['', [Validators.required]],
+      name: '',
+      price: '',
       expiracyDate: ['', [Validators.required, this.expiracyDateValidator()]],
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
     });
 
     confirmSubmit() {
       const formData = this.form.get('reservationDate')?.value;
-      console.log(formData)
+      console.log(formData);
     
       const selectedDate = this.form.get('reservationDate')?.value;
       if (this.isDateReserved(selectedDate!)) {
@@ -145,9 +150,9 @@ export class PayComponent implements OnInit{
           icon: 'error',
           confirmButtonText: 'Aceptar'
         });
-        return; 
+        return;
       }
-              
+    
       if (this.form.invalid) {
         Swal.fire({
           title: '¡Error!',
@@ -167,14 +172,26 @@ export class PayComponent implements OnInit{
         cancelButtonText: 'No, cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: '¡Reserva pagada!',
-            text: 'La reserva se ha realizado correctamente.',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
+          this.postReservationDate(formData!);
+          this.updateCar();
+          this.send().then(() => {
+            Swal.fire({
+              title: '¡Reserva pagada!',
+              text: 'La reserva se ha realizado correctamente.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            }).then(() => {
+              this.router.navigateByUrl('/');
+            });
+          }).catch((error) => {
+            Swal.fire({
+              title: 'Error al enviar',
+              text: 'Hubo un problema al enviar la reserva. Intente de nuevo más tarde.',
+              icon: 'error',
+              confirmButtonText: 'Aceptar'
+            });
+            console.error('Error en el envío:', error);
           });
-          this.postReservationDate(formData!)
-          this.updateCar()
         } else {
           console.log('El usuario canceló la acción');
         }
@@ -240,7 +257,17 @@ export class PayComponent implements OnInit{
     };
   }
 
-
+  async send()
+  {
+    emailjs.init('KsWLMXjVTX33CiV2t')
+    let response = await emailjs.send("service_mzntda3","template_68b4nyg",{
+      email: this.form.value.email,
+      name: this.car.name,
+      price: this.car.price,
+      fecha: this.form.value.reservationDate
+      });
+  }
+  
 }
   
 

@@ -61,6 +61,7 @@ main{
 .payment-info form input[type="text"],
 .payment-info form input[type="date"],
 .payment-info form input[type="number"],
+.payment-info form input[type="email"],
 .payment-info form select {
     width: 100%;  
     padding: 10px; 
@@ -73,6 +74,7 @@ main{
 .payment-info form input[type="text"]:focus,
 .payment-info form input[type="date"]:focus,
 .payment-info form input[type="number"]:focus,
+.payment-info form input[type="email"]:focus,
 .payment-info form select:focus {
     border-color: #007bff;
     outline: none;

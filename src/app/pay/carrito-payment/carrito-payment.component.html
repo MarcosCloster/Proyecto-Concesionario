@@ -20,7 +20,13 @@
 
         <div class="payment-info">
             <h2>Información de Pago</h2>
-            <form [formGroup]="form" action="https://formsubmit.co/marcoscloster04@gmail.com" method="POST">
+            <form [formGroup]="form"  action="javascript:void(0)" novalidate (ngSubmit)="confirmSubmit()">
+                <label for="email">Email:</label>
+            <input type="email" name="email" id="email" formControlName="email" required>
+            <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+                <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+            </div>
+
                 <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
                 <input type="date" id="reservationDate" formControlName="reservationDate" (change)="onDateChange($event)">
 
@@ -68,6 +74,9 @@
                 <span style="color: red;">El año de expiración debe ser 2025 o posterior</span>
                 }
 
+                <input type="hidden" formControlName="name">
+                <input type="hidden" formControlName="price">
+
                 <label for="cvv">CVV:</label>
                 <input type="number" id="cvv" name="cvv" formControlName="cvv">
                 @if (form.get('cvv')?.invalid && form.get('cvv')?.touched) {
@@ -78,7 +87,7 @@
                 }
 
 
-                <button type="submit" (click)="confirmSubmit()">Confirmar Pago</button>
+                <button type="submit" >Confirmar Pago</button>
             </form>
         </div>
     </div>

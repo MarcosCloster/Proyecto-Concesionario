@@ -16,66 +16,71 @@
       
         <div class="payment-info">
           <h2>Información de Pago</h2>
-          <form [formGroup]="form" action="https://formsubmit.co/akitomas7600@gmail.com" method="POST">
+          <form [formGroup]="form" action="javascript:void(0)" (ngSubmit)="confirmSubmit()" novalidate>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" formControlName="email" required>
+            <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
+                <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+            </div>
+        
             <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
-                <input type="date" id="reservationDate" name="reservationDate" formControlName="reservationDate" (change)="onDateChange($event)" required>
-
-                @if (isDateReserved(form.get('reservationDate')!.value)) {
-                    <span style="color: red;">¡Esta fecha ya está reservada! Elija otra</span>
-                }
-
-                @if (form.get('reservationDate')?.touched && form.get('reservationDate')?.invalid) {
-                    <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
-                }
-
-                @if (form.get('reservationDate')?.hasError('invalidDate') && form.get('reservationDate')?.touched) {
-                    <span style="color: red; display: flex; flex-direction: column;">La fecha de reserva no puede ser anterior a la fecha actual</span>
-                }
-      
+            <input type="date" id="reservationDate" name="reservationDate" formControlName="reservationDate" required>
+            <div *ngIf="isDateReserved(form.get('reservationDate')!.value)">
+                <span style="color: red;">¡Esta fecha ya está reservada! Elija otra</span>
+            </div>
+            <div *ngIf="form.get('reservationDate')?.touched && form.get('reservationDate')?.invalid">
+                <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+            </div>
+            <div *ngIf="form.get('reservationDate')?.hasError('invalidDate') && form.get('reservationDate')?.touched">
+                <span style="color: red; display: flex; flex-direction: column;">La fecha de reserva no puede ser anterior a la fecha actual</span>
+            </div>
+        
             <label for="titular">Nombre del titular:</label>
             <input type="text" id="titular" name="titular" formControlName="titular" required>
-            @if (form.get('titular')?.invalid && form.get('titular')?.touched) {
+            <div *ngIf="form.get('titular')?.invalid && form.get('titular')?.touched">
                 <span style="color: red;">Completar Formulario</span>
-            }
-      
+            </div>
+        
             <label for="cardNumber">Número de tarjeta:</label>
             <input type="number" id="cardNumber" name="cardNumber" formControlName="cardNumber" required>
-            @if (form.get('cardNumber')?.invalid && form.get('cardNumber')?.touched) {
+            <div *ngIf="form.get('cardNumber')?.invalid && form.get('cardNumber')?.touched">
                 <span style="color: red;">Completar Formulario</span>
-            }
-            @if (form.get('cardNumber')?.hasError('invalidCardLength') && form.get('cardNumber')?.touched ) {
+            </div>
+            <div *ngIf="form.get('cardNumber')?.hasError('invalidCardLength') && form.get('cardNumber')?.touched">
                 <span style="color: red; display: flex; flex-direction: column;">Minimo de Numeros Requeridos</span>
-            }
-
+            </div>
+        
             <label for="cardName">Nombre en la tarjeta:</label>
-            <select name="cardName" id="cardName" name="cardName" formControlName="cardName" required>
+            <select name="cardName" id="cardName" formControlName="cardName" required>
                 <option value="Visa">Visa</option>
                 <option value="Mastercard">Mastercard</option>
                 <option value="BBVA">BBVA</option>
                 <option value="American Express">American Express</option>
             </select>
-            @if (form.get('cardName')?.invalid && form.get('cardName')?.touched) {
+            <div *ngIf="form.get('cardName')?.invalid && form.get('cardName')?.touched">
                 <span style="color: red;">Completar Formulario</span>
-            }
-      
+            </div>
+        
             <label for="expiracyDate">Fecha de expiración:</label>
             <input formControlName="expiracyDate" type="date" id="expiracyDate" name="expiracyDate" placeholder="YYYY-MM-DD" required>
-            @if (form.get('expiracyDate')?.hasError('minYear')) {
+            <div *ngIf="form.get('expiracyDate')?.hasError('minYear')">
                 <span style="color: red;">El año de expiración debe ser 2025 o posterior</span>
-            }
-      
-            <label for="cvv">CVV:</label>
-            <input type="number" id="cvv" name="cvv" formControlName="cvv" req>
-            @if (form.get('cvv')?.invalid && form.get('cvv')?.touched) {
-                <span style="color: red;">Completar Formulario</span>
-            }
-            @if (form.get('cvv')?.hasError('invalidCvvLength') && form.get('cvv')?.touched) {
-                <span style="color: red; display: flex; flex-direction: column;">Minimo de Numeros Requeridos</span>
-                }
+            </div>
+        
+            <input type="hidden" formControlName="name">
+            <input type="hidden" formControlName="price">
 
-      
-            <button type="submit" (click)="confirmSubmit()">Confirmar Pago</button>
-          </form>
+            <label for="cvv">CVV:</label>
+            <input type="number" id="cvv" name="cvv" formControlName="cvv" required>
+            <div *ngIf="form.get('cvv')?.invalid && form.get('cvv')?.touched">
+                <span style="color: red;">Completar Formulario</span>
+            </div>
+            <div *ngIf="form.get('cvv')?.hasError('invalidCvvLength') && form.get('cvv')?.touched">
+                <span style="color: red; display: flex; flex-direction: column;">Minimo de Numeros Requeridos</span>
+            </div>
+        
+            <button type="submit">Confirmar Pago</button>
+        </form>
         </div>
       </div>      
                  

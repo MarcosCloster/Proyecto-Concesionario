@@ -1,11 +1,41 @@
 <app-header></app-header>
 <main>
-    <div class="banner">
-        <div class="phrase">
-            <h1 style="font-size: 4.5vh;">Maneja tu auto con la mayor confianza</h1>
-            <h4 style="font-size: 3vh;">Tenemos las mejores ofertas</h4>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="background-image: url('https://res.cloudinary.com/dlp2ynio2/image/upload/v1729520908/banner1_qvsf03.png');">
+                <div class="carousel-caption-left">
+                    <h1>Maneja tu auto con la mayor confianza</h1>
+                    <h4>Tenemos las mejores ofertas</h4>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://res.cloudinary.com/dbbhvsxue/image/upload/v1731332002/Banner_2_rk8s47.jpg');">
+                <div class="carousel-caption-left">
+                    <h1>Maneja tu auto con la mayor confianza</h1>
+                    <h4>Tenemos las mejores ofertas</h4>
+                </div>
+            </div>
+            <div class="carousel-item" style="background-image: url('https://res.cloudinary.com/dbbhvsxue/image/upload/v1731344161/Banner_Fiat_d2acb4.jpg');">
+                <div class="carousel-caption-left">
+                    <h1>Maneja tu auto con la mayor confianza</h1>
+                    <h4>Tenemos las mejores ofertas</h4>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+    
     
     <div class="category">
         <div class="new">
