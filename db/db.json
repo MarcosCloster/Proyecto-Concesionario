@@ -703,46 +703,5 @@
       "isActive": false
     }
   ],
-  "reservation": [
-    {
-      "id": "9eb0",
-      "reservationDate": "2024-11-22"
-    },
-    {
-      "id": "e829",
-      "reservationDate": "2024-11-20"
-    },
-    {
-      "id": "3fbe",
-      "reservationDate": "2024-12-05"
-    },
-    {
-      "id": "245d",
-      "reservationDate": "2024-11-24"
-    },
-    {
-      "id": "2e2f",
-      "reservationDate": "2024-11-12"
-    },
-    {
-      "id": "22e7",
-      "reservationDate": "2024-11-23"
-    },
-    {
-      "id": "2703",
-      "reservationDate": "2024-11-14"
-    },
-    {
-      "id": "00c8",
-      "reservationDate": "2024-11-14"
-    },
-    {
-      "id": "1600",
-      "reservationDate": "2024-11-13"
-    },
-    {
-      "id": "a1c6",
-      "reservationDate": "2024-11-29"
-    }
-  ]
+  "reservation": []
 }

@@ -18,7 +18,7 @@ import { CarritoService } from 'src/app/services/carrito.service';
 export class FiltradoComponent implements OnInit{
 
   ngOnInit(): void {
-    this.getCars()
+    
     this.routes.paramMap.subscribe(params => {
       if(params.get('tipo') == 'marca'){
         this.getCarsByMarca(params.get('info'))
@@ -34,7 +34,7 @@ export class FiltradoComponent implements OnInit{
       } else if (params.get('tipo') === 'filter'){
         this.sortArray(params.get('info')!);
       }
-      
+      this.getCars()
     })
   }
 
@@ -53,8 +53,10 @@ export class FiltradoComponent implements OnInit{
     this.carService.getAutosByBrand(marca).subscribe({
       next: (autos: Auto[]) =>
       {
-        this.carArrayFiltrado = autos;
+        
+        
         this.filterCars()
+        this.carArrayFiltrado = autos;
         this.encontrarMarca()
       },
       error: (e: Error) =>
@@ -89,6 +91,8 @@ export class FiltradoComponent implements OnInit{
       {
         this.carArray = autos;
         this.encontrarMarca()
+        console.log(this.marcaArray)
+
       },
       error: (e: Error) =>
       {
@@ -101,8 +105,9 @@ export class FiltradoComponent implements OnInit{
   encontrarMarca()
   {
     let i =0 ;
-    for(let auto of this.filteredCarArray)
+    for(let auto of this.carArray)
     {
+  
       if(!this.marcaArray.find(el => el === auto.brand)){
         this.marcaArray.push(auto.brand)
       } 
