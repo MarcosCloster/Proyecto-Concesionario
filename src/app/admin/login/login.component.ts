@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -29,10 +30,22 @@ export class LoginComponent {
     const password = this.form.get('password')?.value;
   
     if (this.authService.login(name!, password!)) {
-      this.router.navigateByUrl('/admin/view');
+      Swal.fire({
+        title: 'Ingreso de usuario con exito',
+        text: 'Se ha ingresado sesion',
+        icon: 'success',
+        confirmButtonText: 'Aceptar'
+      }).then(result =>{
+        this.router.navigateByUrl('/admin/view');
       this.form.reset();
+      });
     } else {
-      alert('Nombre de usuario o contraseña incorrectos');
+      Swal.fire({
+        title: 'Error al Ingresar',
+        text: 'No existe ese usuario',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
   }
   

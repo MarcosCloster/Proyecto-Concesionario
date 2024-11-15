@@ -6,6 +6,7 @@ import { HeaderComponent } from '../otherComponents/header/header.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-carrito',
@@ -48,7 +49,12 @@ export class CarritoComponent implements OnInit{
       this.router.navigateByUrl('/carrito/payment')
     } else
     {
-      alert('No se puede pagar por un carrito vacio')
+      Swal.fire({
+        title: 'Error al Reservar',
+        text: 'No hay autos en el carrito',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
     
   }

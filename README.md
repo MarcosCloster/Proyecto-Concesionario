@@ -1,27 +1,20 @@
 # DynamicDrive
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+Este proyecto es un sistema de gestión de reservas de autos en una concesionaria. En esta pagina, el cliente podrá visualizar coches, reservarlos y hablar con el vendedor si lo desea a traves de whatsapp. Si el cliente tiene alguna consulta con respecto a la concesionaria, este prodra contactarse mediante el apartado "Contacto" y podra mandar un mail alli. Tambien si el cliente lo desea, puede reservar 1 solo auto o tambien puede tener un carrito de compras donde podra reservar multiples vehiculos. Alli debera ingresar la fecha para ver  el/los vehiculos y si esa fecha esta ocupada le mostrara un error y tambien deberá ingresar los datos de su tarjeta. Y una vez reservado el auto, este se deja de mostrar automaticamente para que nadie mas lo pueda reservar.
+Y desde el punto de vista del administrador, este podrá ingresar autos nuevos, modificarlos y darlos de baja. Tambien, cuando algun cliente reserva un auto, le saltará una notificacion por mail diciendo el mail del cliente, el precio, el/los vehiculos reservados y la fecha reservada.
 
-## Development server
+## Sobre Nosotros
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Integrantes del grupo:
+- Iñaki Fernández
+- Marcos Closter
+- Matias Coluccio
 
-## Code scaffolding
+## Cómo configurar el entorno de desarrollo
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. Clona este repositorio: `git clone https://github.com/usuario/proyecto.git`
+2. Instala las dependencias: `npm install`
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Servidor de desarrollo
+1. Ejecuta `json-server db-db.json` en la terminal para levantar el json
+2. Ejecuta `ng serve` en la terminal para levantar el servidor de desarrollo.

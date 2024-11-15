@@ -97,8 +97,24 @@ export class AddCarComponent {
   }
 
   upload() {
+    // Validar si el formulario es válido
+    if (this.formCar.invalid) {
+      Swal.fire({
+        title: 'Formulario incompleto',
+        text: 'Por favor, completa todos los campos requeridos antes de continuar.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      return false; // No continuar si el formulario es inválido
+    }
+  
     if (this.files.length === 0) {
-      console.log("No hay archivos para cargar");
+      Swal.fire({
+        title: 'Sin archivos',
+        text: 'Por favor, selecciona al menos un archivo para subir.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
       return false;
     }
     
