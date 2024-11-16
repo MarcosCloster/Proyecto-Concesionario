@@ -25,7 +25,7 @@ main{
 .text .info{
     margin-top: 1.5vh;
     font-size: 2vh;
-    justify-content: center;
+    text-align: left;
 }
 
 .text .history{
