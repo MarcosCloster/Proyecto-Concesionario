@@ -15,25 +15,30 @@ main {
     text-transform: uppercase;
     text-align: center;
 }
+  
 
-.image img{
+
+
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image img {
     width: 500px;
-    height: auto;
-}
+    height: 300px;
+    object-fit: cover;
+  }
 
-@media (max-width: 500px){
-    .title p{
-        font-size: 3vh;
-    }
-    .image img{
-        width: 300px;
-        height: auto;
-    }
-    .contact, .caracterist, .principal{
-        max-width: 290px;
-    }
-}
 
+  @media (max-width: 500px) {
+    .image img {
+      width: 300px;
+      height: 200px; 
+    }
+  }
+  
 .box{
     display: flex;
 }

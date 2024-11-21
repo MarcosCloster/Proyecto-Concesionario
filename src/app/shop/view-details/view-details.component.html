@@ -3,8 +3,52 @@
     <div class="title">
         <p>{{car.name}}</p>
     </div>
+    
     <div class="image">
-        <img [src]="car.photos">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button
+                *ngFor="let photo of car.photos; let i = index"
+                type="button"
+                [attr.data-bs-target]="'#carouselExampleIndicators'"
+                [attr.data-bs-slide-to]="i"
+                [class.active]="i === 0"
+                aria-current="i === 0 ? 'true' : null"
+                aria-label="'Slide ' + (i + 1)"
+              ></button>
+            </div>
+          
+            <div class="carousel-inner">
+              <div
+                *ngFor="let photo of car.photos; let i = index"
+                class="carousel-item"
+                [class.active]="i === 0"
+              >
+                <img [src]="photo" class="d-block w-100" alt="Imagen del auto">
+              </div>
+            </div>
+          
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Anterior</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Siguiente</span>
+            </button>
+          </div>
+          
+        
     </div>
     <div class="box">
         <div class="principal">

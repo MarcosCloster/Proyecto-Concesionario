@@ -7,14 +7,16 @@
       "year": 2023,
       "fuel": "Nafta",
       "doors": 3,
-      "kph": 0,
+      "kph": 5,
       "engine": "1.4 L",
       "transmision": "Manual",
       "traction": "Delantera",
       "color": "Negro",
       "price": 21850014,
-      "photos": "http://http2.mlstatic.com/D_933751-MLA80431266503_112024-I.jpg",
-      "description": "Nuevo",
+      "photos": [
+        "http://http2.mlstatic.com/D_933751-MLA80431266503_112024-I.jpg"
+      ],
+      "description": "Usado",
       "isActive": true,
       "id": "MLA1951218780"
     },
@@ -33,7 +35,9 @@
       "traction": "Delantera",
       "price": 23700018,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_645767-MLA80431061647_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_645767-MLA80431061647_112024-I.jpg"
+      ],
       "isActive": false
     },
     {
@@ -51,7 +55,9 @@
       "traction": "Delantera",
       "price": 32499000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_950576-MLA80174504560_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_950576-MLA80174504560_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -69,7 +75,9 @@
       "traction": "Delantera",
       "price": 25199000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_652986-MLA80430968751_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_652986-MLA80430968751_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -87,7 +95,9 @@
       "traction": "Delantera",
       "price": 21000000,
       "color": "Azul",
-      "photos": "http://http2.mlstatic.com/D_832342-MLA80174430938_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_832342-MLA80174430938_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -105,7 +115,9 @@
       "traction": "Delantera",
       "price": 27100000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_668473-MLA80430990819_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_668473-MLA80430990819_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -123,7 +135,9 @@
       "traction": "Delantera",
       "price": 18660013,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_683971-MLA80430959305_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_683971-MLA80430959305_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -141,7 +155,9 @@
       "traction": "Delantera",
       "price": 23700016,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_932108-MLA80174551500_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_932108-MLA80174551500_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -159,7 +175,9 @@
       "traction": "Delantera",
       "price": 21850013,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_604371-MLA80431040287_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_604371-MLA80431040287_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -177,7 +195,9 @@
       "traction": "Delantera",
       "price": 23700017,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_991307-MLA80431035969_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_991307-MLA80431035969_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -195,7 +215,9 @@
       "traction": "Delantera",
       "price": 18660014,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_910677-MLA80174651944_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_910677-MLA80174651944_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -213,7 +235,9 @@
       "traction": "Delantera",
       "price": 30899000,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_731356-MLA80174322754_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_731356-MLA80174322754_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -231,7 +255,9 @@
       "traction": "Delantera",
       "price": 30899000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_800083-MLA80174332452_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_800083-MLA80174332452_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -249,7 +275,9 @@
       "traction": "4x4",
       "price": 34246000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_834677-MLA80174494834_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_834677-MLA80174494834_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -267,7 +295,9 @@
       "traction": "Delantera",
       "price": 26900000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_855012-MLA80174416848_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_855012-MLA80174416848_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -285,7 +315,9 @@
       "traction": "Delantera",
       "price": 21850012,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_991164-MLA80174471106_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_991164-MLA80174471106_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -303,7 +335,9 @@
       "traction": "Delantera",
       "price": 26990015,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_743915-MLA80174480066_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_743915-MLA80174480066_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -321,7 +355,9 @@
       "traction": "Delantera",
       "price": 26500000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_930077-MLA80428126095_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_930077-MLA80428126095_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -339,7 +375,9 @@
       "traction": "Delantera",
       "price": 9300,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_776136-MLA80174424676_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_776136-MLA80174424676_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -357,7 +395,9 @@
       "traction": "Delantera",
       "price": 11000000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_792965-MLA80430634447_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_792965-MLA80430634447_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -375,7 +415,9 @@
       "traction": "Delantera",
       "price": 10900000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_875313-MLA80430631563_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_875313-MLA80430631563_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -393,7 +435,9 @@
       "traction": "4x2",
       "price": 29900000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_613325-MLA80174317952_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_613325-MLA80174317952_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -411,7 +455,9 @@
       "traction": "Delantera",
       "price": 6500,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_647482-MLA80430736581_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_647482-MLA80430736581_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -429,7 +475,9 @@
       "traction": "Delantera",
       "price": 12800,
       "color": "Rojo",
-      "photos": "http://http2.mlstatic.com/D_771372-MLA80173688828_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_771372-MLA80173688828_112024-I.jpg"
+      ],
       "isActive": false
     },
     {
@@ -447,7 +495,9 @@
       "traction": "4x4",
       "price": 9000,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_855196-MLA80430620799_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_855196-MLA80430620799_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -465,7 +515,9 @@
       "traction": "4x2",
       "price": 3650,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_813781-MLA80430619769_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_813781-MLA80430619769_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -483,7 +535,9 @@
       "traction": "Delantera",
       "price": 6000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_762417-MLA80430625607_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_762417-MLA80430625607_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -501,7 +555,9 @@
       "traction": "4x4",
       "price": 38300000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_828219-MLA80428193105_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_828219-MLA80428193105_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -519,7 +575,9 @@
       "traction": "Trasera",
       "price": 37000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_720048-MLA80173463052_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_720048-MLA80173463052_112024-I.jpg"
+      ],
       "isActive": false
     },
     {
@@ -537,7 +595,9 @@
       "traction": "4x2",
       "price": 22500000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_660003-MLA80173511112_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_660003-MLA80173511112_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -555,7 +615,9 @@
       "traction": "Delantera",
       "price": 11599000,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_904775-MLA80429574591_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_904775-MLA80429574591_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -573,7 +635,9 @@
       "traction": "Delantera",
       "price": 16300000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_611782-MLA80429727703_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_611782-MLA80429727703_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -591,7 +655,9 @@
       "traction": "Delantera",
       "price": 20500000,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_877185-MLA80429443119_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_877185-MLA80429443119_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -609,7 +675,9 @@
       "traction": "Delantera",
       "price": 14800000,
       "color": "Gris",
-      "photos": "http://http2.mlstatic.com/D_738634-MLA80429446793_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_738634-MLA80429446793_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -627,7 +695,9 @@
       "traction": "4x4",
       "price": 8000000,
       "color": "Plateado",
-      "photos": "http://http2.mlstatic.com/D_738593-MLA80172887432_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_738593-MLA80172887432_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -645,7 +715,9 @@
       "traction": "Delantera",
       "price": 16200000,
       "color": "Negro",
-      "photos": "http://http2.mlstatic.com/D_692290-MLA80429073911_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_692290-MLA80429073911_112024-I.jpg"
+      ],
       "isActive": true
     },
     {
@@ -663,8 +735,31 @@
       "traction": "Delantera",
       "price": 13500000,
       "color": "Blanco",
-      "photos": "http://http2.mlstatic.com/D_981588-MLA80172686260_112024-I.jpg",
+      "photos": [
+        "http://http2.mlstatic.com/D_981588-MLA80172686260_112024-I.jpg"
+      ],
       "isActive": true
+    },
+    {
+      "name": "Inaki",
+      "brand": "Fiat",
+      "model": "Gtr",
+      "year": 2010,
+      "fuel": "Nafta",
+      "doors": 3,
+      "kph": 0,
+      "engine": "1 L",
+      "transmision": "Manual",
+      "traction": "Delantera",
+      "color": "Plateado",
+      "price": 10980970,
+      "photos": [
+        "https://res.cloudinary.com/dbbhvsxue/image/upload/v1732229493/xehrqyrkiifezg3vxi1c.jpg",
+        "https://res.cloudinary.com/dbbhvsxue/image/upload/v1732229493/jnbn5azu2hftktujgtrx.jpg"
+      ],
+      "description": "Nuevo",
+      "isActive": true,
+      "id": "3609"
     }
   ],
   "reservation": [

@@ -14,6 +14,6 @@ export interface Auto
     traction: string;
     price: number;
     color: string;
-    photos: string;
+    photos: string[];
     isActive: boolean;
 }

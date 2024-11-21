@@ -198,12 +198,15 @@ main{
     border: 1px black solid;
     overflow: hidden;
     border-radius: 15px;
-   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .latestCar .cars .box img{
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 30vh;
+    object-fit: cover;
 }
 
 .latestCar .cars .box a{

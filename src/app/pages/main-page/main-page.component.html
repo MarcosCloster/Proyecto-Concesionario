@@ -36,7 +36,6 @@
         </button>
     </div>
     
-    
     <div class="category">
         <div class="new">
             <a [routerLink]="['/shop', 'Nuevo', 'type']">
@@ -66,7 +65,7 @@
                 @if (auto.isActive === true) {
                    <a [routerLink]="['/detail', auto.id]">
             <div class="box">
-                <a href=""><img [src]="auto.photos" alt=""></a>
+                <a href=""><img [src]="auto.photos[0]" alt=""></a>
                 <div class="carInfo">
                     <p class="carName"><a href="">{{auto.name}}</a></p>
                     <p class="carPrice">$ {{auto.price | number:'1.2-2' }}</p>  

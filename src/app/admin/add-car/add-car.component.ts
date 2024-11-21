@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { Auto } from 'src/app/interfaces/autos';
@@ -16,7 +16,18 @@ import Swal from 'sweetalert2'
   styleUrls: ['./add-car.component.css'],
 })
 
-export class AddCarComponent {
+export class AddCarComponent implements OnInit {
+
+  // Monitorear los cambios en el campo 'kph' y actualizar 'description'
+  ngOnInit() {
+    this.formCar.get('kph')?.valueChanges.subscribe((kphValue) => {
+      if (kphValue! > 0) {
+        this.formCar.patchValue({ description: 'Usado' });
+      } else {
+        this.formCar.patchValue({ description: 'Nuevo' });
+      }
+    });
+  }
 
   constructor(private uploadService: UploadService) {}
 
@@ -61,7 +72,7 @@ export class AddCarComponent {
     traction: ['', Validators.required],
     color: ['', Validators.required],
     price: [0, [Validators.required, Validators.min(1000)]],
-    photos: [''],
+    photos: [[]],
     description: ['', Validators.required],
   });
 
@@ -97,7 +108,6 @@ export class AddCarComponent {
   }
 
   upload() {
-    // Validar si el formulario es válido
     if (this.formCar.invalid) {
       Swal.fire({
         title: 'Formulario incompleto',
@@ -105,7 +115,26 @@ export class AddCarComponent {
         icon: 'error',
         confirmButtonText: 'Aceptar'
       });
-      return false; // No continuar si el formulario es inválido
+      return false;
+    }
+
+    const newCar = this.formCar.getRawValue() as unknown as Auto;
+    if(newCar.description === 'Usado' && newCar.kph === 0) 
+    {
+      Swal.fire({
+        title: 'Formulario incompleto',
+        text: 'Si un auto es Usado, no puede tener 0 km',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    } else if (newCar.description === 'Nuevo' && newCar.kph !== 0 )
+    {
+      Swal.fire({
+        title: 'Formulario incompleto',
+        text: 'Si un auto es nuevo, no puede tener mas de 0 km',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
     }
   
     if (this.files.length === 0) {
@@ -117,32 +146,40 @@ export class AddCarComponent {
       });
       return false;
     }
-    
-    const file_data = this.files[0];
-    const data = new FormData();
   
-    data.append('file', file_data);
-    data.append('upload_preset', 'DynamicDrive');
-    data.append('cloud_name', 'dbbhvsxue');
+    const uploadedPhotos: string[] = [];
+    const totalFiles = this.files.length;
   
-    this.uploadService.uploadImg(data).subscribe({
-      next: (response: any) => {
-        console.log(response);
-        
-        const imageUrl = response.secure_url;
-        const newCar = this.formCar.getRawValue() as Auto;
-        newCar.photos = imageUrl 
-        newCar.isActive = true
-        
-        this.postCar(newCar);
-      },
-      error: (e: Error) => {
-        console.error("Error en la subida:", e.message);
-        this.mostrarAlertaError()
-      }
+    this.files.forEach((file, index) => {
+      const data = new FormData();
+      data.append('file', file);
+      data.append('upload_preset', 'DynamicDrive');
+      data.append('cloud_name', 'dbbhvsxue');
+  
+      this.uploadService.uploadImg(data).subscribe({
+        next: (response: any) => {
+          const imageUrl = response.secure_url;
+          uploadedPhotos.push(imageUrl);
+  
+          // Si es el último archivo, guardar el auto con todas las imágenes
+          if (uploadedPhotos.length === totalFiles) {
+            
+            newCar.photos = uploadedPhotos;
+            newCar.isActive = true;
+  
+            this.postCar(newCar);
+          }
+        },
+        error: (e: Error) => {
+          console.error('Error en la subida:', e.message);
+          this.mostrarAlertaError();
+        }
+      });
     });
+  
     return true;
   }
+  
 
   mostrarAlerta() {
     Swal.fire({

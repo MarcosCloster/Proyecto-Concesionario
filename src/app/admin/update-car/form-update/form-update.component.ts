@@ -32,6 +32,16 @@ export class FormUpdateComponent implements OnInit{
       this.id = params.get('id');
       this.getCarByID(this.id);
     })
+
+    // Monitorear los cambios en el campo 'kph' y actualizar 'description'
+
+    this.formCar.get('kph')?.valueChanges.subscribe((kphValue) => {
+      if (kphValue! > 0) {
+        this.formCar.patchValue({ description: 'Usado' });
+      } else {
+        this.formCar.patchValue({ description: 'Nuevo' });
+      }
+    });
   }
 
 
@@ -49,7 +59,7 @@ export class FormUpdateComponent implements OnInit{
     traction: ['', Validators.required],
     color: ['', Validators.required],
     price: [0, [Validators.required, Validators.min(1000)]],
-    photos: [''],
+    photos: [[]],
     description: ['', Validators.required],
   });
   
@@ -69,22 +79,95 @@ export class FormUpdateComponent implements OnInit{
       traction: car.traction,
       color: car.color,
       price: car.price,
-      description: car.description,
-      photos: car.photos
+      description: car.description 
     });
   }
   
-  getCarByID(id: string | null) {
-    this.carService.getById(id).subscribe({
-      next: (car: Auto) => {
-        this.setCar(car);
+  originalPhotos: string[] = [];  // Variable para almacenar las fotos originales
 
+// Obtener los datos del auto por ID
+getCarByID(id: string | null) {
+  this.carService.getById(id).subscribe({
+    next: (car: Auto) => {
+      this.originalPhotos = car.photos;  // Guardar las fotos originales
+      this.setCar(car);  // Llenar el formulario con los datos del auto
+    },
+    error: (e: Error) => {
+      console.log(e.message);
+    }
+  });
+}
+
+// Función para subir el auto
+upload() {
+  if (this.formCar.invalid) {
+    Swal.fire({
+      title: 'Formulario incompleto',
+      text: 'Por favor, completa todos los campos requeridos antes de continuar.',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+    return false;
+  }
+
+  const newCar = this.formCar.getRawValue() as unknown as Auto;
+
+  // Verificar si el auto es usado o nuevo, y validar los km
+  if (newCar.description === 'Usado' && newCar.kph === 0) {
+    Swal.fire({
+      title: 'Formulario incompleto',
+      text: 'Si un auto es Usado, no puede tener 0 km',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+    return false;
+  } else if (newCar.description === 'Nuevo' && newCar.kph !== 0) {
+    Swal.fire({
+      title: 'Formulario incompleto',
+      text: 'Si un auto es nuevo, no puede tener más de 0 km',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+    return false;
+  }
+
+  // Si no se seleccionan archivos nuevos, mantener las fotos originales
+  if (this.files.length === 0) {
+    newCar.photos = this.originalPhotos;  // Mantener fotos originales si no se sube nada nuevo
+    this.updateCar(newCar);
+    return true;
+  }
+
+  // Si hay archivos seleccionados, los subimos
+  const uploadedPhotos: string[] = [];
+  const totalFiles = this.files.length;
+
+  this.files.forEach((file, index) => {
+    const data = new FormData();
+    data.append('file', file);
+    data.append('upload_preset', 'DynamicDrive');
+    data.append('cloud_name', 'dbbhvsxue');
+
+    this.uploadService.uploadImg(data).subscribe({
+      next: (response: any) => {
+        const imageUrl = response.secure_url;
+        uploadedPhotos.push(imageUrl);
+
+        // Si es el último archivo, guardar el auto con todas las fotos
+        if (uploadedPhotos.length === totalFiles) {
+          newCar.photos = [...this.originalPhotos, ...uploadedPhotos];  // Añadir las nuevas fotos a las originales
+          this.updateCar(newCar);
+        }
       },
       error: (e: Error) => {
-        console.log(e.message);
+        console.error('Error en la subida:', e.message);
+        this.mostrarAlertaError();
       }
     });
-  }
+  });
+
+  return true;
+}
   
 
   updateCar(car: Auto) {
@@ -120,60 +203,8 @@ export class FormUpdateComponent implements OnInit{
     this.files.splice(this.files.indexOf(event), 1);
   }
 
-  upload() {
-    // Validar si el formulario es válido
-    if (this.formCar.invalid) {
-      Swal.fire({
-        title: 'Formulario incompleto',
-        text: 'Por favor, completa todos los campos requeridos antes de continuar.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar'
-      });
-      return false; // No continuar si el formulario es inválido
-    }
   
-    if (this.files.length === 0) {
-      const newCar = this.formCar.getRawValue() as Auto;
-      this.updateCar(newCar);
-      return false;
-    }
   
-    const file_data = this.files[0];
-    const data = new FormData();
-  
-    data.append('file', file_data);
-    data.append('upload_preset', 'DynamicDrive');
-    data.append('cloud_name', 'dbbhvsxue');
-  
-    this.uploadService.uploadImg(data).subscribe({
-      next: (response: any) => {
-        console.log(response);
-        Swal.fire({
-          title: '¡Éxito!',
-          text: 'Imagen subida exitosamente a Cloudinary.',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        });
-  
-        const imageUrl = response.secure_url;
-  
-        const newCar = this.formCar.getRawValue() as Auto;
-        newCar.photos = imageUrl;
-  
-        this.updateCar(newCar);
-      },
-      error: (e: Error) => {
-        console.error("Error en la subida:", e.message);
-        Swal.fire({
-          title: 'Error',
-          text: 'Ocurrió un error al subir la imagen. Verifica la configuración de Cloudinary.',
-          icon: 'error',
-          confirmButtonText: 'Aceptar'
-        });
-      }
-    });
-    return true;
-  }
 
   mostrarAlertaError() {
     Swal.fire({
