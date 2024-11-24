@@ -1,57 +1,84 @@
 <app-header></app-header>
 <main>
     <div class="category">
+        <!-- Filtro de Ordenación -->
         <a routerLink="/shop">Todos</a>
         <hr>
         <details>
-            <summary>Order by: </summary> <!-- Flecha hacia la derecha -->
+            <summary>Ordenar por:</summary>
             <ul>
-                <a [routerLink]="['/shop', 'lowestPrice', 'filter']">Menor Precio</a>
-                <a [routerLink]="['/shop', 'highestPrice', 'filter']">Mayor Precio</a>
-                <a [routerLink]="['/shop', 'name', 'filter']">Nombre</a>
+                <li><a (click)="applySorting('lowestPrice')">Menor Precio</a></li>
+                <li><a (click)="applySorting('highestPrice')">Mayor Precio</a></li>
+                <li><a (click)="applySorting('name')">Nombre</a></li>
             </ul>
-        </details>     
-        <div class="box">
-            <hr>
-            <h5>Tipo: </h5>
-            <a [routerLink]="['/shop', 'Usado', 'type']">Usado</a>
-            <a [routerLink]="['/shop', 'Nuevo', 'type']">0 KM</a>
-        </div>
-        <div class="box">
-            <hr>
-            <h5>Marca</h5>
-            @for (item of marcaArray; track $index) {
-                    <a [routerLink]="['/shop', item, 'marca']">{{item}}</a>
-            }  
-        </div>
-        <div class="box">
-            <hr>
-            <h5>Combustible</h5>
-            <a [routerLink]="['/shop', 'Diésel', 'fuel']">Diesel</a>
-            <a [routerLink]="['/shop', 'Nafta', 'fuel']">Nafta</a>
-            <a [routerLink]="['/shop', 'Gas', 'fuel']">Gas</a>
-        </div>
-    </div>
-    <div class="cars">
-        
-        @for (item of filteredCarArray; track $index) {
-            @if (item.isActive) {
-               <div class="car">
-                <a [routerLink]="['/detail', item.id]">
-                    
-                        <img [src]="item.photos[0]" alt="">
+        </details>
 
+        <!-- Filtro por Tipo (Usado / Nuevo) -->
+        <div class="box">
+            <hr>
+            <h5>Tipo:</h5>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.type['Usado']">
+                Usado
+            </label>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.type['Nuevo']" />
+                0 KM
+            </label>
+        </div>
+
+        <!-- Filtro por Marca -->
+        <div class="box">
+            <hr />
+            <h5>Marca:</h5>
+            <div *ngFor="let marca of marcaArray">
+                <label>
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="filters.brands[marca]" />
+                    {{ marca }}
+                </label>
+            </div>
+        </div>
+
+        <!-- Filtro por Combustible -->
+        <div class="box">
+            <hr />
+            <h5>Combustible:</h5>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.fuel['Diésel']" />
+                Diesel
+            </label>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.fuel['Nafta']" />
+                Nafta
+            </label>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.fuel['Gas']" />
+                Gas
+            </label>
+        </div>
+
+        <!-- Botón para aplicar filtros -->
+        <button class="btn" (click)="onApplyFilters()">Aplicar Filtros</button>
+    </div>
+
+    <!-- Sección de Vehículos -->
+    <div class="cars">
+        <div *ngIf="carArrayFiltrado.length === 0">
+            <h3 style="display: flex; align-items: center;">No hay vehículos</h3>
+        </div>
+
+        <div *ngFor="let item of carArrayFiltrado">
+            <div class="car" *ngIf="item.isActive">
+                <a [routerLink]="['/detail', item.id]">
+                    <img [src]="item.photos[0]" alt="Imagen del vehículo" />
                     <div class="info">
-                        <p class="type" ><a href="">{{item.description}}</a></p>
-                        <p class="carName" style="font-weight: 500;"><a href="">{{item.name}}</a></p>
-                        <p class="carPrice" >$ {{item.price | number:'1.2-2' }}</p>  
+                        <p class="type">{{ item.description }}</p>
+                        <p class="carName" style="font-weight: 500;">{{ item.name }}</p>
+                        <p class="carPrice">$ {{ item.price | number: '1.2-2' }}</p>
                     </div>
                 </a>
-            </div> 
-            }
-        } @empty {
-            <h3>No hay vehiculos</h3>
-        }
+            </div>
+        </div>
     </div>
 </main>
 <app-footer></app-footer>

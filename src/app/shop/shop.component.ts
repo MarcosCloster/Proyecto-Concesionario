@@ -1,70 +1,100 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FooterComponent } from '../otherComponents/footer/footer.component';
-import { HeaderComponent } from '../otherComponents/header/header.component';
-import { JsonService } from '../services/json.service';
-import { Auto } from '../interfaces/autos';
-import { filter } from 'rxjs';
-import { RouterModule } from '@angular/router';
+import { Auto } from 'src/app/interfaces/autos';
+import { JsonService } from 'src/app/services/json.service';
+import { FooterComponent } from "../otherComponents/footer/footer.component";
+import { HeaderComponent } from "../otherComponents/header/header.component";
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CarritoService } from '../services/carrito.service';
+import { CarritoService } from 'src/app/services/carrito.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-shop',
   standalone: true,
-  imports: [FooterComponent, HeaderComponent, RouterModule, CommonModule],
+  imports: [FooterComponent, HeaderComponent, RouterModule, CommonModule, FormsModule],
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
 
+  carArrayFiltrado: Auto[] = [];
   carArray: Auto[] = [];
-  carService = inject(JsonService)
-  filteredCarArray: Auto[] = [];
-  marcaArray: string[] = []
-  description : string[] = ['Usado', 'Nuevo']
-  carritoService = inject(CarritoService)
+  carService = inject(JsonService);
+  routes = inject(ActivatedRoute);
+  marcaArray: string[] = [];
+  carritoService = inject(CarritoService);
+  
+  filters = {
+    type: {
+      Usado: false,
+      Nuevo: false
+    } as { [key: string]: boolean },
+    brands: {} as Record<string, boolean>,
+    fuel: {
+      Diésel: false,
+      Nafta: false,
+      Gas: false
+    } as Record<string, boolean>
+  };
 
   ngOnInit(): void {
-    this.getCars()
+    this.getCars();
   }
 
-  getCars()
-  {
+  getCars() {
     this.carService.getJson().subscribe({
-      next: (autos: Auto[]) =>
-      {
+      next: (autos: Auto[]) => {
         this.carArray = autos;
-        this.filterCars()
-        this.encontrarMarca()
-        console.log(this.filteredCarArray)
+        this.mostrarMarcasFiltradas();
+        this.applyFilters();
       },
-      error: (e: Error) =>
-      {
+      error: (e: Error) => {
         console.log(e.message);
       }
-        
-    })
+    });
   }
 
-  encontrarMarca() {
-    this.marcaArray = [];
-    const autosActivos = this.filteredCarArray.filter(auto => auto.isActive);
-  
-    for (let auto of autosActivos) {
-      if (!this.marcaArray.includes(auto.brand)) {
-        this.marcaArray.push(auto.brand);
-      }
+  mostrarMarcasFiltradas() {
+    const autosActivos = this.carArray.filter(auto => auto.isActive);
+    this.marcaArray = [...new Set(autosActivos.map(auto => auto.brand))];
+    this.marcaArray.forEach(marca => this.filters.brands[marca] = false);
+  }
+
+  applyFilters() {
+    let filteredCars = this.carArray.filter(auto => auto.isActive);
+    const selectedTypes = Object.keys(this.filters.type).filter(
+      type => this.filters.type[type]
+    );
+    if (selectedTypes.length > 0) {
+      filteredCars = filteredCars.filter(auto => selectedTypes.includes(auto.description));
+    }
+    const selectedBrands = Object.keys(this.filters.brands).filter(
+      brand => this.filters.brands[brand]
+    );
+    if (selectedBrands.length > 0) {
+      filteredCars = filteredCars.filter(auto => selectedBrands.includes(auto.brand));
+    }
+    const selectedFuels = Object.keys(this.filters.fuel).filter(
+      fuel => this.filters.fuel[fuel]
+    );
+    if (selectedFuels.length > 0) {
+      filteredCars = filteredCars.filter(auto => selectedFuels.includes(auto.fuel));
+    }
+
+    this.carArrayFiltrado = filteredCars;
+  }
+
+  applySorting(sortType: string) {
+    if (sortType === 'lowestPrice') {
+      this.carArrayFiltrado.sort((a, b) => a.price - b.price);
+    } else if (sortType === 'highestPrice') {
+      this.carArrayFiltrado.sort((a, b) => b.price - a.price);
+    } else if (sortType === 'name') {
+      this.carArrayFiltrado.sort((a, b) => a.name.localeCompare(b.name));
     }
   }
 
-  filterCars() { 
-    const cartItems = this.carritoService.getCartItems(); 
-    this.filteredCarArray = this.carArray.filter(auto => !cartItems.some(item => item.id === auto.id)); 
-  }
-
-  filtrarPorMarca(marca: string)
-  {
-    this.carArray = this.carArray.filter(el => el.brand !== marca)
-    console.log(this.carArray)
+  onApplyFilters() {
+    this.applyFilters();
   }
 }

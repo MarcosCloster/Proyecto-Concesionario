@@ -17,14 +17,16 @@ main{
     align-self: flex-start;
 }
 
-
 summary{
     font-weight: 700;
-    font-size: 2vh;
 }
 
 details ul{
     font-size: 1.7vh
+}
+
+details ul li a{
+    cursor: pointer;
 }
 
 .category a{
@@ -60,7 +62,7 @@ hr{
 
 .box a{
     margin-bottom: 0.3vh;
-    font-size: 1.8vh
+    font-size: 1.7vh
 }
 
 .cars{
@@ -84,30 +86,30 @@ hr{
     }
 }
 
-@media(width > 420px){
-    .category a{
-        font-size: 2.5vh
-    }
-
-    .category h5{
-        font-size: 3vh;
-    }
-
-    summary{
-        font-size: 3vh;
-    }
-}
-
 @media(max-width:1810px){
     .cars{
         justify-content: center;
     }
 }
 
+@media(width > 420px){
+    .category a{
+        font-size: 2vh
+    }
+
+    .category h5{
+        font-size: 2.5vh;
+    }
+
+    summary{
+        font-size: 2.5vh;
+    }
+}
+
 .cars .car{
     width: 26.9vh;
-    height: 40vh;
     border-radius: 15px;
+    height: 40vh;
     transition: transform 0.3s ease;
     view-timeline-name: --car;
     view-timeline-axis: block;
@@ -118,7 +120,6 @@ hr{
     overflow: hidden;
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 0 10px grey;
-
 }
 
 .car:hover{
@@ -144,8 +145,7 @@ hr{
 
 .cars .car .carPrice{
     font-size: 1.9vh;
-    margin: 0;
-    margin-bottom: 0;
+    margin-top: 5px;
 }
 
 .cars .car .carName{
@@ -173,4 +173,30 @@ ul{
         opacity: 1;
         scale: 100%;
     }
+}
+
+.form-check-input{
+    border: 1px solid rgb(165, 165, 165);
+}
+
+.btn{
+    margin-top: 1.5vh;
+    height: auto;
+    width: 15vh;
+    background-color: #253551;
+    color: white;
+    border: none;
+    font-size: 1.8vh;
+    transform: color 0.3s ease;
+    transform: background-color 0.3 ease;
+}
+
+.btn:hover{
+    color: #e2e0e0;
+    background-color: #2e466e;
+}
+
+.btn a{
+    text-decoration: none;
+    color: white;
 }

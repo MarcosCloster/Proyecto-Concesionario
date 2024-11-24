@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   private usuario = {
-    name: 'usuario',
+    name: 'admin',
     password: '1234'
   };
 
@@ -18,7 +18,7 @@ export class AuthService {
 
   login(name: string, password: string): boolean {
     if (name === this.usuario.name && password === this.usuario.password) {
-      localStorage.setItem('authToken', 'your-token'); // Podrías generar un token real aquí
+      localStorage.setItem('authToken', 'your-token');
       return true;
     } else {
       return false;

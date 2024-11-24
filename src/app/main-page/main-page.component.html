@@ -63,7 +63,7 @@
         <div class="cars">
             @for (auto of highlightCar; track $index) {
                 @if (auto.isActive === true) {
-                   <a [routerLink]="['/detail', auto.id]">
+                    <a [routerLink]="['/detail', auto.id]">
             <div class="box">
                 <a href=""><img [src]="auto.photos[0]" alt=""></a>
                 <div class="carInfo">

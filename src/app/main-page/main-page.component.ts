@@ -1,12 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FooterComponent } from '../../otherComponents/footer/footer.component';
-import { HeaderComponent } from '../../otherComponents/header/header.component';
-import { JsonService } from '../../services/json.service';
-import { Auto } from '../../interfaces/autos';
+import { FooterComponent } from '../otherComponents/footer/footer.component';
+import { HeaderComponent } from '../otherComponents/header/header.component';
+import { JsonService } from '../services/json.service';
+import { Auto } from '../interfaces/autos';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CarritoComponent } from '../../carrito/carrito.component';
-import { CarritoService } from '../../services/carrito.service';
+import { CarritoComponent } from '../carrito/carrito.component';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-main-page',
