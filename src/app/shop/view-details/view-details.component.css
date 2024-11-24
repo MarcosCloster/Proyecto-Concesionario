@@ -9,16 +9,16 @@ main {
     flex-direction: column;
 }
 
+
+
 .title p{
     font-size: 6vh;
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
 }
-  
 
-
-
+/*
 .image {
     display: flex;
     justify-content: center;
@@ -38,7 +38,117 @@ main {
       height: 200px; 
     }
   }
-  
+*/
+
+.carousel-container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .carousel {
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .carousel-inner {
+    position: relative;
+    height: 500px;
+  }
+
+  .carousel-item {
+    height: 500px;
+  }
+
+  .img-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: 1000px;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 850px) {
+    .carousel-container {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .carousel-inner,
+    .carousel-item {
+      height: 300px;
+    }
+
+    img {
+      width: 500px;
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .carousel-container {
+      max-width: 300px;
+    }
+
+    .carousel-inner,
+    .carousel-item {
+      height: 200px;
+    }
+
+    img {
+      width: 500px;
+      height: 200px;
+    }
+  }
+
+  .carousel-item {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+
+  .carousel-item.active {
+    opacity: 1;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 10%;
+    opacity: 0.2;
+  }
+
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    opacity: 1;
+  }
+
+  .carousel-indicators {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+  }
+
+  .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+  }
+
+  .carousel-item {
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+.carousel-item img {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+    
 .box{
     display: flex;
 }
