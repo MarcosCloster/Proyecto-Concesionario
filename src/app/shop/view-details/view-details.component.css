@@ -9,36 +9,12 @@ main {
     flex-direction: column;
 }
 
-
-
 .title p{
     font-size: 6vh;
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
 }
-
-/*
-.image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .image img {
-    width: 500px;
-    height: 300px;
-    object-fit: cover;
-  }
-
-
-  @media (max-width: 500px) {
-    .image img {
-      width: 300px;
-      height: 200px; 
-    }
-  }
-*/
 
 .carousel-container {
     width: 800px;
