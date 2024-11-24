@@ -47,7 +47,7 @@ main {
   }
 
   .carousel {
-    background: #000;
+    background: none;
     border-radius: 8px;
     overflow: hidden;
   }
@@ -141,7 +141,7 @@ main {
   }
 
   .carousel-item {
-  transition: opacity 0.2s ease-in-out !important;
+  transition: opacity 0s ease-in-out !important;
 }
 
 .carousel-item img {
