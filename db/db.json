@@ -17,7 +17,7 @@
         "http://http2.mlstatic.com/D_933751-MLA80431266503_112024-I.jpg"
       ],
       "description": "Usado",
-      "isActive": true,
+      "isActive": false,
       "id": "MLA1951218780"
     },
     {
@@ -138,7 +138,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_683971-MLA80430959305_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951045700",
@@ -158,7 +158,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_932108-MLA80174551500_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951218304",
@@ -758,7 +758,7 @@
         "https://res.cloudinary.com/dbbhvsxue/image/upload/v1732229493/jnbn5azu2hftktujgtrx.jpg"
       ],
       "description": "Nuevo",
-      "isActive": true,
+      "isActive": false,
       "id": "3609"
     }
   ],
@@ -770,6 +770,26 @@
     {
       "id": "d5ce",
       "reservationDate": "2024-12-09"
+    },
+    {
+      "id": "6cab",
+      "idAuto": [
+        "MLA1951218780"
+      ],
+      "fecha": "2024-11-28",
+      "email": "marcoscloster04@gmail.com",
+      "nombre": "marcos"
+    },
+    {
+      "id": "0a6d",
+      "idAuto": [
+        "3609",
+        "MLA1951045810",
+        "MLA1951045700"
+      ],
+      "fecha": "2024-11-29",
+      "email": "marcoscloster04@gmail.com",
+      "nombre": "marcos"
     }
   ]
 }

@@ -9,7 +9,7 @@
         @for (item of cartItems; track $index) {
         <div class="car">
                 <a [routerLink]="['/detail', item.id]">
-                    <img [src]="item.photos" alt="">
+                    <img [src]="item.photos[0]" alt="">
                     <div class="info">
                         <p class="type"><a href="">{{item.description}}</a></p>
                         <p class="carName"><a href="">{{item.name}}</a></p>

@@ -9,6 +9,7 @@ import { FooterComponent } from "../otherComponents/footer/footer.component";
 import { DateService } from '../services/date.service';
 import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser';
+import { Reserva } from '../interfaces/reserva';
 
 @Component({
   selector: 'app-pay',
@@ -18,7 +19,7 @@ import emailjs from '@emailjs/browser';
   styleUrl: './pay.component.css'
 })
 export class PayComponent implements OnInit{
-  reservedDates: string[] = [];
+  reservedDates: Reserva[] = [];
 
     ngOnInit(): void {
       this.routes.paramMap.subscribe(params => {
@@ -138,8 +139,15 @@ export class PayComponent implements OnInit{
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
     });
 
+    reserva: Reserva = {
+      idAuto: [],
+      fecha: '',
+      email: '',
+      nombre: ''
+    }
+
     confirmSubmit() {
-      const formData = this.form.get('reservationDate')?.value;
+      const formData = this.reserva;
       console.log(formData);
     
       const selectedDate = this.form.get('reservationDate')?.value;
@@ -172,7 +180,7 @@ export class PayComponent implements OnInit{
         cancelButtonText: 'No, cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-          this.postReservationDate(formData!);
+          this.postReservationDate();
           this.updateCar();
           this.send().then(() => {
             Swal.fire({
@@ -198,12 +206,20 @@ export class PayComponent implements OnInit{
       });
     }
 
-  postReservationDate(reservation: string)
+    setValues(){
+      this.reserva.fecha = this.form.get('reservationDate')!.value ?? ''
+      this.reserva.email = this.form.get('email')!.value ?? ''
+      this.reserva.idAuto.push(this.car.id!)
+      this.reserva.nombre = this.form.get('titular')!.value ?? ''
+    }
+
+  postReservationDate()
   {
-    this.reservationService.saveReservation(reservation).subscribe({
-      next: (reservationDate: string) =>
+    this.setValues()
+    this.reservationService.saveReservation(this.reserva).subscribe({
+      next: () =>
       {
-        console.log('Fecha Reservada: ', reservationDate)
+        console.log('Se guardo')
       },
       error: (e: Error) =>
       {
@@ -214,13 +230,9 @@ export class PayComponent implements OnInit{
 
   getFechas(): void {
     this.reservationService.getReservation().subscribe({
-      next: (response: { reservationDate: string }[]) => {
-        this.reservedDates = response.map(reservation => reservation.reservationDate);
-        console.log('Fechas', this.reservedDates);
-      },
-      error: (e) => {
-        console.log('Error al obtener las fechas:', e.message);
-      },
+      next: (reservas) => {
+        this.reservedDates = reservas
+      }
     });
   }
 
@@ -232,7 +244,13 @@ export class PayComponent implements OnInit{
   isDateReserved(date: string | null): boolean {
     if (!date) return false;
     const formattedDate = new Date(date).toISOString().split('T')[0];
-    return this.reservedDates.includes(formattedDate);
+    let flag = false
+    for(let reservita of this.reservedDates){
+      if(reservita.fecha === formattedDate){
+        flag = true
+      }
+    }
+    return flag;
   }
 
   onDateChange(event: any): void {

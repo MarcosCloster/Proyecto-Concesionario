@@ -12,6 +12,7 @@ import Swal from 'sweetalert2'
 import { routes } from 'src/app/app.routes';
 import { Router } from '@angular/router';
 import emailjs from '@emailjs/browser';
+import { Reserva } from 'src/app/interfaces/reserva';
 
 @Component({
   selector: 'app-carrito-payment',
@@ -21,7 +22,7 @@ import emailjs from '@emailjs/browser';
   styleUrl: './carrito-payment.component.css'
 })
 export class CarritoPaymentComponent implements OnInit{
-  reservedDates: string[] = [];
+  reservedDates: Reserva[] = [];
   totalPrice: number = 0;
   ngOnInit(): void {
     this.getCarrito();
@@ -119,6 +120,22 @@ export class CarritoPaymentComponent implements OnInit{
       cvv: ['', [Validators.required, this.cvvLengthValidator()]]
     });
 
+    reserva: Reserva = {
+      idAuto: [],
+      fecha: '',
+      email: '',
+      nombre: ''
+    }
+
+    setValues(){
+      this.reserva.fecha = this.form.get('reservationDate')!.value ?? ''
+      this.reserva.email = this.form.get('email')!.value ?? ''
+      for(let auto of this.cartArray){
+        this.reserva.idAuto.push(auto.id!)
+      }
+      this.reserva.nombre = this.form.get('titular')!.value ?? ''
+    }
+
     confirmSubmit() {
       const formData = this.form.get('reservationDate')?.value;
       console.log(formData);
@@ -158,7 +175,7 @@ export class CarritoPaymentComponent implements OnInit{
             price: this.totalPrice
           });
     
-          this.postReservationDate(formData!);
+          this.postReservationDate();
           Swal.fire({
             title: '¡Reserva pagada!',
             text: 'La reserva se ha realizado correctamente.',
@@ -176,31 +193,28 @@ export class CarritoPaymentComponent implements OnInit{
       });
     }
 
-  postReservationDate(reservation: string)
-  {
-    this.reservationService.saveReservation(reservation).subscribe({
-      next: (reservationDate: string) =>
-      {
-        console.log('Fecha Reservada: ', reservationDate)
-      },
-      error: (e: Error) =>
-      {
-        console.log(e.message)
-      }
-    })
-  }
+    postReservationDate()
+    {
+      this.setValues()
+      this.reservationService.saveReservation(this.reserva).subscribe({
+        next: () =>
+        {
+          console.log('Se guardo')
+        },
+        error: (e: Error) =>
+        {
+          console.log(e.message)
+        }
+      })
+    }
 
-  getFechas(): void {
-    this.reservationService.getReservation().subscribe({
-      next: (response: { reservationDate: string }[]) => {
-        this.reservedDates = response.map(reservation => reservation.reservationDate);
-        console.log('Fechas', this.reservedDates);
-      },
-      error: (e) => {
-        console.log('Error al obtener las fechas:', e.message);
-      },
-    });
-  }
+    getFechas(): void {
+      this.reservationService.getReservation().subscribe({
+        next: (reservas) => {
+          this.reservedDates = reservas
+        }
+      });
+    }
 
   formatDate(date: string): string {
     const d = new Date(date);
@@ -210,7 +224,13 @@ export class CarritoPaymentComponent implements OnInit{
   isDateReserved(date: string | null): boolean {
     if (!date) return false;
     const formattedDate = new Date(date).toISOString().split('T')[0];
-    return this.reservedDates.includes(formattedDate);
+    let flag = false
+    for(let reservita of this.reservedDates){
+      if(reservita.fecha === formattedDate){
+        flag = true
+      }
+    }
+    return flag;
   }
 
   onDateChange(event: any): void {
