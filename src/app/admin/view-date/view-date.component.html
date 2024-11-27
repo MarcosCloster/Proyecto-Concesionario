@@ -1,22 +1,30 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Dia</th>
-        <th scope="col"></th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-      </tr>
-    </tbody>
+<div class="container">
+<h1 style="display: flex; justify-content: center; margin-top: 2vh; margin-bottom: 2vh; text-decoration: underline;">Reservas</h1>
+  <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Dia</th>
+          <th scope="col">fecha</th>
+          <th scope="col">Email</th>
+          <th scope="col">Nombre</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of arrayReservation; track $index) {
+          <tr>
+                  
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.idAuto}}</td>
+            <td>{{item.fecha}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.nombre}}</td>
+          </tr>
+
+        }
+        
+      </tbody>
   </table>
+
+  <button routerLink="/admin/view" class="btn" type="button">Menu admin</button>
+</div>

@@ -58,9 +58,9 @@ main{
 }
 
 .cars .car img {
-    width: 100%;      
-    height: auto;     
-    object-fit: cover;
+    width: 100%;       /* Hace que la imagen ocupe todo el ancho del contenedor */
+    height: 25vh;      /* Ajusta la altura según la apariencia que prefieras */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
 }
 
 .cars .car .type{

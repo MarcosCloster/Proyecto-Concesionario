@@ -578,7 +578,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_720048-MLA80173463052_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951068374",
@@ -758,19 +758,11 @@
         "https://res.cloudinary.com/dbbhvsxue/image/upload/v1732229493/jnbn5azu2hftktujgtrx.jpg"
       ],
       "description": "Nuevo",
-      "isActive": false,
+      "isActive": true,
       "id": "3609"
     }
   ],
   "reservation": [
-    {
-      "id": "09da",
-      "reservationDate": "2024-11-16"
-    },
-    {
-      "id": "d5ce",
-      "reservationDate": "2024-12-09"
-    },
     {
       "id": "6cab",
       "idAuto": [

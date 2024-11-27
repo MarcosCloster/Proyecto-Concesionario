@@ -6,7 +6,7 @@
 
             @for (car of cartArray; track $index) {
             <div class="car-item">
-                <img [src]="car.photos" alt="Foto del auto" class="car-image">
+                <img [src]="car.photos[0]" alt="Foto del auto" class="car-image">
                 <div class="car-details">
                     <p><strong>Auto:</strong> {{ car.name }}</p>
                     <p><strong>Año:</strong> {{ car.year }}</p>
