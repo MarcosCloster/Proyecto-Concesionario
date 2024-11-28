@@ -38,6 +38,15 @@ export class CarritoComponent implements OnInit{
   }
 
   clearCart() {
+    if(this.cartItems.length === 0)
+    {
+      Swal.fire({
+        title: 'Error al Borrar',
+        text: 'No hay autos en el carrito',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
     this.cartService.clearCart();
     this.loadCartItems();
   }

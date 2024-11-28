@@ -20,7 +20,7 @@
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" formControlName="email" required>
             <div *ngIf="form.get('email')?.touched && form.get('email')?.invalid">
-                <span style="color: red; display: flex; flex-direction: column;">Completar Formulario</span>
+                <span style="color: red; display: flex; flex-direction: column;">Ingrese un email valido</span>
             </div>
         
             <label for="reservationDate">Seleccione una fecha para ver el auto:</label>
