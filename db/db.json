@@ -158,7 +158,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_932108-MLA80174551500_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951218304",
@@ -478,7 +478,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_771372-MLA80173688828_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951082876",
@@ -698,7 +698,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_738593-MLA80172887432_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951027912",
@@ -782,6 +782,16 @@
       "fecha": "2024-11-29",
       "email": "marcoscloster04@gmail.com",
       "nombre": "marcos"
+    },
+    {
+      "id": "33ba",
+      "idAuto": [
+        "MLA1951053842",
+        "MLA1951058510"
+      ],
+      "fecha": "2024-12-21",
+      "email": "akitomas7600@gmail.com",
+      "nombre": "Iniaki"
     }
   ]
 }

@@ -1,21 +1,77 @@
-.container{
+main{
+    padding-top: 20px;
     display: flex;
-    flex-direction: column;
-    height: auto;
-    width: 100%;
     justify-content: center;
-    text-align: center;
-    align-items: center;
+    margin-bottom: 4vh;
     padding-bottom: 19em;
 }
 
-.exit{
-    padding-top: 20px;
-    margin: 20px;
+.admin-menu{
+    display: flex;
+    justify-content: center;
+}
+
+.category{
+    background-color: rgba(160, 160, 160, 0.226);
+    height: auto;
+    margin-right: 4vh;
+    padding: 1vh;
+    width: 25vh;
+    border-radius: 1vh;
+    margin-left: 1vh;
+    align-self: flex-start;
+}
+
+summary{
+    font-weight: 700;
+}
+
+details ul{
+    font-size: 1.7vh
+}
+
+details ul li a{
+    cursor: pointer;
+}
+
+.category a{
+    text-decoration: none;
+    color: black;
+    transition: text-decoration 0.3s ease;
+    transition: transform 0.3s ease;
+}
+
+.category a:hover{
+    transform: scale(1.02);
+    text-decoration: underline;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    font-family: roboto;
+}
+
+.box h5{
+    margin-bottom: 1vh;
+    font-weight: 700;
+    font-size: 2vh;
+}
+
+hr{
+    width: 10vh; 
+    border-radius: 1vh;
+    height: 0.5vh; 
+    background-color: black; 
+}
+
+.box a{
+    margin-bottom: 0.3vh;
+    font-size: 1.7vh
 }
 
 .cars{
-    width: 80%;
+    width: 60%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -41,13 +97,34 @@
     }
 }
 
+@media(width > 420px){
+    .category a{
+        font-size: 2vh
+    }
+
+    .category h5{
+        font-size: 2.5vh;
+    }
+
+    summary{
+        font-size: 2.5vh;
+    }
+}
+
 .cars .car{
     width: 26.9vh;
-    height: auto;
-    transition: transform 0.3s ease;
     border-radius: 15px;
+    height: 40vh;
+    transition: transform 0.3s ease;
+    view-timeline-name: --car;
+    view-timeline-axis: block;
+    animation-timeline: --car;
+    animation-name: show;
+    animation-range: entry 25% cover 30%;
+    animation-fill-mode: both;
     overflow: hidden;
-    box-shadow: 0 0 15px grey;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 10px grey;
 }
 
 .car:hover{
@@ -60,9 +137,9 @@
 }
 
 .cars .car img {
-    width: 100%;       /* Hace que la imagen ocupe todo el ancho del contenedor */
-    height: 20vh;      /* Ajusta la altura según la apariencia que prefieras */
-    object-fit: cover; /* Asegura que la imagen se ajuste sin distorsionarse */
+    width: 100%;   
+    height: 20vh;      
+    object-fit: cover; 
 }
 
 .cars .car .type{
@@ -71,24 +148,40 @@
     margin: 0;
 }
 
-.cars .car .title{
-    font-size: 2vh;
-    margin: 0;
-}
-
-.cars .car .price{
-    font-size: 1.5vh;
-    margin: 0;
-    margin-bottom: 0;
+.cars .car .carPrice{
+    font-size: 1.9vh;
+    margin-top: 5px;
 }
 
 .cars .car .carName{
     margin: 0;
+    font-size: 2vh;
 }
 
-.cars .car .info{
-    margin-left: 2px;
-    margin-right: 2px;
+.car .info{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+}
+
+@keyframes show{
+    from{
+        opacity: 0.5;
+        scale: 50%;
+    }
+    to{
+        opacity: 1;
+        scale: 100%;
+    }
+}
+
+.form-check-input{
+    border: 1px solid rgb(165, 165, 165);
 }
 
 .btn{
@@ -98,13 +191,18 @@
     background-color: #253551;
     color: white;
     border: none;
-    font-size: 2.5vh;
+    font-size: 2vh;
     transform: color 0.3s ease;
     transform: background-color 0.3 ease;
-    margin-bottom: 20px;
 }
 
 .btn:hover{
     color: #e2e0e0;
     background-color: #2e466e;
 }
+
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+

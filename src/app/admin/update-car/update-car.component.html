@@ -1,19 +1,85 @@
-<div class="container">
+<div class="admin-menu">
     <button routerLink="/admin/view" class="btn" type="button">Menu admin</button>
-    <div class="cars">
-        @for (item of carArray; track $index) {
-        <div class="car">
-            <a [routerLink]="['/update', item.id]">
-                <img [src]="item.photos[0]" alt="">
-                <div class="info">
-                    <p class="type"><a href="">{{item.description}}</a></p>
-                    <p class="carName"><a href="">{{item.name}}</a></p>
-                    <p class="carPrice">{{item.price}}</p>
-                </div>
-            </a>
-        </div>
-        } @empty {
-        <h3>No hay vehiculos</h3>
-        }
-    </div>
 </div>
+<main>
+    
+    <div class="category">
+        <!-- Filtro de Ordenación -->
+        <a href="/admin/update">Todos</a>
+        <hr>
+        <details>
+            <summary>Ordenar por:</summary>
+            <ul>
+                <li><a (click)="applySorting('lowestPrice')">Menor Precio</a></li>
+                <li><a (click)="applySorting('highestPrice')">Mayor Precio</a></li>
+                <li><a (click)="applySorting('name')">Nombre</a></li>
+            </ul>
+        </details>
+
+        <!-- Filtro por Tipo (Usado / Nuevo) -->
+        <div class="box">
+            <hr>
+            <h5>Tipo:</h5>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.type['Usado']">
+                Usado
+            </label>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.type['Nuevo']" />
+                0 KM
+            </label>
+        </div>
+
+        <!-- Filtro por Marca -->
+        <div class="box">
+            <hr />
+            <h5>Marca:</h5>
+            <div *ngFor="let marca of marcaArray">
+                <label>
+                    <input class="form-check-input" type="checkbox" [(ngModel)]="filters.brands[marca]" />
+                    {{ marca }}
+                </label>
+            </div>
+        </div>
+
+        <!-- Filtro por Combustible -->
+        <div class="box">
+            <hr />
+            <h5>Combustible:</h5>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.fuel['Diésel']" />
+                Diesel
+            </label>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.fuel['Nafta']" />
+                Nafta
+            </label>
+            <label>
+                <input class="form-check-input" type="checkbox" [(ngModel)]="filters.fuel['Gas']" />
+                Gas
+            </label>
+        </div>
+
+        <button class="btn" (click)="onApplyFilters()">Aplicar Filtros</button>
+    </div>
+
+    
+    <div class="cars">
+        <div *ngIf="carArrayFiltrado.length === 0">
+            <h3 style="display: flex; align-items: center;">No hay vehículos</h3>
+        </div>
+
+        <div *ngFor="let item of carArrayFiltrado">
+            <div class="car" *ngIf="item.isActive">
+                <a [routerLink]="['/detail', item.id]">
+                    <img [src]="item.photos[0]" alt="Imagen del vehículo" />
+                    <div class="info">
+                        <p class="type">{{ item.description }}</p>
+                        <p class="carName" style="font-weight: 500;">{{ item.name }}</p>
+                        <p class="carPrice">$ {{ item.price | number: '1.2-2' }}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
