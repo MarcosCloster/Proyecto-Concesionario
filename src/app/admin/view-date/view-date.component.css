@@ -28,3 +28,18 @@
     color: #e2e0e0;
     background-color: #2e466e;
 }
+
+.form-control {
+    width: 50%;
+    margin: 0 auto 1.5vh auto;
+    padding: 0.5vh;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.8vh;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #253551;
+    box-shadow: 0 0 5px rgba(37, 53, 81, 0.5);
+  }

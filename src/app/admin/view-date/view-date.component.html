@@ -1,29 +1,34 @@
 <div class="container">
-<h1 style="display: flex; justify-content: center; margin-top: 2vh; margin-bottom: 2vh; text-decoration: underline;">Compras</h1>
-  <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Dia</th>
-          <th scope="col">fecha</th>
-          <th scope="col">Email</th>
-          <th scope="col">Nombre</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (item of arrayReservation; track $index) {
-          <tr>
-                  
-            <th scope="row">{{item.id}}</th>
-            <td>{{item.idAuto}}</td>
-            <td>{{item.fecha}}</td>
-            <td>{{item.email}}</td>
-            <td>{{item.nombre}}</td>
-          </tr>
+  <h1 style="display: flex; justify-content: center; margin-top: 2vh; margin-bottom: 2vh; text-decoration: underline;">Compras</h1>
+  
+  <!-- Barra de búsqueda -->
+  <input 
+    type="text" 
+    class="form-control mb-3" 
+    placeholder="Buscar reserva por ID, fecha, nombre o email" 
+    [(ngModel)]="filterText" 
+    (input)="filterReservations()"
+  />
 
-        }
-        
-      </tbody>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ID Auto</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Email</th>
+        <th scope="col">Nombre</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredReservations; let i = index;">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.idAuto }}</td>
+        <td>{{ item.fecha }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.nombre }}</td>
+      </tr>
+    </tbody>
   </table>
 
   <button routerLink="/admin/view" class="btn" type="button">Menu admin</button>
