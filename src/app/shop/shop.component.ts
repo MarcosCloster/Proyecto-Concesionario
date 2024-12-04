@@ -39,6 +39,16 @@ export class ShopComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCars();
+    
+    // Leer los parámetros de consulta
+    this.routes.queryParams.subscribe(params => {
+      const type = params['type'];
+      if (type) {
+        // Aplicar filtro automáticamente
+        this.filters.type[type] = true;
+        this.applyFilters();
+      }
+    });
   }
 
   getCars() {

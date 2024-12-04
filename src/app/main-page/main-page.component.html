@@ -38,8 +38,7 @@
     
     <div class="category">
         <div class="new">
-            <a [routerLink]="['/shop', 'Nuevo', 'type']">
-
+            <a [routerLink]="['/shop']" [queryParams]="{ type: 'Nuevo' }">
                 <div class="text">
                     <p class="title">0 KM</p>
                     <p class="info">Maneja tu auto ahora!</p>
@@ -47,8 +46,9 @@
                 </div>
             </a>
         </div>
+
         <div class="used">
-            <a [routerLink]="['/shop', 'Usado', 'type']">
+            <a [routerLink]="['/shop']" [queryParams]="{ type: 'Usado' }">
                 <div class="text">
                     <p class="title">Usados</p>
                     <p class="info">Calidad asegurada en todos los autos</p>
