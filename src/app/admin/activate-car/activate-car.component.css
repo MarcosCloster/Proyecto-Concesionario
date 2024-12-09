@@ -15,7 +15,7 @@
 }
 
 .cars{
-    width: 80%;
+    width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -119,3 +119,18 @@
     align-self: center;
     margin-top: auto;
 }
+
+.form-control {
+    width: 40%;
+    margin: 1.5vh auto;
+    padding: 0.5vh;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.8vh;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #253551;
+    box-shadow: 0 0 5px rgba(37, 53, 81, 0.5);
+  }

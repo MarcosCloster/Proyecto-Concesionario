@@ -58,7 +58,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_950576-MLA80174504560_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951046206",
@@ -741,7 +741,7 @@
       "isActive": false
     },
     {
-      "name": "Inaki",
+      "name": "Cronos",
       "brand": "Fiat",
       "model": "Gtr",
       "year": 2010,

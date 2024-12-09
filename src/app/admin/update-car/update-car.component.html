@@ -72,7 +72,7 @@
 
         <div *ngFor="let item of carArrayFiltrado">
             <div class="car" *ngIf="item.isActive">
-                <a [routerLink]="['/detail', item.id]">
+                <a [routerLink]="['/update', item.id]">
                     <img [src]="item.photos[0]" alt="Imagen del vehículo" />
                     <div class="info">
                         <p class="type">{{ item.description }}</p>

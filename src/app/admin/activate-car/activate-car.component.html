@@ -1,20 +1,33 @@
 <div class="container">
     <button routerLink="/admin/view" class="btn" type="button">Menu admin</button>
+    
+    <!-- Barra de búsqueda -->
+    <input 
+      type="text" 
+      class="form-control mb-3 w-4" 
+      placeholder="Buscar auto por ID, nombre, descripción o precio" 
+      [(ngModel)]="filterText" 
+      (input)="filterCars()"
+    />
+  
     <div class="cars">
-        @for (item of carArray; track $index) {
-        @if (item.isActive === false) {
-        <div class="car">
+        @for (item of filteredCars; track $index) {
+        @if(item.isActive === false)
+        {
+      <div  class="car"> 
+        
+        
             <img [src]="item.photos[0]" alt="">
-            <div class="info">
-                <p class="type"><a href="">{{item.description}}</a></p>
-                <p class="carName"><a href="">{{item.name}}</a></p>
-                <p class="carPrice">{{item.price}}</p>
-            </div>
-            <button class="btn" type="button" (click)="darDeAlta(item)">Agregar Auto</button>
+        <div class="info">
+          <p class="type"><a href="">{{ item.description }}</a></p>
+          <p class="carName"><a href="">{{ item.name }}</a></p>
+          <p class="carPrice">{{ item.price }}</p>
         </div>
-        }
-        } @empty {
-        <h3>No hay vehiculos</h3>
-        }
+        <button class="btn" type="button" (click)="darDeAlta(item)">Agregar Auto</button>
+        
+        
+      </div>
+    }}
     </div>
-</div>
+  </div>
+  

@@ -41,8 +41,8 @@ export class ViewDateComponent implements OnInit {
       reserva.nombre.toLowerCase().includes(filter) || // Filtra por nombre
       reserva.email.toLowerCase().includes(filter) || // Filtra por email
       reserva.id!.toString().includes(filter) || // Filtra por id
-      reserva.idAuto.toString().includes(filter) ||
-      reserva.fecha.toString().includes(filter) // Filtra por id de auto 
+      reserva.idAuto.toString().includes(filter) || // Filtra por id de auto 
+      reserva.fecha.toString().includes(filter) // filtra por fecha
       
     );
   }
