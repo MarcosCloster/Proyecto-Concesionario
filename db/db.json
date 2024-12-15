@@ -78,7 +78,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_652986-MLA80430968751_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951046198",
@@ -218,7 +218,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_910677-MLA80174651944_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951006886",
@@ -658,7 +658,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_877185-MLA80429443119_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1458783907",
@@ -718,7 +718,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_692290-MLA80429073911_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951027630",
@@ -758,8 +758,29 @@
         "https://res.cloudinary.com/dbbhvsxue/image/upload/v1732229493/jnbn5azu2hftktujgtrx.jpg"
       ],
       "description": "Nuevo",
-      "isActive": true,
+      "isActive": false,
       "id": "3609"
+    },
+    {
+      "name": "Fiat Siena",
+      "brand": "Fiat",
+      "model": "Siena",
+      "year": 2015,
+      "fuel": "Nafta",
+      "doors": 5,
+      "kph": 1000,
+      "engine": "1.4",
+      "transmision": "Manual",
+      "traction": "Delantera",
+      "color": "Rojo",
+      "price": 11050000,
+      "photos": [
+        "https://res.cloudinary.com/dbbhvsxue/image/upload/v1734304692/tvducheehfsfovocuy1o.webp",
+        "https://res.cloudinary.com/dbbhvsxue/image/upload/v1734304692/ya15sqg8hvh6btxhrlax.jpg"
+      ],
+      "description": "Usado",
+      "isActive": false,
+      "id": "53a9"
     }
   ],
   "reservation": [
@@ -801,6 +822,26 @@
       "fecha": "2025-01-09",
       "email": "matiascoluccio@gmail.com",
       "nombre": "matias"
+    },
+    {
+      "id": "68d9",
+      "idAuto": [
+        "3609"
+      ],
+      "fecha": "2024-12-17",
+      "email": "marcoscloster04@gmail.com",
+      "nombre": "marcos"
+    },
+    {
+      "id": "8793",
+      "idAuto": [
+        "MLA1951002458",
+        "MLA1951046206",
+        "MLA1951179698"
+      ],
+      "fecha": "2025-01-01",
+      "email": "marcoscloster04@gmail.com",
+      "nombre": "marcos"
     }
   ]
 }

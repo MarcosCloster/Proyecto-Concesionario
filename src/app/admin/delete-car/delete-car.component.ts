@@ -29,6 +29,8 @@ export class DeleteCarComponent implements OnInit {
       next: (cars: Auto[]) => {
         this.carArray = cars;
         this.filteredCars = cars; // Inicialmente, muestra todos
+        console.log(this.filteredCars)
+        console.log(this.carArray)
       },
       error: (e: Error) => {
         console.log(e.message);
@@ -48,6 +50,10 @@ export class DeleteCarComponent implements OnInit {
 
   darDeBaja(car: Auto) {
     const updatedCar = { ...car, isActive: false };
+    const indexCar = this.carArray.findIndex(item => item.id == car.id)
+    const indexFilter = this.filteredCars.findIndex(item => item.id == car.id)
+    this.carArray.splice(indexCar, 1)
+    this.filteredCars.splice(indexFilter, 1)
     this.carServicio.putJson(updatedCar, car.id!.toString()).subscribe({
       next: (response: Auto) => {
         Swal.fire({

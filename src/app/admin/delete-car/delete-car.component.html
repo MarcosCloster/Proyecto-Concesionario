@@ -11,7 +11,10 @@
     />
   
     <div class="cars">
-      <div class="car" *ngFor="let car of filteredCars;">
+      @for (car of filteredCars; track $index) {
+        @if (car.isActive) {
+        <div class="car">
+        
         <img [src]="car.photos[0]" alt="">
         <div class="info">
           <p class="type"><a href="">{{ car.description }}</a></p>
@@ -19,7 +22,10 @@
           <p class="carPrice">{{ car.price }}</p>
         </div>
         <button class="btn" type="button" (click)="darDeBaja(car)">Borrar Auto</button>
+      
       </div>
+    }
+    }
       <h3 *ngIf="filteredCars.length === 0">No hay vehículos que coincidan con la búsqueda</h3>
     </div>
   </div>
