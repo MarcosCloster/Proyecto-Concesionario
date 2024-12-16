@@ -17,7 +17,7 @@
         "http://http2.mlstatic.com/D_933751-MLA80431266503_112024-I.jpg"
       ],
       "description": "Usado",
-      "isActive": false,
+      "isActive": true,
       "id": "MLA1951218780"
     },
     {
@@ -38,7 +38,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_645767-MLA80431061647_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951033736",
@@ -58,7 +58,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_950576-MLA80174504560_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951046206",
@@ -78,7 +78,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_652986-MLA80430968751_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951046198",
@@ -138,7 +138,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_683971-MLA80430959305_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951045700",
@@ -218,7 +218,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_910677-MLA80174651944_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951006886",
@@ -258,7 +258,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_800083-MLA80174332452_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951020064",
@@ -278,7 +278,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_834677-MLA80174494834_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951045474",
@@ -298,7 +298,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_855012-MLA80174416848_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951217700",
@@ -318,7 +318,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_991164-MLA80174471106_112024-I.jpg"
       ],
-      "isActive": true
+      "isActive": false
     },
     {
       "id": "MLA1951019910",
@@ -658,7 +658,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_877185-MLA80429443119_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1458783907",
@@ -698,7 +698,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_738593-MLA80172887432_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951027912",
@@ -718,7 +718,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_692290-MLA80429073911_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "id": "MLA1951027630",
@@ -738,7 +738,7 @@
       "photos": [
         "http://http2.mlstatic.com/D_981588-MLA80172686260_112024-I.jpg"
       ],
-      "isActive": false
+      "isActive": true
     },
     {
       "name": "Cronos",
@@ -758,11 +758,11 @@
         "https://res.cloudinary.com/dbbhvsxue/image/upload/v1732229493/jnbn5azu2hftktujgtrx.jpg"
       ],
       "description": "Nuevo",
-      "isActive": false,
+      "isActive": true,
       "id": "3609"
     },
     {
-      "name": "Fiat Siena",
+      "name": "Fiat Seena",
       "brand": "Fiat",
       "model": "Siena",
       "year": 2015,
@@ -779,8 +779,29 @@
         "https://res.cloudinary.com/dbbhvsxue/image/upload/v1734304692/ya15sqg8hvh6btxhrlax.jpg"
       ],
       "description": "Usado",
-      "isActive": false,
+      "isActive": true,
       "id": "53a9"
+    },
+    {
+      "name": "Fiat",
+      "brand": "Fiat",
+      "model": "Siena",
+      "year": 1990,
+      "fuel": "Nafta",
+      "doors": 5,
+      "kph": 321,
+      "engine": "1.4",
+      "transmision": "Manual",
+      "traction": "132",
+      "color": "Rojo",
+      "price": 3123,
+      "photos": [
+        "https://res.cloudinary.com/dbbhvsxue/image/upload/v1734362707/cotovdlf7zutnrjc8y3w.jpg",
+        "https://res.cloudinary.com/dbbhvsxue/image/upload/v1734362707/zgubyxmr3arn41rc5pgc.webp"
+      ],
+      "description": "Usado",
+      "isActive": false,
+      "id": "4aa9"
     }
   ],
   "reservation": [
@@ -842,6 +863,15 @@
       "fecha": "2025-01-01",
       "email": "marcoscloster04@gmail.com",
       "nombre": "marcos"
+    },
+    {
+      "id": "d6a2",
+      "idAuto": [
+        "53a9"
+      ],
+      "fecha": "2024-12-18",
+      "email": "marcoscloster04@gmail.com",
+      "nombre": "narcos"
     }
   ]
 }

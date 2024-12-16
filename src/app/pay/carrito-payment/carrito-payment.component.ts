@@ -17,7 +17,7 @@ import { Reserva } from 'src/app/interfaces/reserva';
 @Component({
   selector: 'app-carrito-payment',
   standalone: true,
-  imports: [HeaderComponent, CarritoComponent, FooterComponent, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [HeaderComponent, FooterComponent, FormsModule, ReactiveFormsModule, CommonModule],
   templateUrl: './carrito-payment.component.html',
   styleUrl: './carrito-payment.component.css'
 })

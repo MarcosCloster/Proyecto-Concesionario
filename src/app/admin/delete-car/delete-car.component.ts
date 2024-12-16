@@ -50,28 +50,37 @@ export class DeleteCarComponent implements OnInit {
 
   darDeBaja(car: Auto) {
     const updatedCar = { ...car, isActive: false };
-    const indexCar = this.carArray.findIndex(item => item.id == car.id)
     const indexFilter = this.filteredCars.findIndex(item => item.id == car.id)
-    this.carArray.splice(indexCar, 1)
-    this.filteredCars.splice(indexFilter, 1)
-    this.carServicio.putJson(updatedCar, car.id!.toString()).subscribe({
-      next: (response: Auto) => {
-        Swal.fire({
-          title: '¡Éxito!',
-          text: 'El auto ha sido eliminado correctamente.',
-          icon: 'success',
-          confirmButtonText: 'Aceptar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.reload();
+    Swal.fire({
+      title: 'Confirmación',
+      text: '¿Está seguro de que desea eliminar?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, enviar',
+      cancelButtonText: 'No, cancelar'
+    }).then(result  => {
+      if(result.isConfirmed){
+        this.carServicio.putJson(updatedCar, car.id!.toString()).subscribe({
+          next: (response: Auto) => {
+            Swal.fire({
+              title: '¡Éxito!',
+              text: 'El auto ha sido eliminado correctamente.',
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.filteredCars.splice(indexFilter, 1)
+              }
+            });
+          },
+          error: (e: Error) => {
+            console.log(e.message);
           }
         });
-      },
-      error: (e: Error) => {
-        console.log(e.message);
+      } else{
         this.mostrarAlertaError();
       }
-    });
+    })
   }
 
   mostrarAlertaError() {
