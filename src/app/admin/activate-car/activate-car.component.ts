@@ -46,7 +46,7 @@ export class ActivateCarComponent implements OnInit {
     const indexFilter = this.filteredCars.findIndex(item => item.id == car.id)
     Swal.fire({
           title: 'Confirmación',
-          text: '¿Está seguro de que desea eliminar?',
+          text: '¿Está seguro de que desea dar de alta?',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Sí, enviar',
@@ -58,7 +58,7 @@ export class ActivateCarComponent implements OnInit {
             console.log(`Auto ${response.name} actualizado a activo`);
             Swal.fire({
               title: '¡Éxito!',
-              text: 'El auto ha sido eliminado correctamente.',
+              text: 'El auto ha sido dado de alta correctamente.',
               icon: 'success',
               confirmButtonText: 'Aceptar'
             }).then((result) => {
