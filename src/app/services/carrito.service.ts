@@ -10,7 +10,7 @@ export class CarritoService {
 
   constructor() {}
 
-    getCartItems(): any[] {
+  getCartItems(): any[] {
     const items = sessionStorage.getItem(this.storageKey);
     return items ? JSON.parse(items) : [];
   }

@@ -7,6 +7,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { FormsModule } from '@angular/forms';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -90,8 +91,9 @@ export class ShopComponent implements OnInit {
     if (selectedFuels.length > 0) {
       filteredCars = filteredCars.filter(auto => selectedFuels.includes(auto.fuel));
     }
-
-    this.carArrayFiltrado = filteredCars;
+    const carritoItems = this.carritoService.getCartItems()
+    const arraySinCarrito = filteredCars.filter(item => !carritoItems.some(car => car.id == item.id))
+    this.carArrayFiltrado = arraySinCarrito;
   }
 
   applySorting(sortType: string) {
